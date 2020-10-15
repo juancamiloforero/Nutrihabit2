@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Nutrihabit2</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">Nutrihabit</string>
+    <string name="tipo_alimento">Tipo de Alimento</string>
+    <string name="alimento_menu">Alimentos</string>
 </resources>

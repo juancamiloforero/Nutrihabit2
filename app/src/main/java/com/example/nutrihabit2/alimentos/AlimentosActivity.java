@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.example.nutrihabit2.R;
 
@@ -14,6 +16,8 @@ import java.util.ArrayList;
 
 public class AlimentosActivity extends AppCompatActivity {
 
+    private Spinner spinnerTiposAlimentos;
+
     private RecyclerView mRvAlimentosList;
     private ArrayList<Alimento> auxAlimentos;
 
@@ -21,7 +25,23 @@ public class AlimentosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alimentos_list);
+        setTitle(R.string.alimento_menu);
 
+
+        inicializarSpinnerTipoAlimentos();
+        inicializarListaAlimentos();
+    }
+
+    private void inicializarSpinnerTipoAlimentos() {
+        spinnerTiposAlimentos = findViewById(R.id.spTipoAlimento);
+
+        ArrayAdapter<CharSequence> adapterSpinner = ArrayAdapter.createFromResource(this,
+                R.array.arrTipoAlimentos, R.layout.alimentos_tipos_item);
+
+        spinnerTiposAlimentos.setAdapter(adapterSpinner);
+    }
+
+    private void inicializarListaAlimentos() {
         // Extraer el recycler de la lista de alimentos
         mRvAlimentosList = findViewById(R.id.rvAlimentos);
 
@@ -49,6 +69,5 @@ public class AlimentosActivity extends AppCompatActivity {
 
         // Setear el adaptador al recycler de alimentos
         mRvAlimentosList.setAdapter(mAdapter);
-
     }
 }

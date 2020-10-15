@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="arrTipoAlimentos">
+        <item>Granos</item>
+        <item>Carnes</item>
+        <item>Frutas</item>
+    </string-array>
+</resources>
