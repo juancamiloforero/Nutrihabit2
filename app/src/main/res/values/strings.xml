@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Nutrihabit2</string>
+    <string name="app_name">Nutrihabit</string>
+    <string name="tipo_alimento">Tipo de Alimento</string>
+    <string name="alimento_menu">Alimentos</string>
 </resources>

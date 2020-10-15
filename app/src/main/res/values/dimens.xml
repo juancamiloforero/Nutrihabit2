@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_normal">10dp</dimen>
+    <dimen name="textView_height">25dp</dimen>
+    <dimen name="textView_width">150dp</dimen>
+    <dimen name="font_size_small">16sp</dimen>
+    <dimen name="font_size_normal">24sp</dimen>
+    <dimen name="font_size_large">40sp</dimen>
+    <dimen name="font_size_xlarge">60sp</dimen>
+</resources>
