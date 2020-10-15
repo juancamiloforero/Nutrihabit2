@@ -24,9 +24,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
-                android:padding="@dimen/padding_normal"
+                android:padding="10dp"
                 android:text="@string/tipo_alimento"
-                android:textSize="@dimen/font_size_normal" />
+                android:textAppearance="@style/TextoNormal" />
 
             <Spinner
                 android:id="@+id/spTipoAlimento"
@@ -34,9 +34,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
                 android:layout_weight="1"
-                android:textSize="@dimen/font_size_normal" />
-
-
+                android:textAppearance="@style/TextoNormal" />
         </LinearLayout>
 
 
