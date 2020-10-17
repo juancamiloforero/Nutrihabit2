@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nutrihabit</string>
+    <string name="Bienvenido">Welcome!</string>
+    <string name="Que_quieres_lograr">What do you want to achieve?</string>
+    <string name="Ganar_masa">Gain Muscle Mass</string>
+    <string name="Perder_peso">Lose Weight</string>
+    <string name="Mantener_estado_fisico">Maintain Physical Fitness</string>
+</resources>
