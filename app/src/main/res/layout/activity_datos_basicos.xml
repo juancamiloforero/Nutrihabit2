@@ -6,4 +6,126 @@
     android:layout_height="match_parent"
     tools:context=".infoBasica.DatosBasicosActivity">
 
+    <TextView
+        android:id="@+id/lblBienvenida"
+        android:layout_width="299dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="@string/ingreso_datos_basicos"
+        android:textAppearance="@style/TituloMediano"
+        app:layout_constraintBottom_toTopOf="@id/etEstatura"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etEstatura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="15"
+        android:hint="@string/estatura"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lblBienvenida" />
+
+    <EditText
+        android:id="@+id/etPeso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="15"
+        android:hint="@string/Perder_peso"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEstatura" />
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/idLinearGenero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPeso">
+
+        <EditText
+            android:id="@+id/etGenero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:ems="12"
+            android:hint="@string/genero"
+            android:inputType="numberDecimal"
+            android:textAppearance="@style/TextoNormal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Spinner
+            android:id="@+id/spGenero"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:textAppearance="@style/TituloPequenio" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/idLinearActividadFisica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idLinearGenero">
+
+        <EditText
+            android:id="@+id/etNivelActividadFisica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:ems="12"
+            android:hint="@string/actividad_fisica"
+            android:inputType="numberDecimal"
+            android:textAppearance="@style/TextoNormal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Spinner
+            android:id="@+id/spActividadFisica"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:textAppearance="@style/TituloPequenio" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btSiguiente"
+        android:layout_width="311dp"
+        android:layout_height="48dp"
+        android:background="@drawable/rounded_corners"
+        android:text="@string/siguiente"
+        android:textAppearance="@style/TextoNormal"
+        android:textColor="#FFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idLinearActividadFisica"
+        app:layout_constraintVertical_bias="0.85" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

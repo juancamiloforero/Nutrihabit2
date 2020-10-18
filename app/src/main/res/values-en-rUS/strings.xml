@@ -16,4 +16,10 @@
     <string name="carbohidratos_alimento_creacion">Carbohydrate (g)</string>
     <string name="proteinas_alimento_creacion">Protein (g)</string>
     <string name="bt_alimento_crear">Add</string>
+    <string name="estatura">Height</string>
+    <string name="peso">Weight</string>
+    <string name="genero">Genre</string>
+    <string name="actividad_fisica">Physic Activity Level</string>
+    <string name="ingreso_datos_basicos">Enter some basic information</string>
+    <string name="siguiente">Next</string>
 </resources>

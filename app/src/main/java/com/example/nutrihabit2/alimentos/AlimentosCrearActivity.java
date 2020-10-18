@@ -3,7 +3,6 @@ package com.example.nutrihabit2.alimentos;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -21,7 +20,7 @@ public class AlimentosCrearActivity extends AppCompatActivity {
 
         // Inicializar spinner
         spinnerTiposAlimentos = findViewById(R.id.spTipoAlimento);
-        spinnerMedidaPorcion = findViewById(R.id.spMedidaPorcion);
+        spinnerMedidaPorcion = findViewById(R.id.spActividadFisica);
 
         // Llenar y setear spinners
         ArrayAdapter<CharSequence> aSpinnerTipoAlimentos = ArrayAdapter.createFromResource(this,
