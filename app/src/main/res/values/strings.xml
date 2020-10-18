@@ -2,4 +2,14 @@
     <string name="app_name">Nutrihabit</string>
     <string name="tipo_alimento">Tipo de Alimento</string>
     <string name="alimento_menu">Alimentos</string>
+    <string name="nombre_alimento_creacion">Nombre</string>
+    <string name="descripcion_alimento_creacion">Descripción</string>
+    <string name="porcion_alimento_creacion">Porción</string>
+    <string name="calorias_alimento_creacion">Calorías (kcal)</string>
+    <string name="grasas_alimento_creacion">Grasas (g)</string>
+    <string name="carbohidratos_alimento_creacion">Carbohidratos (g)</string>
+    <string name="proteinas_alimento_creacion">Proteínas (g)</string>
+    <string name="bt_alimento_crear">Agregar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

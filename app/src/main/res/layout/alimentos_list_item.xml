@@ -19,14 +19,14 @@
             android:textAppearance="@style/TextoNormal" />
 
         <ImageButton
-            android:id="@+id/button1"
+            android:id="@+id/btEditarAlimento"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/edit"
             android:layout_gravity="end"/>
 
         <ImageButton
-            android:id="@+id/button2"
+            android:id="@+id/btEliminarAlimento"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:src="@drawable/delete"
