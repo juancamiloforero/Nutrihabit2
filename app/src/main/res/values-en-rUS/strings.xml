@@ -16,4 +16,5 @@
     <string name="carbohidratos_alimento_creacion">Carbohydrate (g)</string>
     <string name="proteinas_alimento_creacion">Protein (g)</string>
     <string name="bt_alimento_crear">Add</string>
+    <string name="bt_consumo_guardar">Save</string>
 </resources>
