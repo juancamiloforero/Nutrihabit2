@@ -14,7 +14,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*
+        // Lanzar Alimentos
         Intent intent = new Intent(this, AlimentosActivity.class);
-        startActivity(intent);
+        startActivity(intent);*/
     }
 }

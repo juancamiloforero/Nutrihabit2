@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nutrihabit</string>
+    <string name="Bienvenido">Welcome!</string>
+    <string name="Que_quieres_lograr">What do you want to achieve?</string>
+    <string name="Ganar_masa">Gain Muscle Mass</string>
+    <string name="Perder_peso">Lose Weight</string>
+    <string name="Mantener_estado_fisico">Maintain Physical Fitness</string>
+    <string name="tipo_alimento">Type of Food</string>
+    <string name="alimento_menu">Food</string>
+    <string name="nombre_alimento_creacion">Name</string>
+    <string name="descripcion_alimento_creacion">Description</string>
+    <string name="porcion_alimento_creacion">Portion</string>
+    <string name="calorias_alimento_creacion">Calories (kcal)</string>
+    <string name="grasas_alimento_creacion">Fat (g)</string>
+    <string name="carbohidratos_alimento_creacion">Carbohydrate (g)</string>
+    <string name="proteinas_alimento_creacion">Protein (g)</string>
+    <string name="bt_alimento_crear">Add</string>
+</resources>

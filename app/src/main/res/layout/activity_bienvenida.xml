@@ -10,20 +10,19 @@
         android:id="@+id/lblBienvenida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¡Bienvenido!"
+        android:text="@string/Bienvenido"
         android:textAppearance="@style/TituloGrande"
         app:layout_constraintBottom_toTopOf="@id/frmGanarMasa"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/lblPregunta"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:text="¿Que te gustaria lograr?"
+        android:text="@string/Que_quieres_lograr"
         android:textAppearance="@style/TituloMediano"
         app:layout_constraintBottom_toTopOf="@+id/frmGanarMasa"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +43,7 @@
             android:layout_width="289dp"
             android:layout_height="117dp"
             android:adjustViewBounds="false"
-            android:contentDescription="Ganar Masa Muscular"
+            android:contentDescription="@string/Ganar_masa"
             android:onClick="onClick"
             android:scaleType="centerCrop"
             android:visibility="visible"
@@ -57,7 +56,7 @@
             android:layout_gravity="center"
             android:clickable="false"
             android:gravity="center"
-            android:text="GANAR MASA MUSCULAR"
+            android:text="@string/Ganar_masa"
             android:textAppearance="@style/TituloPequenio"></TextView>
     </FrameLayout>
 
@@ -75,8 +74,9 @@
             android:id="@+id/btnPerderPeso"
             android:layout_width="289dp"
             android:layout_height="117dp"
-            android:scaleType="centerCrop"
+            android:contentDescription="@string/Perder_peso"
             android:onClick="onClick"
+            android:scaleType="centerCrop"
             app:srcCompat="@drawable/perder_peso" />
 
         <TextView
@@ -85,7 +85,7 @@
             android:layout_gravity="center"
             android:clickable="false"
             android:gravity="center"
-            android:text="PERDER PESO"
+            android:text="@string/Perder_peso"
             android:textAppearance="@style/TituloPequenio"></TextView>
 
     </FrameLayout>
@@ -104,8 +104,9 @@
             android:id="@+id/btnMantenerEstado"
             android:layout_width="289dp"
             android:layout_height="117dp"
-            android:scaleType="centerCrop"
+            android:contentDescription="@string/Mantener_estado_fisico"
             android:onClick="onClick"
+            android:scaleType="centerCrop"
             app:srcCompat="@drawable/mantener_estado" />
 
         <TextView
@@ -114,7 +115,7 @@
             android:layout_gravity="center"
             android:clickable="false"
             android:gravity="center"
-            android:text="MANTENER ESTADO"
+            android:text="@string/Mantener_estado_fisico"
             android:textAppearance="@style/TituloPequenio"></TextView>
     </FrameLayout>
 
