@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.nutrihabit2.R;
+
 public class DatosBasicosActivity extends AppCompatActivity {
 
     @Override
