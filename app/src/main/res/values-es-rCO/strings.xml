@@ -18,8 +18,8 @@
     <string name="bt_alimento_crear">Agregar</string>
     <string name="estatura">Estatura</string>
     <string name="peso">Peso</string>
-    <string name="genero">Género</string>
-    <string name="actividad_fisica">Nivel de actividad física</string>
+    <string name="genero">Género:</string>
+    <string name="actividad_fisica">Nivel de actividad física:</string>
     <string name="ingreso_datos_basicos">Ingresa algunos datos básicos</string>
     <string name="siguiente">Siguiente</string>
 </resources>

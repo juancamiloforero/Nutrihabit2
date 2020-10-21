@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:ems="15"
-        android:hint="@string/Perder_peso"
+        android:hint="@string/peso"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -59,16 +59,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPeso">
 
-        <EditText
+        <TextView
             android:id="@+id/etGenero"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:ems="12"
+
             android:hint="@string/genero"
             android:inputType="numberDecimal"
+            android:textAlignment="center"
             android:textAppearance="@style/TextoNormal"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/spGenero"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Spinner
@@ -76,8 +76,11 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="end"
-            android:layout_weight="1"
-            android:textAppearance="@style/TituloPequenio" />
+
+            android:entries="@array/Generos"
+            android:gravity="center_horizontal|center_vertical"
+            android:textAppearance="@style/TituloPequenio"
+            />
 
     </LinearLayout>
 
@@ -91,13 +94,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idLinearGenero">
 
-        <EditText
+        <TextView
             android:id="@+id/etNivelActividadFisica"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:ems="12"
+
             android:hint="@string/actividad_fisica"
+            android:textAlignment="center"
             android:inputType="numberDecimal"
             android:textAppearance="@style/TextoNormal"
             app:layout_constraintEnd_toEndOf="parent"
@@ -106,9 +109,10 @@
         <Spinner
             android:id="@+id/spActividadFisica"
             android:layout_width="wrap_content"
+
             android:layout_height="match_parent"
             android:layout_gravity="end"
-            android:layout_weight="1"
+            android:entries="@array/arrNivelActividad"
             android:textAppearance="@style/TituloPequenio" />
 
     </LinearLayout>
@@ -126,6 +130,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idLinearActividadFisica"
-        app:layout_constraintVertical_bias="0.85" />
+        app:layout_constraintVertical_bias="0.75" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

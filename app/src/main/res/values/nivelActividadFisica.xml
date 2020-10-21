@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="arrNivelActividad">
+        <item>Bajo</item>
+        <item>Moderado</item>
+        <item>Alto</item>
+        <item>Muy Alto</item>
+    </string-array>
+</resources>
