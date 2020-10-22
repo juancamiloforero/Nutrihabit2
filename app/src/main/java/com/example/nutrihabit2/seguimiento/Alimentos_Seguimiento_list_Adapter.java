@@ -1,4 +1,4 @@
-package com.example.nutrihabit2.consumoDiario;
+package com.example.nutrihabit2.seguimiento;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,34 +11,36 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nutrihabit2.R;
 import com.example.nutrihabit2.alimentos.Alimento;
+import com.example.nutrihabit2.consumoDiario.Alimentos_Consumo_list_Adapter;
 
 import java.util.ArrayList;
 
-public class Alimentos_Consumo_list_Adapter extends RecyclerView.Adapter<Alimentos_Consumo_list_Adapter.AlimentosViewHolder> {
+public class Alimentos_Seguimiento_list_Adapter extends RecyclerView.Adapter<Alimentos_Seguimiento_list_Adapter.AlimentosViewHolder> {
 
     private ArrayList<Alimento> mAlimentos;
 
-    public Alimentos_Consumo_list_Adapter(ArrayList<Alimento> alimentos) {
+    public Alimentos_Seguimiento_list_Adapter(ArrayList<Alimento> alimentos) {
         this.mAlimentos = alimentos;
     }
+
     @NonNull
     @Override
-    public AlimentosViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Alimentos_Seguimiento_list_Adapter.AlimentosViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context mContext = parent.getContext();
 
-        int layoutIdAlimentosItem = R.layout.alimentos_consumo_list_item;
+        int layoutIdAlimentosItem = R.layout.alimentos_seguimiento_list_item;
         LayoutInflater inflater = LayoutInflater.from(mContext);
 
         boolean fastAttachToParent = false;
         View itemView = inflater.inflate(layoutIdAlimentosItem, parent, fastAttachToParent);
 
-        Alimentos_Consumo_list_Adapter.AlimentosViewHolder viewHolder = new Alimentos_Consumo_list_Adapter.AlimentosViewHolder(itemView);
+        Alimentos_Seguimiento_list_Adapter.AlimentosViewHolder viewHolder = new Alimentos_Seguimiento_list_Adapter.AlimentosViewHolder(itemView);
 
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AlimentosViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull Alimentos_Seguimiento_list_Adapter.AlimentosViewHolder holder, int position) {
         holder.bind(position);
     }
 

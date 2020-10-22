@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".consumoDiario.ConsumoRegistroActivity"></activity>
+        <activity android:name=".seguimiento.SeguimientoListaActivity"></activity>
+        <activity android:name=".consumoDiario.ConsumoRegistroActivity" />
         <activity android:name=".bienvenidaActivity" />
         <activity android:name=".alimentos.AlimentosCrearActivity" />
         <activity android:name=".alimentos.AlimentosActivity" />

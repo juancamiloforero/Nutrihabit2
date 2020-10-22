@@ -24,14 +24,14 @@
             android:id="@+id/btGuardarConsumo"
             android:layout_width="311dp"
             android:layout_height="48dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginBottom="56dp"
             android:background="@drawable/rounded_corners"
             android:text="@string/bt_consumo_guardar"
             android:textAppearance="@style/TextoNormal"
             android:textColor="#FFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/listaAlimentosContainer" />
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
