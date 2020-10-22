@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".seguimiento.SeguimientoListaActivity"></activity>
+        <activity android:name=".seguimiento.SeguimientoListaActivity"/>
         <activity android:name=".consumoDiario.ConsumoRegistroActivity" />
+        <activity android:name=".infoBasica.ImcActivity"/>
+        <activity android:name=".infoBasica.DatosBasicosActivity" />
         <activity android:name=".bienvenidaActivity" />
         <activity android:name=".alimentos.AlimentosCrearActivity" />
         <activity android:name=".alimentos.AlimentosActivity" />
