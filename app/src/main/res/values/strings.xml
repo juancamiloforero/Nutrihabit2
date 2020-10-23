@@ -19,6 +19,7 @@
     <string name="estatura">Estatura</string>
     <string name="peso">Peso</string>
     <string name="genero">Género</string>
+    <string name="crear_alimento">Crear alimento</string>
     <string name="actividad_fisica">Nivel de actividad fisica</string>
     <string name="ingreso_datos_basicos">Ingresa algunos datos básicos</string>
     <string name="siguiente">Siguiente</string>
