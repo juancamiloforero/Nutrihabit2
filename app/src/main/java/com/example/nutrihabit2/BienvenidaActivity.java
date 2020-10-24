@@ -11,7 +11,7 @@ import android.widget.Toast;
 import com.example.nutrihabit2.alimentos.AlimentosCrearActivity;
 import com.example.nutrihabit2.infoBasica.DatosBasicosActivity;
 
-public class bienvenidaActivity extends AppCompatActivity {
+public class BienvenidaActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +39,7 @@ public class bienvenidaActivity extends AppCompatActivity {
     public void irADatosBasicos(int parSeleccion) {
         Log.d("TAG3", "NextClicked");
         Intent intent = new Intent(this, DatosBasicosActivity.class);
+        intent.putExtra("seleccion",parSeleccion);
         startActivity(intent);
     }
 }

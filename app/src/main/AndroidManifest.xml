@@ -13,7 +13,7 @@
         <activity android:name=".consumoDiario.ConsumoRegistroActivity" />
         <activity android:name=".infoBasica.ImcActivity"/>
         <activity android:name=".infoBasica.DatosBasicosActivity" />
-        <activity android:name=".bienvenidaActivity" />
+        <activity android:name=".BienvenidaActivity" />
         <activity android:name=".alimentos.AlimentosCrearActivity" />
         <activity android:name=".alimentos.AlimentosActivity" />
         <activity android:name=".MainActivity">
