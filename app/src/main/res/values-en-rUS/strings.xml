@@ -21,6 +21,8 @@
     <string name="peso">Weight</string>
     <string name="genero">Genre:</string>
     <string name="crear_alimento">Add food</string>
+    <string name="userId">userId</string>
+    <string name="defaultUserId">Doesnt exist</string>
     <string name="actividad_fisica">Physic Activity Level:</string>
     <string name="ingreso_datos_basicos">Enter some basic information</string>
     <string name="siguiente">Next</string>
