@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "171370120287",
-    "firebase_url": "https://nutrihabit-b10ed.firebaseio.com",
-    "project_id": "nutrihabit-b10ed",
-    "storage_bucket": "nutrihabit-b10ed.appspot.com"
+    "project_number": "237367476071",
+    "firebase_url": "https://nutrihabit-7e470.firebaseio.com",
+    "project_id": "nutrihabit-7e470",
+    "storage_bucket": "nutrihabit-7e470.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:171370120287:android:b4ab7cf9f5b5b1566b47ea",
+        "mobilesdk_app_id": "1:237367476071:android:15018cc944c4c2658639c2",
         "android_client_info": {
           "package_name": "com.example.nutrihabit2"
         }
       },
       "oauth_client": [
         {
-          "client_id": "171370120287-14np866ehuvsd2oblkklaofnlep10c5n.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.nutrihabit2",
-            "certificate_hash": "4329d14e99bdc68fba1730b607d79b14e178062b"
-          }
-        },
-        {
-          "client_id": "171370120287-dtisp7ul0q57lpbb5do3bot45akm591d.apps.googleusercontent.com",
+          "client_id": "237367476071-ktot839nbi8bsute9atcnkcs05mvd37b.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB_4Z9bD0QHplP5CiAdIp7EQpIEz5maIpg"
+          "current_key": "AIzaSyBbEOjsTLSZLNmq24n2KzoFGkCSZc7pbOo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "171370120287-dtisp7ul0q57lpbb5do3bot45akm591d.apps.googleusercontent.com",
+              "client_id": "237367476071-ktot839nbi8bsute9atcnkcs05mvd37b.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

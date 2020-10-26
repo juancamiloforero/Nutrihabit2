@@ -44,7 +44,7 @@ public class SeguimientoListaActivity extends AppCompatActivity {
         StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
         mRvSeguimientoList.setLayoutManager(layoutManager);
-
+        /*
         // Creación lista temporal de alimentos
         Alimento a1 = new Alimento("Arroz");
         Alimento a2 = new Alimento("Lentejas");
@@ -59,9 +59,10 @@ public class SeguimientoListaActivity extends AppCompatActivity {
 
         ArrayList<ConsumoAlimento> auxConsumosAlimentos1 = new ArrayList<ConsumoAlimento>();
         ArrayList<ConsumoAlimento> auxConsumosAlimentos2 = new ArrayList<ConsumoAlimento>();
+        */
         ArrayList<ConsumoDia> auxConsumosDias = new ArrayList<ConsumoDia>();
 
-
+        /*
         auxConsumosAlimentos1.add(new ConsumoAlimento(auxAlimentos.get(0), 100));
         auxConsumosAlimentos1.add(new ConsumoAlimento(auxAlimentos.get(2), 70));
         auxConsumosAlimentos1.add(new ConsumoAlimento(auxAlimentos.get(3), 80));
@@ -74,7 +75,7 @@ public class SeguimientoListaActivity extends AppCompatActivity {
         auxConsumosDias.add(new ConsumoDia(auxConsumosAlimentos2, "17/10/2020"));
 
         auxConsumosDias.add(new ConsumoDia(auxConsumosAlimentos2, "17/10/2020"));
-
+        */
         mRvSeguimientoList.setAdapter(new Seguimiento_List_Adapter(auxConsumosDias));
 
     }

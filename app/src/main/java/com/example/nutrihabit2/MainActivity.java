@@ -3,7 +3,9 @@ package com.example.nutrihabit2;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -16,8 +18,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -26,6 +30,9 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
+    private String mPrefs = "USER_INFORMATION";
+    private String keyUserId = "userId";
+
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
@@ -33,11 +40,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Verificación y creación de usuario
+        this.verifyUser();
+
         // this.ejemploEscrituraBD();
-        /*
+
         // Lanzar Alimentos
         Intent intent = new Intent(this, AlimentosActivity.class);
-        startActivity(intent);*/
+        startActivity(intent);
         /*
         // Lanzar registrar consumo
         Intent intent2 = new Intent(this, ConsumoRegistroActivity.class);
@@ -53,6 +63,51 @@ public class MainActivity extends AppCompatActivity {
         */
         Intent intent4 = new Intent(this, menuPrincipal.class);
         startActivity(intent4);
+    }
+
+    // Retorna el id del usuario guardado en local, si no existe retorna null
+    public String getLocalUserId() {
+        SharedPreferences sharedPref = getSharedPreferences(this.mPrefs, Context.MODE_PRIVATE);
+        String defaultID = getResources().getString(R.string.defaultUserId);
+        String userID = sharedPref.getString(this.keyUserId, defaultID);
+
+        if (!userID.equals(defaultID)) {
+            return userID;
+        } else {
+            return null;
+        }
+    }
+
+    // Crear el usuario en local si no existe
+    private void verifyUser() {
+        String id = this.getLocalUserId();
+        if (id == null) {
+            crearUsuarioFirebase();
+
+            // ToDo: crearUsuarioFirebase(User object);
+        } else {
+            Log.d("ID_USER", "UserID: " + id);
+        }
+    }
+
+    private void saveLocalUser(String id) {
+        SharedPreferences sharedPref = getSharedPreferences(this.mPrefs, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(this.keyUserId, id);
+        editor.apply();
+        Log.d("LOCAL_USER_CREATED", "Se creó el usuario con el ID: " + id);
+    }
+
+    private void crearUsuarioFirebase() {
+        Map<String, Object> user = new HashMap<>();
+        user.put("estatura", 1.84);
+        user.put("peso", 68);
+        user.put("genero", true);
+        user.put("edad", 21);
+
+        DocumentReference userDocument = db.collection("users").document();
+        userDocument.set(user);
+        saveLocalUser(userDocument.getId());
     }
 
     private void ejemploEscrituraBD() {
