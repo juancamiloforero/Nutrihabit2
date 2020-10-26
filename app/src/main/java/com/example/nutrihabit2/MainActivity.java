@@ -10,6 +10,7 @@ import android.util.Log;
 import com.example.nutrihabit2.infoBasica.DatosBasicosActivity;
 import com.example.nutrihabit2.alimentos.AlimentosActivity;
 import com.example.nutrihabit2.consumoDiario.ConsumoRegistroActivity;
+import com.example.nutrihabit2.menuPrincipal.menuPrincipal;
 import com.example.nutrihabit2.seguimiento.SeguimientoListaActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -44,12 +45,14 @@ public class MainActivity extends AppCompatActivity {
 
         /*
         // Lanzar listar consumo
-        Intent intent3 = new Intent(this, SeguimientoListaActivity.class);
+        Intent intent3 = new Intent(this, .class);
         startActivity(intent3);*/
         /*
         Intent intent4 = new Intent(this, BienvenidaActivity.class);
         startActivity(intent4);
         */
+        Intent intent4 = new Intent(this, menuPrincipal.class);
+        startActivity(intent4);
     }
 
     private void ejemploEscrituraBD() {

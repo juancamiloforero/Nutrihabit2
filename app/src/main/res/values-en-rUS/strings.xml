@@ -25,4 +25,10 @@
     <string name="siguiente">Next</string>
     <string name="tu_imc_es">"Your BMI is "</string>
     <string name="edad">Age</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_perfil">Profile</string>
+    <string name="menu_seguimiento">Tracing</string>
+    <string name="menu_alimentos">Food</string>
+    <string name="menu_inicio_sesion">Login</string>
 </resources>
