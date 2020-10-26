@@ -56,7 +56,10 @@ public class MainActivity extends AppCompatActivity {
         // Lanzar listar consumo
         Intent intent3 = new Intent(this, SeguimientoListaActivity.class);
         startActivity(intent3);*/
-
+        /*
+        Intent intent4 = new Intent(this, BienvenidaActivity.class);
+        startActivity(intent4);
+        */
     }
 
     // Retorna el id del usuario guardado en local, si no existe retorna null
@@ -112,18 +115,18 @@ public class MainActivity extends AppCompatActivity {
         user.put("born", 1815);
 
         // Add a new document with a generated ID
-        db.collection("users")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        db.collection("users").document("usuario1")
+                .set(user)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d("TAG", "DocumentSnapshot added with ID: " + documentReference.getId());
+                    public void onSuccess(Void aVoid) {
+                        Log.d("TAG", "DocumentSnapshot successfully written!");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w("TAG", "Error adding document", e);
+                        Log.w("TAG", "Error writing document", e);
                     }
                 });
     }

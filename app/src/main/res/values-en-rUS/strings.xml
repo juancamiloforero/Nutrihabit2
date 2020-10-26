@@ -26,4 +26,6 @@
     <string name="actividad_fisica">Physic Activity Level:</string>
     <string name="ingreso_datos_basicos">Enter some basic information</string>
     <string name="siguiente">Next</string>
+    <string name="tu_imc_es">"Your BMI is "</string>
+    <string name="edad">Age</string>
 </resources>

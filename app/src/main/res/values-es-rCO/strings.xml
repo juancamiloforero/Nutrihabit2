@@ -26,4 +26,6 @@
     <string name="actividad_fisica">Nivel de actividad física:</string>
     <string name="ingreso_datos_basicos">Ingresa algunos datos básicos</string>
     <string name="siguiente">Siguiente</string>
+    <string name="tu_imc_es">"Tu IMC es "</string>
+    <string name="edad">Edad</string>
 </resources>

@@ -10,7 +10,7 @@
         android:id="@+id/lblBienvenida"
         android:layout_width="299dp"
         android:layout_height="104dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:gravity="center"
         android:text="@string/ingreso_datos_basicos"
         android:textAppearance="@style/TituloMediano"
@@ -23,14 +23,15 @@
         android:id="@+id/etEstatura"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:ems="15"
         android:hint="@string/estatura"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lblBienvenida" />
+
 
     <EditText
         android:id="@+id/etPeso"
@@ -39,15 +40,24 @@
         android:layout_marginTop="20dp"
         android:ems="15"
         android:hint="@string/peso"
-        android:inputType="textPersonName"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEstatura" />
 
-
-
-
+    <EditText
+        android:id="@+id/etEdad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="15"
+        android:hint="Edad"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etPeso" />
 
     <LinearLayout
         android:id="@+id/idLinearGenero"
@@ -57,7 +67,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPeso">
+        app:layout_constraintTop_toBottomOf="@+id/etEdad">
 
         <TextView
             android:id="@+id/etGenero"
@@ -75,12 +85,14 @@
             android:id="@+id/spGenero"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="end"
+            android:layout_gravity="center_horizontal|center_vertical"
 
+            android:dropDownWidth="match_parent"
             android:entries="@array/Generos"
-            android:gravity="center_horizontal|center_vertical"
-            android:textAppearance="@style/TituloPequenio"
-            />
+
+
+            android:textAlignment="center"
+            android:textAppearance="@style/TituloPequenio" />
 
     </LinearLayout>
 
@@ -101,7 +113,7 @@
 
             android:hint="@string/actividad_fisica"
             android:textAlignment="center"
-            android:inputType="numberDecimal"
+
             android:textAppearance="@style/TextoNormal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -123,6 +135,7 @@
         android:layout_width="311dp"
         android:layout_height="48dp"
         android:background="@drawable/rounded_corners"
+        android:onClick="onClick"
         android:text="@string/siguiente"
         android:textAppearance="@style/TextoNormal"
         android:textColor="#FFFF"
