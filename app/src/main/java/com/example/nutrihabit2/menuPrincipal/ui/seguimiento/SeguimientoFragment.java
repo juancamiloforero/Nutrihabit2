@@ -1,4 +1,4 @@
-package com.example.nutrihabit2.menuPrincipal.ui.home;
+package com.example.nutrihabit2.menuPrincipal.ui.seguimiento;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,20 +13,21 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import  com.example.nutrihabit2.R;
 
-public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+public class SeguimientoFragment extends Fragment {
+
+    private SeguimientoViewModel seguimientoViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        //final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        seguimientoViewModel =
+                new ViewModelProvider(this).get(SeguimientoViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_seguimiento, container, false);
+        final TextView textView = root.findViewById(R.id.text_slideshow);
+        seguimientoViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-                //textView.setText(s);
+                textView.setText(s);
             }
         });
         return root;

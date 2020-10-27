@@ -40,4 +40,13 @@
     <string name="menu_seguimiento">Seguimiento</string>
     <string name="menu_alimentos">Alimentos</string>
     <string name="menu_inicio_sesion">Iniciar sesión</string>
+    <string name="f_home_titulo">TU DIETA ADECUADA</string>
+    <string name="f_home_text_desy">Desayuno</string>
+    <string name="f_home_btn_consumo">Registrar consumo del dia</string>
+    <string name="f_home_text_almuerzo">Almuerzo</string>
+    <string name="f_home_text_cena">Cena</string>
+    <string name="f_home_text_bocadillo">Bocadillos</string>
+    <string name="f_login_title">Crea una cuenta o inicia sesión para sincronizar tus datos</string>
+    <string name="f_login_crear_cuenta">Crear cuenta con google</string>
+    <string name="f_login_iniciar_sesion">Iniciar sesión con google</string>
 </resources>

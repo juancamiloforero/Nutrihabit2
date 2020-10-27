@@ -13,10 +13,134 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:text="@string/f_home_titulo"
         android:textAlignment="center"
+        android:textColor="@color/colorAccent"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
+
+    <ImageButton
+        android:id="@+id/ibtn_desayuno"
+        android:layout_width="354dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/descarga"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home"
+        app:layout_constraintVertical_bias="0.012" />
+
+    <ImageButton
+        android:id="@+id/ibtn_almuerzo"
+        android:layout_width="354dp"
+        android:layout_height="97dp"
+        android:layout_marginBottom="376dp"
+        android:src="@drawable/almuerzo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ibtn_desayuno"
+        app:layout_constraintVertical_bias="0.209" />
+
+    <ImageButton
+        android:id="@+id/ibtn_cena"
+        android:layout_width="354dp"
+        android:layout_height="97dp"
+        android:layout_marginBottom="264dp"
+        android:src="@drawable/cena"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ibtn_almuerzo"
+        app:layout_constraintVertical_bias="0.208" />
+
+    <ImageButton
+        android:id="@+id/ibtn_bocadillos"
+        android:layout_width="354dp"
+        android:layout_height="97dp"
+        android:src="@drawable/bocadillo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ibtn_cena"
+        app:layout_constraintVertical_bias="0.064" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/f_home_text_desy"
+        android:textColor="#040404"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_desayuno"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_desayuno"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_desayuno"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_desayuno"
+        app:layout_constraintVertical_bias="0.383" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/f_home_text_almuerzo"
+        android:textColor="#040404"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_almuerzo"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_almuerzo"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_almuerzo"
+        app:layout_constraintTop_toBottomOf="@+id/ibtn_desayuno"
+        app:layout_constraintVertical_bias="0.506" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/f_home_text_cena"
+        android:textColor="#040404"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_cena"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_cena"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_cena"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_cena"
+        app:layout_constraintVertical_bias="0.493" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/f_home_text_bocadillo"
+        android:textColor="#040404"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_bocadillos"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_bocadillos"
+        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_bocadillos"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_bocadillos"
+        app:layout_constraintVertical_bias="0.479" />
+
+    <Button
+        android:id="@+id/btn_consumo"
+        android:layout_width="223dp"
+        android:layout_height="46dp"
+        android:background="@color/colorPrimary"
+        android:text="@string/f_home_btn_consumo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ibtn_bocadillos"
+        app:layout_constraintVertical_bias="0.25" />
 </androidx.constraintlayout.widget.ConstraintLayout>

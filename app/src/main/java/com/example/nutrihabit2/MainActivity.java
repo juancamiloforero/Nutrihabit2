@@ -44,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
         this.verifyUser();
 
         // this.ejemploEscrituraBD();
-
+        /*
         // Lanzar Alimentos
         Intent intent = new Intent(this, AlimentosActivity.class);
-        startActivity(intent);
+        startActivity(intent);*/
         /*
         // Lanzar registrar consumo
         Intent intent2 = new Intent(this, ConsumoRegistroActivity.class);
