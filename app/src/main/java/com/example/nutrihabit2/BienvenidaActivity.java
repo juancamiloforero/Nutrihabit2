@@ -22,15 +22,12 @@ public class BienvenidaActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch(view.getId()) {
             case (R.id.btnGanarMasa) :
-                Toast.makeText(this,"MASA MUSCULAR",Toast.LENGTH_SHORT).show();
                 this.irADatosBasicos(1);
                 break;
             case (R.id.btnPerderPeso) :
-                Toast.makeText(this,"PERDER PESO",Toast.LENGTH_SHORT).show();
                 this.irADatosBasicos(2);
                 break;
             case (R.id.btnMantenerEstado) :
-                Toast.makeText(this,"MANTENER ESTADO",Toast.LENGTH_SHORT).show();
                 this.irADatosBasicos(3);
                 break;
         }

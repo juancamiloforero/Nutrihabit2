@@ -56,10 +56,10 @@ public class MainActivity extends AppCompatActivity {
         // Lanzar listar consumo
         Intent intent3 = new Intent(this, SeguimientoListaActivity.class);
         startActivity(intent3);*/
-        /*
+
         Intent intent4 = new Intent(this, BienvenidaActivity.class);
         startActivity(intent4);
-        */
+
     }
 
     // Retorna el id del usuario guardado en local, si no existe retorna null
