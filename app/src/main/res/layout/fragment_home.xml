@@ -35,7 +35,7 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_home"
-        app:layout_constraintVertical_bias="0.012" />
+        app:layout_constraintVertical_bias="0.009" />
 
     <ImageButton
         android:id="@+id/ibtn_almuerzo"
@@ -143,4 +143,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ibtn_bocadillos"
         app:layout_constraintVertical_bias="0.25" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:text="calorias:"
+        android:textColor="#0E0E0E"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_desayuno"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_desayuno"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_desayuno"
+        app:layout_constraintVertical_bias="0.243" />
+
+    <TextView
+        android:id="@+id/txt_calorias_desy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#0B0B0B"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_desayuno"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_desayuno"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_desayuno"
+        app:layout_constraintVertical_bias="0.243" />
 </androidx.constraintlayout.widget.ConstraintLayout>
