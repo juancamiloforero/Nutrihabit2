@@ -11,8 +11,8 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_nav_inicio_to_detalleComidaFragment"
-            app:destination="@id/detalleComidaFragment" />
+            android:id="@+id/action_nav_inicio_to_nav_detalle_comida"
+            app:destination="@id/nav_detalle_comida" />
     </fragment>
 
     <fragment
@@ -36,11 +36,11 @@
         android:label="fragment_seguimiento"
         tools:layout="@layout/fragment_seguimiento" />
     <fragment
-        android:id="@+id/detalleComidaFragment"
+        android:id="@+id/nav_detalle_comida"
         android:name="com.example.nutrihabit2.menuPrincipal.ui.detalleComida.DetalleComidaFragment"
         android:label="DetalleComidaFragment" >
         <action
-            android:id="@+id/action_detalleComidaFragment_to_nav_inicio"
+            android:id="@+id/action_nav_detalle_comida_to_nav_inicio"
             app:destination="@id/nav_inicio" />
     </fragment>
 </navigation>

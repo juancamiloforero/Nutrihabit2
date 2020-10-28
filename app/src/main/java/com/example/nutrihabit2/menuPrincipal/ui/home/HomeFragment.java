@@ -1,6 +1,7 @@
 package com.example.nutrihabit2.menuPrincipal.ui.home;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import  com.example.nutrihabit2.R;
+import com.example.nutrihabit2.alimentos.FragmentListaAlimentos;
+import com.example.nutrihabit2.infoBasica.ImcActivity;
 import com.example.nutrihabit2.menuPrincipal.ui.detalleComida.DetalleComidaFragment;
 
 public class HomeFragment extends Fragment {
@@ -44,10 +47,9 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view){
                 //getParentFragmentManager();
-                DetalleComidaFragment detalle = new DetalleComidaFragment();
-                FragmentManager fragmentManager = getActivity().getFragmentManager();
-                FragmentTransaction transaction = getChildFragmentManager ().beginTransaction();
-                transaction.replace(R.id.container, detalle);
+
+                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+                transaction.replace(R.id.nav_inicio, new DetalleComidaFragment());
                 transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 transaction.addToBackStack(null);
                 transaction.commit();
@@ -60,17 +62,20 @@ public class HomeFragment extends Fragment {
     /*@Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Button desayuno = view.findViewById(R.id.ibtn_desayuno);
-        Button almuerzo = view.findViewById(R.id.ibtn_almuerzo);
-        Button cena = view.findViewById(R.id.ibtn_cena);
-        Button bocadillos = view.findViewById(R.id.ibtn_bocadillos);
+        ImageButton desayuno = view.findViewById(R.id.ibtn_desayuno);
+        ImageButton almuerzo = view.findViewById(R.id.ibtn_almuerzo);
+        ImageButton cena = view.findViewById(R.id.ibtn_cena);
+        ImageButton bocadillos = view.findViewById(R.id.ibtn_bocadillos);
         desayuno.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 //getParentFragmentManager();
+                Intent intent = new Intent(container, ImcActivity.class);
                 DetalleComidaFragment detalle = new DetalleComidaFragment();
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                FragmentManager fragmentManager = getActivity().getFragmentManager();
+                FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
                 transaction.replace(R.id.container, detalle);
+                transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
