@@ -43,4 +43,5 @@
             android:id="@+id/action_nav_detalle_comida_to_nav_inicio"
             app:destination="@id/nav_inicio" />
     </fragment>
+
 </navigation>
