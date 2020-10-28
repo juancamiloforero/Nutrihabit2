@@ -22,6 +22,11 @@ public class ImcActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_imc);
+        setTitle(R.string.indice_masa_corporal);
+
+        // Back button
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         this.tvTuIMC = (TextView) findViewById(R.id.tvTuIMC);
         this.tvAltura = (TextView) findViewById(R.id.tvAltura);
@@ -74,5 +79,12 @@ public class ImcActivity extends AppCompatActivity {
         }
         this.tvClasificacion.setText( clasificacion);
         return  clasificacion;
+    }
+
+    // Back button handler
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

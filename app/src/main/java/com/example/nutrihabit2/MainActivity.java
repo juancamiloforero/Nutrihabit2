@@ -12,7 +12,6 @@ import android.util.Log;
 import com.example.nutrihabit2.infoBasica.DatosBasicosActivity;
 import com.example.nutrihabit2.alimentos.AlimentosActivity;
 import com.example.nutrihabit2.consumoDiario.ConsumoRegistroActivity;
-import com.example.nutrihabit2.menuPrincipal.menuPrincipal;
 import com.example.nutrihabit2.seguimiento.SeguimientoListaActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -38,16 +37,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
         // Verificación y creación de usuario
         this.verifyUser();
 
         // this.ejemploEscrituraBD();
-        /*
+
         // Lanzar Alimentos
         Intent intent = new Intent(this, AlimentosActivity.class);
-        startActivity(intent);*/
+        startActivity(intent);
         /*
         // Lanzar registrar consumo
         Intent intent2 = new Intent(this, ConsumoRegistroActivity.class);
@@ -55,14 +54,12 @@ public class MainActivity extends AppCompatActivity {
 
         /*
         // Lanzar listar consumo
-        Intent intent3 = new Intent(this, .class);
+        Intent intent3 = new Intent(this, SeguimientoListaActivity.class);
         startActivity(intent3);*/
         /*
         Intent intent4 = new Intent(this, BienvenidaActivity.class);
         startActivity(intent4);
         */
-        Intent intent4 = new Intent(this, menuPrincipal.class);
-        startActivity(intent4);
     }
 
     // Retorna el id del usuario guardado en local, si no existe retorna null

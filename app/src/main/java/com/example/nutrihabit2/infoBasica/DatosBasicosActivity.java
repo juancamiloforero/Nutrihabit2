@@ -27,6 +27,11 @@ public class DatosBasicosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datos_basicos);
+        getSupportActionBar().setTitle(R.string.datos_basicos);
+
+        // Back button
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         this.etEstatura = (EditText) findViewById(R.id.etEstatura);
         this.etPeso = (EditText) findViewById(R.id.etPeso);
@@ -36,9 +41,6 @@ public class DatosBasicosActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         this.objetivo = intent.getIntExtra("seleccion", 0);
-
-        Toast.makeText(this, "Se ha seleccionado la opcion " + this.objetivo, Toast.LENGTH_SHORT).show();
-
 
     }
 
@@ -70,5 +72,12 @@ public class DatosBasicosActivity extends AppCompatActivity {
                 //Toast.makeText(this, "Genero Seleccionado: "+ this.spGenero.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+
+    // Back button handler
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
     }
 }

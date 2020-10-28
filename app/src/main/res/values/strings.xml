@@ -27,31 +27,4 @@
     <string name="siguiente">Siguiente</string>
     <string name="tu_imc_es">Tu IMC es</string>
     <string name="edad">Edad</string>
-    <string name="title_activity_menu_principal">menuPrincipal</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Nutrihabit</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Opciones</string>
-
-    <string name="menu_home">Inicio</string>
-    <string name="menu_perfil">Perfil</string>
-    <string name="menu_seguimiento">Seguimiento</string>
-    <string name="menu_alimentos">Alimentos</string>
-    <string name="menu_inicio_sesion">Iniciar sesión</string>
-    <string name="f_home_titulo">TU DIETA ADECUADA</string>
-    <string name="f_home_text_desy">Desayuno</string>
-    <string name="f_home_btn_consumo">Registrar consumo del dia</string>
-    <string name="f_home_text_almuerzo">Almuerzo</string>
-    <string name="f_home_text_cena">Cena</string>
-    <string name="f_home_text_bocadillo">Bocadillos</string>
-    <string name="f_login_title">Crea una cuenta o inicia sesión para sincronizar tus datos</string>
-    <string name="f_login_crear_cuenta">Crear cuenta con google</string>
-    <string name="f_login_iniciar_sesion">Iniciar sesión con google</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="txt_calorias">Calorias</string>
-    <string name="txt_carbo">Carbohidratos</string>
-    <string name="txt_proteinas">Proteinas</string>
 </resources>
