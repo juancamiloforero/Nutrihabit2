@@ -49,7 +49,7 @@ public class HomeFragment extends Fragment {
                 //getParentFragmentManager();
 
                 FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-                transaction.replace(R.id.nav_inicio, new DetalleComidaFragment());
+                transaction.replace(R.id.drawer_layout, new DetalleComidaFragment());
                 transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
                 transaction.addToBackStack(null);
                 transaction.commit();
