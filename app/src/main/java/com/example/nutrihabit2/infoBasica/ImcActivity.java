@@ -22,7 +22,7 @@ public class ImcActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_imc);
-        setTitle("Indice de masa corporal");
+        setTitle(R.string.indice_masa_corporal);
 
         // Back button
         assert getSupportActionBar() != null;

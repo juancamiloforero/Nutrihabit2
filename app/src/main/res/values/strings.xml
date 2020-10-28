@@ -27,4 +27,6 @@
     <string name="siguiente">Siguiente</string>
     <string name="tu_imc_es">Tu IMC es</string>
     <string name="edad">Edad</string>
+    <string name="datos_basicos">Informacion básica</string>
+    <string name="indice_masa_corporal">Índice de masa corporal</string>
 </resources>

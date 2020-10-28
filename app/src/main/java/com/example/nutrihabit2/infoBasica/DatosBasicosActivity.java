@@ -27,7 +27,7 @@ public class DatosBasicosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datos_basicos);
-        getSupportActionBar().setTitle("Datos Basicos");
+        getSupportActionBar().setTitle(R.string.datos_basicos);
 
         // Back button
         assert getSupportActionBar() != null;
@@ -41,9 +41,6 @@ public class DatosBasicosActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         this.objetivo = intent.getIntExtra("seleccion", 0);
-
-        Toast.makeText(this, "Se ha seleccionado la opcion " + this.objetivo, Toast.LENGTH_SHORT).show();
-
 
     }
 

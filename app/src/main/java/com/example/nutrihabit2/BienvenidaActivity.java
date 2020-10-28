@@ -17,6 +17,7 @@ public class BienvenidaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bienvenida);
+        getSupportActionBar().setTitle(R.string.Bienvenido);
     }
 
     public void onClick(View view) {
