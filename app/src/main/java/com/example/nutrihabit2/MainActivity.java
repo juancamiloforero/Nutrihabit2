@@ -12,6 +12,7 @@ import android.util.Log;
 import com.example.nutrihabit2.infoBasica.DatosBasicosActivity;
 import com.example.nutrihabit2.alimentos.AlimentosActivity;
 import com.example.nutrihabit2.consumoDiario.ConsumoRegistroActivity;
+import com.example.nutrihabit2.menuPrincipal.menuPrincipal;
 import com.example.nutrihabit2.seguimiento.SeguimientoListaActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -45,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
         // this.ejemploEscrituraBD();
 
         // Lanzar Alimentos
-        Intent intent = new Intent(this, AlimentosActivity.class);
-        startActivity(intent);
+       /* Intent intent = new Intent(this, AlimentosActivity.class);
+        startActivity(intent);*/
         /*
         // Lanzar registrar consumo
         Intent intent2 = new Intent(this, ConsumoRegistroActivity.class);
@@ -60,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent4 = new Intent(this, BienvenidaActivity.class);
         startActivity(intent4);
         */
-
-
+        Intent intent = new Intent(this, menuPrincipal.class);
+        startActivity(intent);
     }
 
     // Retorna el id del usuario guardado en local, si no existe retorna null

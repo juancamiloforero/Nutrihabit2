@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_inicio">
+
+    <fragment
+        android:id="@+id/nav_inicio"
+        android:name="com.example.nutrihabit2.menuPrincipal.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_inicio_to_nav_detalle_comida"
+            app:destination="@id/nav_detalle_comida" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_perfil"
+        android:name="com.example.nutrihabit2.menuPrincipal.ui.perfil.PerfilFragment"
+        android:label="@string/menu_perfil"
+        tools:layout="@layout/fragment_perfil" />
+
+    <fragment
+        android:id="@+id/nav_inicio_sesion"
+        android:name="com.example.nutrihabit2.menuPrincipal.ui.login.LoginFragment"
+        android:label="@string/menu_inicio_sesion" />
+    <fragment
+        android:id="@+id/nav_alimentos"
+        android:name="com.example.nutrihabit2.alimentos.FragmentListaAlimentos"
+        android:label="fragment_lista_alimentos"
+        tools:layout="Alimentos" />
+    <fragment
+        android:id="@+id/nav_seguimiento"
+        android:name="com.example.nutrihabit2.menuPrincipal.ui.seguimiento.SeguimientoFragment"
+        android:label="fragment_seguimiento"
+        tools:layout="@layout/fragment_seguimiento" />
+    <fragment
+        android:id="@+id/nav_detalle_comida"
+        android:name="com.example.nutrihabit2.menuPrincipal.ui.detalleComida.DetalleComidaFragment"
+        android:label="DetalleComidaFragment" >
+        <action
+            android:id="@+id/action_nav_detalle_comida_to_nav_inicio"
+            app:destination="@id/nav_inicio" />
+    </fragment>
+
+</navigation>

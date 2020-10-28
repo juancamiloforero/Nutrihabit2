@@ -28,6 +28,4 @@
     <string name="siguiente">Next</string>
     <string name="tu_imc_es">"Your BMI is "</string>
     <string name="edad">Age</string>
-    <string name="datos_basicos">Basic information</string>
-    <string name="indice_masa_corporal">Body mass index</string>
 </resources>
