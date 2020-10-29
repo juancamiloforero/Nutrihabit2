@@ -12,6 +12,7 @@ import android.util.Log;
 import com.example.nutrihabit2.infoBasica.DatosBasicosActivity;
 import com.example.nutrihabit2.alimentos.AlimentosActivity;
 import com.example.nutrihabit2.consumoDiario.ConsumoRegistroActivity;
+import com.example.nutrihabit2.menuPrincipal.menuPrincipal;
 import com.example.nutrihabit2.seguimiento.SeguimientoListaActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -39,26 +40,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Verificación y creación de usuario
+        // Verifica la existencia del usuario local, para que si no existe, entra a la pantalla
+        // de bienvenida y datos basicos, de contrario entra el menu.
         this.verifyUser();
 
-        // this.ejemploEscrituraBD();
-
-        // Lanzar Alimentos
-        Intent intent = new Intent(this, AlimentosActivity.class);
-        startActivity(intent);
-        /*
-        // Lanzar registrar consumo
-        Intent intent2 = new Intent(this, ConsumoRegistroActivity.class);
-        startActivity(intent2);*/
-
-        /*
-        // Lanzar listar consumo
-        Intent intent3 = new Intent(this, SeguimientoListaActivity.class);
-        startActivity(intent3);*/
-
-        Intent intent4 = new Intent(this, BienvenidaActivity.class);
-        startActivity(intent4);
 
     }
 
@@ -79,11 +64,14 @@ public class MainActivity extends AppCompatActivity {
     private void verifyUser() {
         String id = this.getLocalUserId();
         if (id == null) {
-            crearUsuarioFirebase();
+            Intent intentBienvenido = new Intent(this, BienvenidaActivity.class);
+            startActivity(intentBienvenido);
+            //crearUsuarioFirebase();
 
-            // ToDo: crearUsuarioFirebase(User object);
         } else {
             Log.d("ID_USER", "UserID: " + id);
+            Intent intent = new Intent(this, menuPrincipal.class);
+            startActivity(intent);
         }
     }
 

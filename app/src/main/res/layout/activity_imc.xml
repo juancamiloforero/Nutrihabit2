@@ -140,6 +140,7 @@
         android:text="@string/siguiente"
         android:textAppearance="@style/TextoNormal"
         android:textColor="#FFFF"
+        android:onClick="onClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 

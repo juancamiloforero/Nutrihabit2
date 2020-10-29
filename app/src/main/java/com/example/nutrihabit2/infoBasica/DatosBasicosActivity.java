@@ -1,8 +1,11 @@
 package com.example.nutrihabit2.infoBasica;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +14,14 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.nutrihabit2.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class DatosBasicosActivity extends AppCompatActivity {
@@ -20,6 +31,11 @@ public class DatosBasicosActivity extends AppCompatActivity {
     EditText etEdad;
     Spinner spGenero;
     Spinner spActividad;
+
+    private String mPrefs = "USER_INFORMATION";
+    private String keyUserId = "userId";
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     int objetivo;
 
@@ -64,13 +80,91 @@ public class DatosBasicosActivity extends AppCompatActivity {
                 float estatura = Float.parseFloat(this.etEstatura.getText().toString());
                 float peso = Float.parseFloat(this.etPeso.getText().toString());
                 int edad = Integer.parseInt(this.etEdad.getText().toString());
-                this.spGenero.getSelectedItem().toString();
-                this.spActividad.getSelectedItem().toString();
+                String genero = this.spGenero.getSelectedItem().toString();
+                String nivelActividad = this.spActividad.getSelectedItem().toString();
 
+                this.guardarDatosBasicos(estatura,peso,edad,genero,nivelActividad);
                 this.irAIMC(estatura,peso,edad);
 
-                //Toast.makeText(this, "Genero Seleccionado: "+ this.spGenero.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
                 break;
+        }
+    }
+
+    // Crear el usuario en local si no existe
+    private void verifyUser() {
+        String id = this.getLocalUserId();
+        if (id == null) {
+            //crearUsuarioFirebase();
+
+            // ToDo: crearUsuarioFirebase(User object);
+        } else {
+            Log.d("ID_USER", "UserID: " + id);
+        }
+    }
+
+    private void guardarEnFireBase(int pEstatura, int pPeso, String pGenero, int pEdad) {
+        Map<String, Object> user = new HashMap<>();
+        user.put("estatura", pEstatura);
+        user.put("peso", pPeso);
+        user.put("genero", pGenero);
+        user.put("edad", pEdad);
+
+        DocumentReference userDocument = db.collection("users").document();
+        userDocument.set(user, SetOptions.merge());
+        saveLocalUser(userDocument.getId());
+    }
+    private void saveLocalUser(String id) {
+        SharedPreferences sharedPref = getSharedPreferences(this.mPrefs, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(this.keyUserId, id);
+        editor.apply();
+        Log.d("LOCAL_USER_CREATED", "Se creó el usuario con el ID: " + id);
+    }
+
+
+    // Retorna el id del usuario guardado en local, si no existe retorna null
+    public String getLocalUserId() {
+        SharedPreferences sharedPref = getSharedPreferences(this.mPrefs, Context.MODE_PRIVATE);
+        String defaultID = getResources().getString(R.string.defaultUserId);
+        String userID = sharedPref.getString(this.keyUserId, defaultID);
+
+        if (!userID.equals(defaultID)) {
+            return userID;
+        } else {
+            return null;
+        }
+    }
+
+    private String getUserId() {
+        SharedPreferences sharedPref = getSharedPreferences(this.mPrefs, Context.MODE_PRIVATE);
+        return sharedPref.getString(this.keyUserId, null);
+    }
+
+    private void guardarDatosBasicos(float pEstatura, float pPeso, int pEdad, String pGenero, String pNivelActividad) {
+        if (this.getUserId() != null) {
+
+            Map<String, Object> user = new HashMap<>();
+            user.put("estatura", pEstatura);
+            user.put("peso", pPeso);
+            user.put("genero", pGenero);
+            user.put("edad", pEdad);
+            user.put("nivel_actividad", pNivelActividad);
+
+            // Add a new document with a generated ID
+            db.collection("users").document(getUserId())
+                    .set(user, SetOptions.merge())
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.d("TAG", "DocumentSnapshot successfully written!");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w("TAG", "Error writing document", e);
+                        }
+                    });
         }
     }
 
