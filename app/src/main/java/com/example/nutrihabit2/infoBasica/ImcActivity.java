@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nutrihabit2.R;
+import com.example.nutrihabit2.menuPrincipal.menuPrincipal;
 
 public class ImcActivity extends AppCompatActivity {
 
@@ -86,5 +88,13 @@ public class ImcActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         finish();
         return true;
+    }
+
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btSiguiente:
+                Intent intentMenu = new Intent(this, menuPrincipal.class);
+                startActivity(intentMenu);
+        }
     }
 }

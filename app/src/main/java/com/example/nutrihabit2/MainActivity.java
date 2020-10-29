@@ -40,29 +40,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Verificación y creación de usuario
+        // Verifica la existencia del usuario local, para que si no existe, entra a la pantalla
+        // de bienvenida y datos basicos, de contrario entra el menu.
         this.verifyUser();
 
-        // this.ejemploEscrituraBD();
 
-        // Lanzar Alimentos
-       /* Intent intent = new Intent(this, AlimentosActivity.class);
-        startActivity(intent);*/
-        /*
-        // Lanzar registrar consumo
-        Intent intent2 = new Intent(this, ConsumoRegistroActivity.class);
-        startActivity(intent2);*/
-
-        /*
-        // Lanzar listar consumo
-        Intent intent3 = new Intent(this, SeguimientoListaActivity.class);
-        startActivity(intent3);*/
-        /*
-        Intent intent4 = new Intent(this, BienvenidaActivity.class);
-        startActivity(intent4);
-        */
-        Intent intent = new Intent(this, menuPrincipal.class);
-        startActivity(intent);
     }
 
     // Retorna el id del usuario guardado en local, si no existe retorna null
@@ -82,11 +64,14 @@ public class MainActivity extends AppCompatActivity {
     private void verifyUser() {
         String id = this.getLocalUserId();
         if (id == null) {
-            crearUsuarioFirebase();
+            Intent intentBienvenido = new Intent(this, BienvenidaActivity.class);
+            startActivity(intentBienvenido);
+            //crearUsuarioFirebase();
 
-            // ToDo: crearUsuarioFirebase(User object);
         } else {
             Log.d("ID_USER", "UserID: " + id);
+            Intent intent = new Intent(this, menuPrincipal.class);
+            startActivity(intent);
         }
     }
 
