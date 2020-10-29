@@ -1,52 +1,46 @@
 package com.example.nutrihabit2.alimentos;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import com.example.nutrihabit2.MainActivity;
 import com.example.nutrihabit2.R;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashMap;
-import java.util.Map;
-
-public class AlimentosCrearActivity extends AppCompatActivity implements View.OnClickListener{
+public class AlimentosModificarActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Spinner mTiposAlimentos, mMedidaPorcion;
     private String mPrefs = "USER_INFORMATION";
     private String keyUserId = "userId";
 
+    private Alimento mAlimento;
+
     private EditText mNombre, mDescripcion, mPorcion, mCalorias, mGrasas, mCarbohidratos, mProteinas;
-    private Button mAgregar;
+    private Button mModificar;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alimentos_crear);
-        setTitle(R.string.crear_alimento);
+        setTitle(R.string.editar_title);
 
         // Back button
         assert getSupportActionBar() != null;
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Intent intent = getIntent();
+        mAlimento = (Alimento) intent.getSerializableExtra("alimento");
 
         // Inicializar campos
         mTiposAlimentos = findViewById(R.id.spTipoAlimento);
@@ -58,19 +52,38 @@ public class AlimentosCrearActivity extends AppCompatActivity implements View.On
         mGrasas = findViewById(R.id.etGrasas);
         mCarbohidratos = findViewById(R.id.etCarbohidratos);
         mProteinas = findViewById(R.id.etProteinas);
-        mAgregar = findViewById(R.id.btAgregarAlimento);
+        mModificar = findViewById(R.id.btAgregarAlimento);
 
-        mAgregar.setOnClickListener(this);
+        llenarFormulario();
+    }
 
-        // Llenar y setear spinners
+    private void llenarFormulario() {
+        // Set Spinner Tipo Alimentos
         ArrayAdapter<CharSequence> aSpinnerTipoAlimentos = ArrayAdapter.createFromResource(this,
                 R.array.arrTipoAlimentos, R.layout.alimentos_tipos_item);
-
         mTiposAlimentos.setAdapter(aSpinnerTipoAlimentos);
+        int spPositionTipoAlimentos = aSpinnerTipoAlimentos.getPosition(mAlimento.getTipoAlimento());
+        mTiposAlimentos.setSelection(spPositionTipoAlimentos);
 
+        // Set Spinner Unidad Medida
         ArrayAdapter<CharSequence> aSpinnerMedidaPorcion = ArrayAdapter.createFromResource(this,
                 R.array.arrMedidasPorcion, R.layout.alimentos_tipos_item);
         mMedidaPorcion.setAdapter(aSpinnerMedidaPorcion);
+        int spPositionMedidaPorcion = aSpinnerMedidaPorcion.getPosition(mAlimento.getUnidadMedida());
+        mMedidaPorcion.setSelection(spPositionMedidaPorcion);
+
+        // Set Atributos
+        mNombre.setText(mAlimento.getNombre());
+        mDescripcion.setText(mAlimento.getDescripcion());
+        mPorcion.setText(String.valueOf(mAlimento.getPorcion()));
+        mCalorias.setText(String.valueOf(mAlimento.getCalorias()));
+        mGrasas.setText(String.valueOf(mAlimento.getGrasas()));
+        mCarbohidratos.setText(String.valueOf(mAlimento.getCarbohidratos()));
+        mProteinas.setText(String.valueOf(mAlimento.getProteinas()));
+
+        // Set boton
+        mModificar.setText(R.string.guardar);
+        mModificar.setOnClickListener(this);
 
     }
 
@@ -81,28 +94,25 @@ public class AlimentosCrearActivity extends AppCompatActivity implements View.On
         return true;
     }
 
-    // Click agregar alimento
     @Override
     public void onClick(View v) {
-        String nombre = mNombre.getText().toString();
-        String descripcion = mDescripcion.getText().toString();
-        String tipoAlimento = mTiposAlimentos.getSelectedItem().toString();
-        double porcion = Double.parseDouble(mPorcion.getText().toString());
-        String unidadMedida = mMedidaPorcion.getSelectedItem().toString();
-        double calorias = Double.parseDouble(mCalorias.getText().toString());
-        double grasas = Double.parseDouble(mGrasas.getText().toString());
-        double carbo = Double.parseDouble(mCarbohidratos.getText().toString());
-        double proteinas = Double.parseDouble(mProteinas.getText().toString());
+        mAlimento.setNombre(mNombre.getText().toString());
+        mAlimento.setDescripcion(mDescripcion.getText().toString());
+        mAlimento.setTipoAlimento(mTiposAlimentos.getSelectedItem().toString());
+        mAlimento.setPorcion(Double.parseDouble(mPorcion.getText().toString()));
+        mAlimento.setUnidadMedida(mMedidaPorcion.getSelectedItem().toString());
+        mAlimento.setCalorias(Double.parseDouble(mCalorias.getText().toString()));
+        mAlimento.setGrasas(Double.parseDouble(mGrasas.getText().toString()));
+        mAlimento.setCarbohidratos(Double.parseDouble(mCarbohidratos.getText().toString()));
+        mAlimento.setProteinas(Double.parseDouble(mProteinas.getText().toString()));
 
-        Alimento mAlimento = new Alimento(nombre, descripcion, tipoAlimento, unidadMedida, porcion, calorias, grasas, carbo, proteinas);
-        this.crearAlimento(mAlimento);
+        this.modificarAlimento();
     }
 
-    private void crearAlimento(Alimento mAlimento) {
+    private void modificarAlimento() {
         if (getUserId() != null) {
             DocumentReference alimentoDocument = db.collection("users").document(getUserId())
-                    .collection("alimentos").document();
-            mAlimento.setId(alimentoDocument.getId());
+                    .collection("alimentos").document(mAlimento.getId());
             alimentoDocument.set(mAlimento);
 
             // Redirección a la vista principal

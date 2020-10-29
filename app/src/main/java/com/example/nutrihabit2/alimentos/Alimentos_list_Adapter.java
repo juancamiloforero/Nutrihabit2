@@ -58,6 +58,11 @@ public class Alimentos_list_Adapter extends RecyclerView.Adapter<Alimentos_list_
         }
     }
 
+    public void removeAlimento(int position) {
+        mAlimentos.remove(position);
+        notifyDataSetChanged();
+    }
+
     public class AlimentosViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView mNombreAlimentoView;
@@ -100,8 +105,6 @@ public class Alimentos_list_Adapter extends RecyclerView.Adapter<Alimentos_list_
         void bind(int listaIndex) {
              mNombreAlimentoView.setText(String.valueOf(mAlimentos.get(listaIndex).getNombre()));
         }
-
-
     }
 
     public interface OnAlimentosListener {
