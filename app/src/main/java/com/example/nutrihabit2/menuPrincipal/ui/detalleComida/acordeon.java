@@ -101,12 +101,13 @@ public class acordeon extends Fragment {
         findMagicBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ListView list1 = (ListView) root.findViewById(R.id.list1);
-                System.out.println(telefonos);
-                if (list1.getVisibility() == View.VISIBLE) {
-                    list1.setVisibility(View.GONE);
+                //ListView list1 = (ListView) root.findViewById(R.id.list1);
+                if (lv1.getVisibility() == View.VISIBLE) {
+                    lv1.setVisibility(View.GONE);
                 } else {
-                    list1.setVisibility(View.VISIBLE);
+                    lv1.setVisibility(View.VISIBLE);
+                    lv3.setVisibility(View.GONE);
+                    lv2.setVisibility(View.GONE);
                 }
             }
         });
@@ -114,12 +115,13 @@ public class acordeon extends Fragment {
         findMagicBtn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ListView list2 = (ListView) root.findViewById(R.id.list2);
-                System.out.println(telefonos);
-                if (list2.getVisibility() == View.VISIBLE) {
-                    list2.setVisibility(View.GONE);
+                //ListView list2 = (ListView) root.findViewById(R.id.list2);
+                if (lv2.getVisibility() == View.VISIBLE) {
+                    lv2.setVisibility(View.GONE);
                 } else {
-                    list2.setVisibility(View.VISIBLE);
+                    lv1.setVisibility(View.GONE);
+                    lv3.setVisibility(View.GONE);
+                    lv2.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -127,19 +129,20 @@ public class acordeon extends Fragment {
         findMagicBtn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ListView list3 = (ListView) root.findViewById(R.id.list3);
-                System.out.println(telefonos);
-                if (list3.getVisibility() == View.VISIBLE) {
-                    list3.setVisibility(View.GONE);
+                //ListView list3 = (ListView) root.findViewById(R.id.list3);
+                if (lv3.getVisibility() == View.VISIBLE) {
+                    lv3.setVisibility(View.GONE);
                 } else {
-                    list3.setVisibility(View.VISIBLE);
+                    lv1.setVisibility(View.GONE);
+                    lv3.setVisibility(View.GONE);
+                    lv3.setVisibility(View.VISIBLE);
                 }
             }
         });
         return root;
     }
 
-    public String getLocalUserId() {
+    /*public String getLocalUserId() {
         SharedPreferences sharedPref = getSharedPreferences(this.mPrefs, Context.MODE_PRIVATE);
         String defaultID = getResources().getString(R.string.defaultUserId);
         String userID = sharedPref.getString(this.keyUserId, defaultID);
@@ -149,5 +152,5 @@ public class acordeon extends Fragment {
         } else {
             return null;
         }
-    }
+    }*/
 }

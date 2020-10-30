@@ -10,8 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nutrihabit2.R;
-import com.example.nutrihabit2.alimentos.Alimento;
-import com.example.nutrihabit2.consumoDiario.Alimentos_Consumo_list_Adapter;
+import com.example.nutrihabit2.modelos.Alimento;
 
 import java.util.ArrayList;
 

@@ -6,7 +6,8 @@
     <string name="Perder_peso">Perder Peso</string>
     <string name="Mantener_estado_fisico">Mantener Estado Fisico</string>
     <string name="tipo_alimento">Tipo de Alimento</string>
-    <string name="alimento_menu">Alimentos</string>
+    <string name="alimento_main_title">Alimentos</string>
+    <string name="seguimiento_main_title">Seguimiento</string>
     <string name="nombre_alimento_creacion">Nombre</string>
     <string name="descripcion_alimento_creacion">Descripción</string>
     <string name="porcion_alimento_creacion">Porción</string>
@@ -25,6 +26,10 @@
     <string name="actividad_fisica">Nivel de actividad fisica</string>
     <string name="ingreso_datos_basicos">Ingresa algunos datos básicos</string>
     <string name="siguiente">Siguiente</string>
+    <string name="guardar">Guardar</string>
+    <string name="editar_title">Editar</string>
+    <string name="advertencia_eliminar">Atención!</string>
+    <string name="confirmar_eliminar">¿Está seguro que quiere eliminar este alimento?</string>
     <string name="tu_imc_es">Tu IMC es</string>
     <string name="edad">Edad</string>
     <string name="title_activity_menu_principal">Menu Principal</string>

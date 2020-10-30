@@ -19,8 +19,6 @@
         <activity android:name=".infoBasica.ImcActivity" />
         <activity android:name=".infoBasica.DatosBasicosActivity" />
         <activity android:name=".BienvenidaActivity" />
-        <activity android:name=".alimentos.AlimentosCrearActivity" />
-        <activity android:name=".alimentos.AlimentosActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

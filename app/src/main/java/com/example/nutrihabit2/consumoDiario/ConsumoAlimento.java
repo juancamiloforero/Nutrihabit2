@@ -1,6 +1,6 @@
 package com.example.nutrihabit2.consumoDiario;
 
-import com.example.nutrihabit2.alimentos.Alimento;
+import com.example.nutrihabit2.modelos.Alimento;
 
 public class ConsumoAlimento {
     private Alimento alimento;

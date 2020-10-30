@@ -1,7 +1,10 @@
-package com.example.nutrihabit2.alimentos;
+package com.example.nutrihabit2.modelos;
 
-public class Alimento {
+import java.io.Serializable;
 
+public class Alimento implements Serializable {
+
+    private String id;
     private String nombre;
     private String descripcion;
     private String tipoAlimento;
@@ -25,6 +28,10 @@ public class Alimento {
         this.carbohidratos = carbohidratos;
         this.proteinas = proteinas;
     }
+
+    public String getId() { return id; }
+
+    public void setId(String id) { this.id = id; }
 
     public String getNombre() {
         return nombre;
