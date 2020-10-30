@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".menuPrincipal.ui.detalleComida.DetalleCom"></activity>
         <activity
             android:name=".menuPrincipal.menuPrincipal"
             android:label="@string/title_activity_menu_principal"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".seguimiento.SeguimientoListaActivity" />
         <activity android:name=".consumoDiario.ConsumoRegistroActivity" />
         <activity android:name=".infoBasica.ImcActivity" />
