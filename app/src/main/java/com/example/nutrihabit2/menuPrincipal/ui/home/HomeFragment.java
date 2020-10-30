@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -14,6 +15,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import  com.example.nutrihabit2.R;
+import com.example.nutrihabit2.consumoDiario.ConsumoRegistroActivity;
 import com.example.nutrihabit2.menuPrincipal.ui.detalleComida.DetalleCom;
 
 public class HomeFragment extends Fragment {
@@ -82,6 +84,16 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        Button consumo = root.findViewById(R.id.btn_consumo);
+        consumo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                //getParentFragmentManager();
+                Intent cons = new Intent(getActivity(),
+                        ConsumoRegistroActivity.class);
+                startActivity(cons);
+            }
+        });
         return root;
     }
 
