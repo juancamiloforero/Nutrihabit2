@@ -7,7 +7,8 @@
     <string name="Perder_peso">Lose Weight</string>
     <string name="Mantener_estado_fisico">Maintain Physical Fitness</string>
     <string name="tipo_alimento">Type of Food</string>
-    <string name="alimento_menu">Food</string>
+    <string name="alimento_main_title">Food</string>
+    <string name="seguimiento_main_title">Tracking</string>
     <string name="nombre_alimento_creacion">Name</string>
     <string name="descripcion_alimento_creacion">Description</string>
     <string name="porcion_alimento_creacion">Portion</string>

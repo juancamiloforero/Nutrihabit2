@@ -1,15 +1,15 @@
-package com.example.nutrihabit2.alimentos;
+package com.example.nutrihabit2.menuPrincipal.ui.alimentos;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,11 +22,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.nutrihabit2.R;
+import com.example.nutrihabit2.modelos.Alimento;
 import com.example.nutrihabit2.consumoDiario.Alimentos_Consumo_list_Adapter;
-import com.example.nutrihabit2.seguimiento.Seguimiento_List_Adapter;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
@@ -83,7 +81,7 @@ public class FragmentListaAlimentos extends Fragment implements Alimentos_list_A
         if (getArguments() != null) {
             activityParent = getArguments().getInt("activityParent", 0);
         }
-        mAlimentos = new ArrayList<Alimento>();
+        mAlimentos = new ArrayList<>();
         getAlimentos();
     }
 
@@ -175,12 +173,15 @@ public class FragmentListaAlimentos extends Fragment implements Alimentos_list_A
         return sharedPref.getString(this.keyUserId, null);
     }
 
-
     @Override
     public void onEditAlimentoClick(int position) {
-        Intent intent = new Intent(getContext(), AlimentosModificarActivity.class);
-        intent.putExtra("alimento", mAlimentos.get(position));
-        startActivity(intent);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("alimento", mAlimentos.get(position));
+        Navigation.findNavController(getView()).navigate(R.id.alimentosModificarFragment, bundle);
+
+        //Intent intent = new Intent(getContext(), AlimentosModificarActivity.class);
+        //intent.putExtra("alimento", mAlimentos.get(position));
+        //startActivity(intent);
     }
 
     @Override

@@ -2,24 +2,15 @@ package com.example.nutrihabit2.seguimiento;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
 
 import com.example.nutrihabit2.R;
-import com.example.nutrihabit2.alimentos.Alimento;
-import com.example.nutrihabit2.alimentos.Alimentos_list_Adapter;
-import com.example.nutrihabit2.consumoDiario.Alimentos_Consumo_list_Adapter;
-import com.example.nutrihabit2.consumoDiario.ConsumoAlimento;
 import com.example.nutrihabit2.consumoDiario.ConsumoDia;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 public class SeguimientoListaActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.nutrihabit2.alimentos;
+package com.example.nutrihabit2.modelos;
 
 import java.io.Serializable;
 

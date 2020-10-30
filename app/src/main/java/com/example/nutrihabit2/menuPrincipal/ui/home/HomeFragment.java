@@ -1,12 +1,9 @@
 package com.example.nutrihabit2.menuPrincipal.ui.home;
 
-import android.app.FragmentManager;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -17,8 +14,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import  com.example.nutrihabit2.R;
-import com.example.nutrihabit2.alimentos.FragmentListaAlimentos;
-import com.example.nutrihabit2.infoBasica.ImcActivity;
 import com.example.nutrihabit2.menuPrincipal.ui.detalleComida.DetalleComidaFragment;
 
 public class HomeFragment extends Fragment {

@@ -25,16 +25,27 @@
         android:id="@+id/nav_inicio_sesion"
         android:name="com.example.nutrihabit2.menuPrincipal.ui.login.LoginFragment"
         android:label="@string/menu_inicio_sesion" />
+
     <fragment
         android:id="@+id/nav_alimentos"
-        android:name="com.example.nutrihabit2.alimentos.FragmentListaAlimentos"
-        android:label="fragment_lista_alimentos"
-        tools:layout="Alimentos" />
+        android:name="com.example.nutrihabit2.menuPrincipal.ui.alimentos.AlimentosMainFragment"
+        android:label="@string/alimento_main_title"
+        tools:layout="@layout/alimentos_main_fragment" >
+        <action
+            android:id="@+id/action_nav_alimentos_to_alimentosCrearFragment"
+            app:destination="@id/alimentosCrearFragment"
+            app:enterAnim="@anim/fragment_close_enter" />
+        <action
+            android:id="@+id/action_nav_alimentos_to_alimentosModificarFragment"
+            app:destination="@id/alimentosModificarFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/nav_seguimiento"
         android:name="com.example.nutrihabit2.menuPrincipal.ui.seguimiento.SeguimientoFragment"
-        android:label="fragment_seguimiento"
+        android:label="@string/seguimiento_main_title"
         tools:layout="@layout/fragment_seguimiento" />
+
     <fragment
         android:id="@+id/nav_detalle_comida"
         android:name="com.example.nutrihabit2.menuPrincipal.ui.detalleComida.DetalleComidaFragment"
@@ -42,6 +53,29 @@
         <action
             android:id="@+id/action_nav_detalle_comida_to_nav_inicio"
             app:destination="@id/nav_inicio" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/alimentosCrearFragment"
+        android:name="com.example.nutrihabit2.menuPrincipal.ui.alimentos.AlimentosCrearFragment"
+        android:label="@string/crear_alimento"
+        tools:layout="@layout/alimentos_crear_fragment">
+        <action
+            android:id="@+id/action_alimentosCrearFragment_to_nav_alimentos"
+            app:destination="@id/nav_alimentos"
+            app:enterAnim="@anim/fragment_close_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/alimentosModificarFragment"
+        android:name="com.example.nutrihabit2.menuPrincipal.ui.alimentos.AlimentosModificarFragment"
+        android:label="@string/editar_title"
+        tools:layout="@layout/alimentos_crear_fragment" >
+        <argument
+            android:name="alimento"
+            app:argType="com.example.nutrihabit2.modelos.Alimento"/>
+        <action
+            android:id="@+id/action_alimentosModificarFragment_to_nav_alimentos"
+            app:destination="@id/nav_alimentos" />
     </fragment>
 
 </navigation>

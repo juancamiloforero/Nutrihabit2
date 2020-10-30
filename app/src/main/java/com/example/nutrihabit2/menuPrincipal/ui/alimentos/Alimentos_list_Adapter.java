@@ -1,20 +1,17 @@
-package com.example.nutrihabit2.alimentos;
+package com.example.nutrihabit2.menuPrincipal.ui.alimentos;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nutrihabit2.R;
+import com.example.nutrihabit2.modelos.Alimento;
 
 import java.util.ArrayList;
 

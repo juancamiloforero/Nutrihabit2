@@ -13,14 +13,11 @@
             android:name=".menuPrincipal.menuPrincipal"
             android:label="@string/title_activity_menu_principal"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".alimentos.AlimentosModificarActivity"/>
         <activity android:name=".seguimiento.SeguimientoListaActivity" />
         <activity android:name=".consumoDiario.ConsumoRegistroActivity" />
         <activity android:name=".infoBasica.ImcActivity" />
         <activity android:name=".infoBasica.DatosBasicosActivity" />
         <activity android:name=".BienvenidaActivity" />
-        <activity android:name=".alimentos.AlimentosCrearActivity" />
-        <activity android:name=".alimentos.AlimentosActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

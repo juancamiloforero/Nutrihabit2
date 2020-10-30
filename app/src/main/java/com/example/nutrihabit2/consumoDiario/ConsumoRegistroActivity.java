@@ -2,20 +2,15 @@ package com.example.nutrihabit2.consumoDiario;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Spinner;
 
 import com.example.nutrihabit2.R;
-import com.example.nutrihabit2.alimentos.Alimento;
-import com.example.nutrihabit2.alimentos.FragmentListaAlimentos;
+import com.example.nutrihabit2.menuPrincipal.ui.alimentos.FragmentListaAlimentos;
 import com.example.nutrihabit2.seguimiento.SeguimientoListaActivity;
-
-import java.util.ArrayList;
 
 public class ConsumoRegistroActivity extends AppCompatActivity implements View.OnClickListener {
 
