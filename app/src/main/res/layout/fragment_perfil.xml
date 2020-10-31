@@ -2,11 +2,208 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_perfil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/nav_perfil"
-    tools:context=".menuPrincipal.ui.perfil.PerfilFragment"
-    android:orientation="horizontal">
-    
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".menuPrincipal.ui.perfil.PerfilFragment">
+
+    <LinearLayout
+        android:id="@+id/llIMC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_margin="25dp">
+
+        <TextView
+            android:id="@+id/tvTuIMC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tu_imc_es"
+            android:textAppearance="@style/TituloMediano" />
+
+        <ImageView
+            android:id="@+id/imgIMC"
+            android:layout_width="299dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="109dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="109dp"
+            android:layout_marginBottom="14dp"
+            app:srcCompat="@drawable/imc_verde" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/tvTuCondicion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Tu condicion es:  "
+                />
+            <TextView
+                android:id="@+id/tvClasificacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Sobrepeso"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="25dp">
+
+        <TextView
+            android:id="@+id/tvTuConsumoCalorico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Consumo calorico recomendado: "
+            />
+        <TextView
+            android:id="@+id/tvCalorias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1726 Kal"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llInfoBasica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lblAltura"
+                android:layout_width="220dp"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:text="@string/estatura" />
+
+            <TextView
+                android:id="@+id/tvAltura"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="186 cm" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lblPeso"
+                android:layout_width="220dp"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:text="@string/peso" />
+
+            <TextView
+                android:id="@+id/tvPeso"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="97 kg" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/lblEdad"
+                android:layout_width="220dp"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:text="@string/edad" />
+
+            <TextView
+                android:id="@+id/tvEdad"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="25" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/lblGenero"
+                android:layout_width="220dp"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:text="@string/genero"/>
+
+            <TextView
+                android:id="@+id/tvGenero"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Masculino" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/lblNivelActividad"
+                android:layout_width="220dp"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:text="Nivel Actividad Fisica" />
+
+            <TextView
+                android:id="@+id/tvNivelActividad"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Moderado" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/lblTuObjetivo"
+                android:layout_width="220dp"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:text="Tu Objetivo" />
+
+            <TextView
+                android:id="@+id/tvTuObjetivo"
+                android:layout_width="104dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ganar Masa Muscular" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 </LinearLayout>
