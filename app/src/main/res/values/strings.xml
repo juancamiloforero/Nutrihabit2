@@ -55,9 +55,11 @@
     <string name="f_login_crear_cuenta">Crear cuenta con google</string>
     <string name="f_login_iniciar_sesion">Iniciar sesión con google</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="txt_calorias">Calorias</string>
+    <string name="txt_grasas">Grasas</string>
     <string name="txt_carbo">Carbohidratos</string>
     <string name="txt_proteinas">Proteinas</string>
     <string name="datos_basicos">Datos basicos</string>
     <string name="indice_masa_corporal">Indice de masa corporal</string>
+    <string name="txt_total_calorias">Total Calorias (g)</string>
+    <string name="txt_d_info">¿Que alimentos tienen estos componentes?</string>
 </resources>
