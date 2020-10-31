@@ -33,7 +33,7 @@
         android:layout_width="354dp"
         android:layout_height="97dp"
         android:layout_marginTop="32dp"
-        android:src="@drawable/descarga"
+        android:src="@drawable/desayuno"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -52,7 +52,7 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ibtn_desayuno"
-        app:layout_constraintVertical_bias="0.209" />
+        app:layout_constraintVertical_bias="0.238" />
 
     <ImageButton
         android:id="@+id/ibtn_cena"
@@ -65,13 +65,13 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ibtn_almuerzo"
-        app:layout_constraintVertical_bias="0.208" />
+        app:layout_constraintVertical_bias="0.158" />
 
     <ImageButton
         android:id="@+id/ibtn_bocadillos"
         android:layout_width="354dp"
         android:layout_height="97dp"
-        android:src="@drawable/bocadillo"
+        android:src="@drawable/bocadillos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -86,6 +86,7 @@
         android:text="@string/f_home_text_desy"
         android:textColor="#040404"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/ibtn_desayuno"
         app:layout_constraintEnd_toEndOf="@+id/ibtn_desayuno"
         app:layout_constraintHorizontal_bias="0.083"
@@ -100,6 +101,7 @@
         android:text="@string/f_home_text_almuerzo"
         android:textColor="#040404"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/ibtn_almuerzo"
         app:layout_constraintEnd_toEndOf="@+id/ibtn_almuerzo"
         app:layout_constraintHorizontal_bias="0.083"
@@ -114,6 +116,7 @@
         android:text="@string/f_home_text_cena"
         android:textColor="#040404"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/ibtn_cena"
         app:layout_constraintEnd_toEndOf="@+id/ibtn_cena"
         app:layout_constraintHorizontal_bias="0.083"
@@ -128,6 +131,7 @@
         android:text="@string/f_home_text_bocadillo"
         android:textColor="#040404"
         android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/ibtn_bocadillos"
         app:layout_constraintEnd_toEndOf="@+id/ibtn_bocadillos"
         app:layout_constraintHorizontal_bias="0.083"
@@ -153,26 +157,337 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
-        android:text="calorias:"
+        android:text="@string/carbohidratos_alimento_creacion"
         android:textColor="#0E0E0E"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/ibtn_desayuno"
         app:layout_constraintEnd_toEndOf="@+id/ibtn_desayuno"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/ibtn_desayuno"
-        app:layout_constraintVertical_bias="0.243" />
+        app:layout_constraintVertical_bias="0.487" />
 
     <TextView
-        android:id="@+id/txt_calorias_desy"
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:text="@string/proteinas_alimento_creacion"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_desayuno"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_desayuno"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_desayuno"
+        app:layout_constraintVertical_bias="0.884" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:text="@string/grasas_alimento_creacion"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_desayuno"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_desayuno"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_desayuno"
+        app:layout_constraintVertical_bias="0.115" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/grasas_alimento_creacion"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_almuerzo"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_almuerzo"
+        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_almuerzo"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_almuerzo"
+        app:layout_constraintVertical_bias="0.141" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/proteinas_alimento_creacion"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_almuerzo"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_almuerzo"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_almuerzo"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_almuerzo"
+        app:layout_constraintVertical_bias="0.82" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/proteinas_alimento_creacion"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_cena"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_cena"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_cena"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_cena"
+        app:layout_constraintVertical_bias="0.871" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/proteinas_alimento_creacion"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_bocadillos"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_bocadillos"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_bocadillos"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_bocadillos"
+        app:layout_constraintVertical_bias="0.82" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/carbohidratos_alimento_creacion"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_almuerzo"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_almuerzo"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_almuerzo"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_almuerzo"
+        app:layout_constraintVertical_bias="0.461" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/carbohidratos_alimento_creacion"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_cena"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_cena"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_cena"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_cena"
+        app:layout_constraintVertical_bias="0.538" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/carbohidratos_alimento_creacion"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_bocadillos"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_bocadillos"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_bocadillos"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_bocadillos" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="64dp"
+        android:layout_height="15dp"
+        android:text="@string/grasas_alimento_creacion"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_bocadillos"
+        app:layout_constraintEnd_toEndOf="@+id/txt_carbo_boca"
+        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_bocadillos"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_bocadillos"
+        app:layout_constraintVertical_bias="0.231" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/grasas_alimento_creacion"
+        android:textColor="#0E0E0E"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_cena"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_cena"
+        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_cena"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_cena"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <TextView
+        android:id="@+id/txt_grasas_desy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textColor="#0B0B0B"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/ibtn_desayuno"
         app:layout_constraintEnd_toEndOf="@+id/ibtn_desayuno"
-        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintHorizontal_bias="0.458"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toTopOf="@+id/ibtn_desayuno"
-        app:layout_constraintVertical_bias="0.243" />
+        app:layout_constraintVertical_bias="0.115" />
+
+    <TextView
+        android:id="@+id/txt_carbo_desy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#0B0B0B"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_desayuno"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_desayuno"
+        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_desayuno"
+        app:layout_constraintVertical_bias="0.487" />
+
+    <TextView
+        android:id="@+id/txt_proteinas_desy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#0B0B0B"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_desayuno"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_desayuno"
+        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_desayuno"
+        app:layout_constraintVertical_bias="0.871" />
+
+    <TextView
+        android:id="@+id/txt_carbo_almuerzo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#070707"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_proteinas_almuerzo"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_almuerzo"
+        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_almuerzo"
+        app:layout_constraintTop_toTopOf="@+id/txt_grasas_almuerzo"
+        app:layout_constraintVertical_bias="0.471" />
+
+    <TextView
+        android:id="@+id/txt_proteinas_boca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#070707"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_bocadillos"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_bocadillos"
+        app:layout_constraintHorizontal_bias="0.976"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_bocadillos"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_bocadillos"
+        app:layout_constraintVertical_bias="0.82" />
+
+    <TextView
+        android:id="@+id/txt_grasas_boca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#070707"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_bocadillos"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_bocadillos"
+        app:layout_constraintHorizontal_bias="0.976"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_bocadillos"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_bocadillos"
+        app:layout_constraintVertical_bias="0.192" />
+
+    <TextView
+        android:id="@+id/txt_carbo_boca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#070707"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_bocadillos"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_bocadillos"
+        app:layout_constraintHorizontal_bias="0.976"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_bocadillos"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_bocadillos"
+        app:layout_constraintVertical_bias="0.512" />
+
+    <TextView
+        android:id="@+id/txt_proteinas_almuerzo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#070707"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView15"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_almuerzo"
+        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_almuerzo"
+        app:layout_constraintTop_toTopOf="@+id/txt_grasas_almuerzo"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/txt_grasas_cena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#070707"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView18"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_cena"
+        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_cena"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_cena"
+        app:layout_constraintVertical_bias="0.117" />
+
+    <TextView
+        android:id="@+id/txt_carbo_cena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#070707"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_cena"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_cena"
+        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_cena"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_cena"
+        app:layout_constraintVertical_bias="0.474" />
+
+    <TextView
+        android:id="@+id/txt_proteinas_cena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#070707"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ibtn_cena"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_cena"
+        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_cena"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_cena"
+        app:layout_constraintVertical_bias="0.871" />
+
+    <TextView
+        android:id="@+id/txt_grasas_almuerzo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#070707"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView15"
+        app:layout_constraintEnd_toEndOf="@+id/ibtn_almuerzo"
+        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintStart_toStartOf="@+id/ibtn_almuerzo"
+        app:layout_constraintTop_toTopOf="@+id/ibtn_almuerzo"
+        app:layout_constraintVertical_bias="0.171" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

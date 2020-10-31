@@ -11,8 +11,8 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_nav_inicio_to_nav_detalle_comida"
-            app:destination="@id/nav_detalle_comida" />
+            android:id="@+id/action_nav_inicio_to_detalleCom"
+            app:destination="@id/detalleCom" />
     </fragment>
 
     <fragment
@@ -25,7 +25,6 @@
         android:id="@+id/nav_inicio_sesion"
         android:name="com.example.nutrihabit2.menuPrincipal.ui.login.LoginFragment"
         android:label="@string/menu_inicio_sesion" />
-
     <fragment
         android:id="@+id/nav_alimentos"
         android:name="com.example.nutrihabit2.menuPrincipal.ui.alimentos.AlimentosMainFragment"
@@ -39,22 +38,11 @@
             android:id="@+id/action_nav_alimentos_to_alimentosModificarFragment"
             app:destination="@id/alimentosModificarFragment" />
     </fragment>
-
     <fragment
         android:id="@+id/nav_seguimiento"
         android:name="com.example.nutrihabit2.menuPrincipal.ui.seguimiento.SeguimientoFragment"
-        android:label="@string/seguimiento_main_title"
+        android:label="fragment_seguimiento"
         tools:layout="@layout/fragment_seguimiento" />
-
-    <fragment
-        android:id="@+id/nav_detalle_comida"
-        android:name="com.example.nutrihabit2.menuPrincipal.ui.detalleComida.DetalleComidaFragment"
-        android:label="DetalleComidaFragment" >
-        <action
-            android:id="@+id/action_nav_detalle_comida_to_nav_inicio"
-            app:destination="@id/nav_inicio" />
-    </fragment>
-
     <fragment
         android:id="@+id/alimentosCrearFragment"
         android:name="com.example.nutrihabit2.menuPrincipal.ui.alimentos.AlimentosCrearFragment"
@@ -77,5 +65,10 @@
             android:id="@+id/action_alimentosModificarFragment_to_nav_alimentos"
             app:destination="@id/nav_alimentos" />
     </fragment>
+    <activity
+        android:id="@+id/detalleCom"
+        android:name="com.example.nutrihabit2.menuPrincipal.ui.detalleComida.DetalleCom"
+        android:label="activity_detalle_com"
+        tools:layout="@layout/activity_detalle_com" />
 
 </navigation>
