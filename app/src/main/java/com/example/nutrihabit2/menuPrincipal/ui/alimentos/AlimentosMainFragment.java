@@ -20,8 +20,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class AlimentosMainFragment extends Fragment {
 
-    private AlimentosMainViewModel alimentosMainViewModel;
-
     public static AlimentosMainFragment newInstance() {
         return new AlimentosMainFragment();
     }
@@ -30,17 +28,7 @@ public class AlimentosMainFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.alimentos_main_fragment, container, false);
-
-        // Cambio de orientación no pierde datos...
-        alimentosMainViewModel = new ViewModelProvider(this).get(AlimentosMainViewModel.class);
-        alimentosMainViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                // ToDo: Ver que puede cambiar dentro de este fragment!
-            }
-        });
-        return view;
+        return inflater.inflate(R.layout.alimentos_main_fragment, container, false);
     }
 
     @Override
