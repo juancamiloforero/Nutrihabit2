@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.nutrihabit2.R;
 import com.example.nutrihabit2.modelos.Alimento;
@@ -178,10 +179,6 @@ public class FragmentListaAlimentos extends Fragment implements Alimentos_list_A
         Bundle bundle = new Bundle();
         bundle.putSerializable("alimento", mAlimentos.get(position));
         Navigation.findNavController(getView()).navigate(R.id.alimentosModificarFragment, bundle);
-
-        //Intent intent = new Intent(getContext(), AlimentosModificarActivity.class);
-        //intent.putExtra("alimento", mAlimentos.get(position));
-        //startActivity(intent);
     }
 
     @Override
@@ -217,6 +214,8 @@ public class FragmentListaAlimentos extends Fragment implements Alimentos_list_A
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
                         mRvAlimentosListAdapter.removeAlimento(position);
+                        Toast.makeText(getContext(), "Alimento Eliminado Satisfactoriamente!", Toast.LENGTH_SHORT)
+                                .show();
                     } else {
                         Log.e("Error", "Error al recuperar los alimentos");
                     }
