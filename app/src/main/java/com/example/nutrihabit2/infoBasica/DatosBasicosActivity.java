@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.nutrihabit2.R;
+import com.example.nutrihabit2.modelos.Usuario;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -38,6 +39,8 @@ public class DatosBasicosActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     int objetivo;
+    boolean modoEdicion = false;
+    Usuario usuarioActual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +60,16 @@ public class DatosBasicosActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         this.objetivo = intent.getIntExtra("seleccion", 0);
+        this.modoEdicion = intent.getBooleanExtra("editar", false);
+        if (modoEdicion) {
+            /*
+            this.etEstatura.setText(Float.toString(intent.getFloatExtra("estatura",0)));
+            this.etPeso.setText(Float.toString(intent.getFloatExtra("peso",0)));
+            this.etEdad.setText(Integer.toString(intent.getIntExtra("edad",0)));
+            
+             */
+        }
+
 
     }
 

@@ -2,22 +2,232 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_perfil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/nav_perfil"
+    android:gravity="center_horizontal|center_vertical"
+    android:orientation="vertical"
     tools:context=".menuPrincipal.ui.perfil.PerfilFragment">
 
-    <TextView
-        android:id="@+id/text_gallery"
+    <LinearLayout
+        android:id="@+id/llContenido"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/llBoton">
+
+        <LinearLayout
+            android:id="@+id/llIMC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTuIMC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tu_imc_es"
+                android:textAppearance="@style/TituloMediano" />
+
+            <ImageView
+                android:id="@+id/imgIMC"
+                android:layout_width="299dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="109dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="109dp"
+                android:layout_marginBottom="14dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvTuCondicion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Tu condicion es:  " />
+
+                <TextView
+                    android:id="@+id/tvClasificacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvTuConsumoCalorico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Consumo calorico recomendado: " />
+
+            <TextView
+                android:id="@+id/tvCalorias"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llInfoBasica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblAltura"
+                    android:layout_width="220dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:text="@string/estatura" />
+
+                <TextView
+                    android:id="@+id/tvAltura"
+                    android:layout_width="104dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/lblPeso"
+                    android:layout_width="220dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:text="@string/peso" />
+
+                <TextView
+                    android:id="@+id/tvPeso"
+                    android:layout_width="104dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/lblEdad"
+                    android:layout_width="220dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:text="@string/edad" />
+
+                <TextView
+                    android:id="@+id/tvEdad"
+                    android:layout_width="104dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/lblGenero"
+                    android:layout_width="220dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:text="@string/genero" />
+
+                <TextView
+                    android:id="@+id/tvGenero"
+                    android:layout_width="104dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/lblNivelActividad"
+                    android:layout_width="220dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:text="Nivel Actividad Fisica" />
+
+                <TextView
+                    android:id="@+id/tvNivelActividad"
+                    android:layout_width="104dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/lblTuObjetivo"
+                    android:layout_width="220dp"
+                    android:layout_height="25dp"
+                    android:layout_weight="1"
+                    android:text="Tu Objetivo" />
+
+                <TextView
+                    android:id="@+id/tvTuObjetivo"
+                    android:layout_width="104dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llBoton"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:gravity="center"
+        android:layout_marginBottom="56dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btEditar"
+            android:background="@drawable/rounded_corners"
+            android:layout_gravity="bottom"
+            android:layout_width="311dp"
+            android:layout_height="48dp"
+            android:text="@string/editar_title">
+        </Button>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
