@@ -135,6 +135,26 @@ public class PerfilFragment extends Fragment {
         return  resourceId;
     }
 
+    private int getRStringGenero( String pGenero ) {
+        int stringId = R.string.genero_hombre;
+        if (pGenero == "Mujer") {
+            stringId = R.string.genero_mujer;
+        }
+        return  stringId;
+    }
+
+    private int getRStringObjetivo(int pObjetivo) {
+        int resp = R.string.Ganar_masa;
+        switch (pObjetivo) {
+            case 2:
+                resp = R.string.Perder_peso;
+                break;
+            case 3:
+                resp = R.string.Mantener_estado_fisico;
+        }
+        return  resp;
+    }
+
     private void getInformacion() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference docRef = db.collection("users").document(this.getUserId());
@@ -147,8 +167,8 @@ public class PerfilFragment extends Fragment {
                 tvEstatura.setText(Float.toString( (int) user.getEstatura()));
                 tvPeso.setText(Float.toString( user.getPeso()));
                 tvEdad.setText(Integer.toString( user.getEdad()));
-                tvGenero.setText( user.getGenero());
-                tvObjetivo.setText( Integer.toString(user.getProposito()) );
+                tvGenero.setText( getRStringGenero( user.getGenero() ));
+                tvObjetivo.setText( getRStringObjetivo( user.getProposito() )) ;
                 tvNivelActividad.setText( getRStringNivelActividad(user.getNivel_actividad()) );
                 double calorias = objCalc.calcularCalorias(user.getGenero(),user.getEstatura(),user.getPeso(),user.getEdad(),user.getNivel_actividad(),user.getProposito());
                 tvCalorias.setText(String.format("%.1f", calorias ) );

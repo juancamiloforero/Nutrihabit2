@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="arrNivelActividad">
-        <item>Bajo</item>
-        <item>Moderado</item>
-        <item>Alto</item>
-        <item>Muy Alto</item>
+        <item>@string/nivel_actividad_bajo</item>
+        <item>@string/nivel_actividad_moderado</item>
+        <item>@string/nivel_actividad_alto</item>
+        <item>@string/nivel_actividad_muy_alto</item>
     </string-array>
 </resources>
