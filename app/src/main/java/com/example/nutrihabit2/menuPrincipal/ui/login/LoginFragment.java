@@ -88,15 +88,14 @@ public class LoginFragment extends Fragment {
                 firebaseAuthWithGoogle(account.getIdToken());
                 FirebaseAuth mAuth = FirebaseAuth.getInstance();
                 FirebaseUser currentUser = mAuth.getCurrentUser();
-                System.out.println("---------------------login------------------------");
-                System.out.println(currentUser);
-                System.out.println("---------------------------------------------");
-               Intent intent = new Intent(getActivity(),
-                        menuPrincipal.class);
-                startActivity(intent);
-                Toast.makeText(getContext(), "Inicio de sesion con exito!", Toast.LENGTH_SHORT)
-                        .show();
-                getActivity().finish();
+                if(currentUser!=null){
+                    Intent intent = new Intent(getActivity(),
+                            menuPrincipal.class);
+                    startActivity(intent);
+                    Toast.makeText(getContext(), "Inicio de sesion con exito!", Toast.LENGTH_SHORT)
+                            .show();
+                    getActivity().finish();
+                }
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
