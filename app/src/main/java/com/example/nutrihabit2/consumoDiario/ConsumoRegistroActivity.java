@@ -21,6 +21,8 @@ public class ConsumoRegistroActivity extends AppCompatActivity implements View.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consumo_registro);
         setTitle("Consumo");
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         FragmentListaAlimentos frag = FragmentListaAlimentos.newInstance(1);
@@ -36,5 +38,11 @@ public class ConsumoRegistroActivity extends AppCompatActivity implements View.O
     public void onClick(View v) {
         Intent intent = new Intent(this, SeguimientoListaActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return false;
     }
 }

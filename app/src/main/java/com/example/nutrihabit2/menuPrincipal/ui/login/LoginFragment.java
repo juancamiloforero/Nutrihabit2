@@ -96,6 +96,10 @@ public class LoginFragment extends Fragment {
                             .show();
                     getActivity().finish();
                 }
+                else{
+                    Toast.makeText(getContext(), "Ocurrio un error, intenta de nuevo", Toast.LENGTH_SHORT)
+                            .show();
+                }
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
