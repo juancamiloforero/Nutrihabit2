@@ -54,32 +54,36 @@ public class ImcActivity extends AppCompatActivity {
     private String calcularIMC(float estatura, float peso) {
         estatura = estatura / 100;
         float imc = peso / (estatura * estatura);
-        this.clasificarIMC(imc);
+
+        this.tvClasificacion.setText( this.clasificarIMC(imc));
 
         return String.format("%.1f", imc);
     }
 
-    private String clasificarIMC(float parIMC) {
+    private int clasificarIMC(float parIMC) {
 
-        String clasificacion="Vacio";
+        int clasificacion = 0;
         if (parIMC < 18.5) {
-            clasificacion = "Peso inferior al normal";
+            //clasificacion = "Peso inferior al normal";
+            clasificacion = R.string.peso_inferior_al_normal;
             this.imgIMC.setBackgroundResource(R.drawable.imc_azul);
             this.tvClasificacion.setTextColor(Color.rgb(37, 172, 227));
         } else  if (parIMC >= 18.5 && parIMC <25) {
-            clasificacion = "Peso Normal";
+            //clasificacion = "Peso Normal";
+            clasificacion = R.string.peso_normal;
             this.imgIMC.setBackgroundResource(R.drawable.imc_verde);
             this.tvClasificacion.setTextColor(Color.rgb(107, 127, 56));
         } else if (parIMC >= 25 && parIMC <30) {
-            clasificacion = "Peso superior al normal";
+            //clasificacion = "Peso superior al normal";
+            clasificacion = R.string.peso_superior_al_normal;
             this.imgIMC.setBackgroundResource(R.drawable.imc_amarillo);
             this.tvClasificacion.setTextColor(Color.rgb(238, 169, 30));
         } else if (parIMC > 30) {
-            clasificacion = "Obesidad";
+            //clasificacion = "Obesidad";
+            clasificacion = R.string.obesidad;
             this.imgIMC.setBackgroundResource(R.drawable.imc_naranja);
             this.tvClasificacion.setTextColor(Color.rgb(231, 117, 44));
         }
-        this.tvClasificacion.setText( clasificacion);
         return  clasificacion;
     }
 

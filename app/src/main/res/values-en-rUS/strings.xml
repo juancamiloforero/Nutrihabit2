@@ -33,4 +33,20 @@
     <string name="confirmar_eliminar">Are you sure you want to delete this food?</string>
     <string name="tu_imc_es">"Your BMI is "</string>
     <string name="edad">Age</string>
+    <string name="indice_masa_corporal">Body mass index</string>
+    <string name="datos_basicos">Basic information</string>
+    <string name="peso_inferior_al_normal">Underweight</string>
+    <string name="peso_normal">Normal</string>
+    <string name="peso_superior_al_normal">Overweight</string>
+    <string name="obesidad">Obese</string>
+    <string name="tu_condicion_es">"Your condition is: "</string>
+    <string name="consumo_calorico_recomendado">"Recommended calories: "</string>
+    <string name="tu_objetivo">Objective</string>
+    <string name="menu_perfil">Profile</string>
+    <string name="genero_hombre">Male</string>
+    <string name="genero_mujer">Female</string>
+    <string name="nivel_actividad_bajo">Low</string>
+    <string name="nivel_actividad_moderado">Moderate</string>
+    <string name="nivel_actividad_alto">Hight</string>
+    <string name="nivel_actividad_muy_alto">Very hight</string>
 </resources>

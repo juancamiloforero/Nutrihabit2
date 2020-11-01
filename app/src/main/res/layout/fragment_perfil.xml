@@ -53,7 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="Tu condicion es:  " />
+                    android:text="@string/tu_condicion_es" />
 
                 <TextView
                     android:id="@+id/tvClasificacion"
@@ -74,7 +74,7 @@
                 android:id="@+id/tvTuConsumoCalorico"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Consumo calorico recomendado: " />
+                android:text="@string/consumo_calorico_recomendado" />
 
             <TextView
                 android:id="@+id/tvCalorias"
@@ -175,7 +175,7 @@
                     android:layout_width="220dp"
                     android:layout_height="25dp"
                     android:layout_weight="1"
-                    android:text="Nivel Actividad Fisica" />
+                    android:text="@string/actividad_fisica" />
 
                 <TextView
                     android:id="@+id/tvNivelActividad"
@@ -194,7 +194,7 @@
                     android:layout_width="220dp"
                     android:layout_height="25dp"
                     android:layout_weight="1"
-                    android:text="Tu Objetivo" />
+                    android:text="@string/tu_objetivo" />
 
                 <TextView
                     android:id="@+id/tvTuObjetivo"
