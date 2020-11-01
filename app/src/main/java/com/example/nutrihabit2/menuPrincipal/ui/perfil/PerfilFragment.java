@@ -99,7 +99,7 @@ public class PerfilFragment extends Fragment {
     public void iniciarIntent() {
         Intent intent = new Intent();
         intent.setClass(getActivity(), DatosBasicosActivity.class);
-
+        intent.putExtra("editar", true);
         intent.putExtra("edad", usuarioActual.getEdad());
         intent.putExtra("estatura", usuarioActual.getEstatura());
         intent.putExtra("peso", usuarioActual.getPeso());
