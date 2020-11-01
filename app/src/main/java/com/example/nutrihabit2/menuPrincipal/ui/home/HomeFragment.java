@@ -1,6 +1,8 @@
 package com.example.nutrihabit2.menuPrincipal.ui.home;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,23 +21,26 @@ import  com.example.nutrihabit2.R;
 import com.example.nutrihabit2.menuPrincipal.ui.alimentos.FragmentListaAlimentos;
 import com.example.nutrihabit2.menuPrincipal.ui.consumo.ConsumoCrearActivity;
 import com.example.nutrihabit2.menuPrincipal.ui.detalleComida.DetalleCom;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    private int objetivo=2;//1 subir, 2 bajar, 3 mantener
+    private  View root;
+    private int objetivo=1;//1 subir, 2 bajar, 3 mantener
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private String mPrefs = "USER_INFORMATION";
+    private String keyUserId = "userId";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        //TO DO: obtener objetivo
-
-        this.datosPorcentajeVista(homeViewModel,root,"desy");
-        this.datosPorcentajeVista(homeViewModel,root,"almuerzo");
-        this.datosPorcentajeVista(homeViewModel,root,"cena");
-        this.datosPorcentajeVista(homeViewModel,root,"boca");
+        this.obtenerObjetivo(homeViewModel,root);
 
         ImageButton desayuno = root.findViewById(R.id.ibtn_desayuno);
         ImageButton almuerzo = root.findViewById(R.id.ibtn_almuerzo);
@@ -96,6 +101,32 @@ public class HomeFragment extends Fragment {
             }
         });
         return root;
+    }
+
+    private String getUserId() {
+        SharedPreferences sharedPref = getActivity().getSharedPreferences(this.mPrefs, Context.MODE_PRIVATE);
+        return sharedPref.getString(this.keyUserId, null);
+    }
+
+    private void obtenerObjetivo(HomeViewModel home, final View root) {
+        if (this.getUserId() != null) {
+
+            db.collection("users").document(getUserId()).addSnapshotListener(
+                    new EventListener<DocumentSnapshot>() {
+                        @Override
+                        public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
+                            //System.out.println(documentSnapshot.getData());
+                            long ax= (long) documentSnapshot.get("proposito");
+                            objetivo= (int) ax;
+                            datosPorcentajeVista(homeViewModel,root,"desy");
+                            datosPorcentajeVista(homeViewModel,root,"almuerzo");
+                            datosPorcentajeVista(homeViewModel,root,"cena");
+                            datosPorcentajeVista(homeViewModel,root,"boca");
+                        }
+                    }
+            );
+
+        }
     }
 
     public void datosPorcentajeVista(HomeViewModel home,View root,String tipo){

@@ -24,6 +24,10 @@
             android:id="@+id/nav_inicio_sesion"
             android:icon="@drawable/ic_menu_inicio_sesion_foreground"
             android:title="@string/menu_inicio_sesion" />
-
+        <item
+            android:id="@+id/nav_salir"
+            android:icon="@drawable/ic_salir_foreground"
+            android:title="@string/nav_salir"/>
     </group>
+
 </menu>
