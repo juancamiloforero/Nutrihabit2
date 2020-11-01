@@ -1,6 +1,7 @@
 package com.example.nutrihabit2.menuPrincipal.ui.perfil;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,7 +19,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import  com.example.nutrihabit2.R;
+import com.example.nutrihabit2.infoBasica.DatosBasicosActivity;
+import com.example.nutrihabit2.infoBasica.ImcActivity;
 import  com.example.nutrihabit2.logica.clsCalculos;
+import com.example.nutrihabit2.menuPrincipal.menuPrincipal;
 import com.example.nutrihabit2.modelos.Usuario;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -27,9 +32,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class PerfilFragment extends Fragment {
 
+    Usuario usuarioActual = null;
     private PerfilViewModel perfilViewModel;
     TextView tvIMC, tvEstatura, tvPeso, tvEdad, tvGenero, tvNivelActividad, tvObjetivo, tvCalorias, tvClasificacion;
     ImageView imgIMC;
+    Button btnEditar;
     clsCalculos objCalc = new clsCalculos();
     private String mPrefs = "USER_INFORMATION";
     private String keyUserId = "userId";
@@ -50,6 +57,13 @@ public class PerfilFragment extends Fragment {
         this.tvCalorias = root.findViewById(R.id.tvCalorias);
         this.tvClasificacion = root.findViewById(R.id.tvClasificacion);
         this.imgIMC = root.findViewById(R.id.imgIMC);
+        this.btnEditar = root.findViewById(R.id.btEditar);
+        btnEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iniciarIntent();
+            }
+        });
         this.getInformacion();
         return root;
     }
@@ -82,7 +96,21 @@ public class PerfilFragment extends Fragment {
         SharedPreferences sharedPref = this.getContext().getSharedPreferences(this.mPrefs, Context.MODE_PRIVATE);
         return sharedPref.getString(this.keyUserId, null);
     }
+    public void iniciarIntent() {
+        Intent intent = new Intent();
+        intent.setClass(getActivity(), DatosBasicosActivity.class);
 
+        intent.putExtra("edad", usuarioActual.getEdad());
+        intent.putExtra("estatura", usuarioActual.getEstatura());
+        intent.putExtra("peso", usuarioActual.getPeso());
+        intent.putExtra("genero", usuarioActual.getGenero());
+        intent.putExtra("nivelActividad", usuarioActual.getNivel_actividad());
+        intent.putExtra("objetivo", usuarioActual.getProposito());
+
+
+        startActivity(intent);
+
+    }
     private void getInformacion() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference docRef = db.collection("users").document(this.getUserId());
@@ -90,6 +118,7 @@ public class PerfilFragment extends Fragment {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 Usuario user = documentSnapshot.toObject(Usuario.class);
+                usuarioActual = user;
                 calcularYClasificarIMC(user.getEstatura(),user.getPeso());
                 tvEstatura.setText(Float.toString( (int) user.getEstatura()));
                 tvPeso.setText(Float.toString( user.getPeso()));
