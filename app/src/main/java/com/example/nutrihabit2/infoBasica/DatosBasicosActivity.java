@@ -9,8 +9,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.nutrihabit2.R;
@@ -30,8 +33,8 @@ public class DatosBasicosActivity extends AppCompatActivity {
     EditText etEstatura;
     EditText etPeso;
     EditText etEdad;
-    Spinner spGenero;
-    Spinner spActividad;
+    Spinner spGenero,spActividad, spObjetivo;
+    LinearLayout llObjetivo;
 
     private String mPrefs = "USER_INFORMATION";
     private String keyUserId = "userId";
@@ -41,6 +44,7 @@ public class DatosBasicosActivity extends AppCompatActivity {
     int objetivo;
     boolean modoEdicion = false;
     Usuario usuarioActual;
+    Button btSiguiente, btGuardar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,23 +61,31 @@ public class DatosBasicosActivity extends AppCompatActivity {
         this.etEdad = (EditText) findViewById(R.id.etEdad);
         this.spGenero = (Spinner) findViewById(R.id.spGenero);
         this.spActividad = (Spinner) findViewById(R.id.spActividadFisica);
+        this.spObjetivo = (Spinner) findViewById(R.id.spObjetivo);
+        this.llObjetivo = (LinearLayout) findViewById(R.id.idLinearObjetivo);
+        btSiguiente = findViewById(R.id.btSiguiente);
+        btGuardar = findViewById(R.id.btGuardar);
 
         Intent intent = getIntent();
         this.objetivo = intent.getIntExtra("seleccion", 0);
         this.modoEdicion = intent.getBooleanExtra("editar", false);
         if (modoEdicion) {
+            btGuardar.setVisibility(View.VISIBLE);
+            btSiguiente.setVisibility(View.INVISIBLE);
+            llObjetivo.setVisibility(View.VISIBLE);
             /*
             this.etEstatura.setText(Float.toString(intent.getFloatExtra("estatura",0)));
             this.etPeso.setText(Float.toString(intent.getFloatExtra("peso",0)));
             this.etEdad.setText(Integer.toString(intent.getIntExtra("edad",0)));
             
              */
+        } else {
+            btGuardar.setVisibility(View.INVISIBLE);
+            btSiguiente.setVisibility(View.VISIBLE);
+            llObjetivo.setVisibility(View.INVISIBLE);
         }
 
-
     }
-
-
 
     public void irAIMC(float estatura, float peso, int edad) {
         Intent intent = new Intent(this, ImcActivity.class);
@@ -84,22 +96,48 @@ public class DatosBasicosActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private String getStrGeneroGuardar(int pPosicion) {
+        String resp = "Hombre";
+        if (pPosicion == 1) {
+            resp = "Mujer";
+        }
+        return resp;
+    }
+
+    private String getStrNivelActividadGuardar(int pPosicion) {
+        String resp = "Bajo";
+        switch (pPosicion) {
+            case 1:
+                resp = "Moderado";
+                break;
+            case 2:
+                resp = "Alto";
+                break;
+            case 3:
+                resp = "Muy Alto";
+                break;
+        }
+        return resp;
+    }
 
     public void onClick(View view) {
+        //Captura de datos
+        float estatura = Float.parseFloat(this.etEstatura.getText().toString());
+        float peso = Float.parseFloat(this.etPeso.getText().toString());
+        int edad = Integer.parseInt(this.etEdad.getText().toString());
+        String genero = this.getStrGeneroGuardar(this.spGenero.getSelectedItemPosition());
+        String nivelActividad = this.getStrNivelActividadGuardar(this.spActividad.getSelectedItemPosition());
+
         switch (view.getId()) {
             case (R.id.btSiguiente):
-
-                //Captura de datos
-                float estatura = Float.parseFloat(this.etEstatura.getText().toString());
-                float peso = Float.parseFloat(this.etPeso.getText().toString());
-                int edad = Integer.parseInt(this.etEdad.getText().toString());
-                String genero = this.spGenero.getSelectedItem().toString();
-                String nivelActividad = this.spActividad.getSelectedItem().toString();
-
-                this.guardarDatosBasicos(estatura,peso,edad,genero,nivelActividad);
+                this.guardarDatosBasicos(estatura,peso,edad,genero,nivelActividad, false);
                 this.irAIMC(estatura,peso,edad);
-
                 break;
+
+            case (R.id.btGuardar):
+                this.guardarDatosBasicos(estatura,peso,edad,genero,nivelActividad, true);
+                //finish();
+
         }
     }
 
@@ -153,7 +191,7 @@ public class DatosBasicosActivity extends AppCompatActivity {
         return sharedPref.getString(this.keyUserId, null);
     }
 
-    private void guardarDatosBasicos(float pEstatura, float pPeso, int pEdad, String pGenero, String pNivelActividad) {
+    private void guardarDatosBasicos(float pEstatura, float pPeso, int pEdad, String pGenero, String pNivelActividad, final boolean modoEdit) {
         if (this.getUserId() != null) {
 
             Map<String, Object> user = new HashMap<>();
@@ -170,6 +208,9 @@ public class DatosBasicosActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Log.d("TAG", "DocumentSnapshot successfully written!");
+                            if (modoEdit) {
+                                onSupportNavigateUp();
+                            }
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -184,7 +225,9 @@ public class DatosBasicosActivity extends AppCompatActivity {
     // Back button handler
     @Override
     public boolean onSupportNavigateUp() {
-        finish();
+        if (!modoEdicion) {
+            finish();
+        }
         return true;
     }
 }

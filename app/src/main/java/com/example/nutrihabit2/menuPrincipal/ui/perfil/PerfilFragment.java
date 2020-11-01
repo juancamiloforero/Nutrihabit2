@@ -71,21 +71,25 @@ public class PerfilFragment extends Fragment {
     private  void calcularYClasificarIMC(float estatura, float peso) {
         this.tvIMC.setText(getString(R.string.tu_imc_es )+" "+ this.objCalc.calcularIMC(estatura,peso));
         float parIMC = this.objCalc.calcularIMC2(estatura,peso);
-        String clasificacion="Vacio";
+        int clasificacion=0;
         if (parIMC < 18.5) {
-            clasificacion = "Peso inferior al normal";
+            //clasificacion = "Peso inferior al normal";
+            clasificacion = R.string.peso_inferior_al_normal;
             this.imgIMC.setBackgroundResource(R.drawable.imc_azul);
             this.tvClasificacion.setTextColor(Color.rgb(37, 172, 227));
         } else  if (parIMC >= 18.5 && parIMC <25) {
-            clasificacion = "Peso Normal";
+            //clasificacion = "Peso Normal";
+            clasificacion = R.string.peso_normal;
             this.imgIMC.setBackgroundResource(R.drawable.imc_verde);
             this.tvClasificacion.setTextColor(Color.rgb(107, 127, 56));
         } else if (parIMC >= 25 && parIMC <30) {
-            clasificacion = "Peso superior al normal";
+            //clasificacion = "Peso superior al normal";
+            clasificacion = R.string.peso_superior_al_normal;
             this.imgIMC.setBackgroundResource(R.drawable.imc_amarillo);
             this.tvClasificacion.setTextColor(Color.rgb(238, 169, 30));
         } else if (parIMC > 30) {
-            clasificacion = "Obesidad";
+            //clasificacion = "Obesidad";
+            clasificacion = R.string.obesidad;
             this.imgIMC.setBackgroundResource(R.drawable.imc_naranja);
             this.tvClasificacion.setTextColor(Color.rgb(231, 117, 44));
         }
@@ -111,6 +115,46 @@ public class PerfilFragment extends Fragment {
         startActivity(intent);
 
     }
+
+    private int getRStringNivelActividad(String pNivel) {
+        int resourceId = 0;
+        switch (pNivel) {
+            case "Bajo":
+                resourceId = R.string.nivel_actividad_bajo;
+                break;
+            case "Moderado":
+                resourceId = R.string.nivel_actividad_moderado;
+                break;
+            case "Alto":
+                resourceId = R.string.nivel_actividad_alto;
+                break;
+            case "Muy Alto":
+                resourceId = R.string.nivel_actividad_muy_alto;
+                break;
+        }
+        return  resourceId;
+    }
+
+    private int getRStringGenero( String pGenero ) {
+        int stringId = R.string.genero_hombre;
+        if (pGenero == "Mujer") {
+            stringId = R.string.genero_mujer;
+        }
+        return  stringId;
+    }
+
+    private int getRStringObjetivo(int pObjetivo) {
+        int resp = R.string.Ganar_masa;
+        switch (pObjetivo) {
+            case 2:
+                resp = R.string.Perder_peso;
+                break;
+            case 3:
+                resp = R.string.Mantener_estado_fisico;
+        }
+        return  resp;
+    }
+
     private void getInformacion() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference docRef = db.collection("users").document(this.getUserId());
@@ -123,12 +167,12 @@ public class PerfilFragment extends Fragment {
                 tvEstatura.setText(Float.toString( (int) user.getEstatura()));
                 tvPeso.setText(Float.toString( user.getPeso()));
                 tvEdad.setText(Integer.toString( user.getEdad()));
-                tvGenero.setText( user.getGenero());
-                tvObjetivo.setText( Integer.toString(user.getProposito()) );
-                tvNivelActividad.setText( user.getNivel_actividad());
+                tvGenero.setText( getRStringGenero( user.getGenero() ));
+                tvObjetivo.setText( getRStringObjetivo( user.getProposito() )) ;
+                tvNivelActividad.setText( getRStringNivelActividad(user.getNivel_actividad()) );
                 double calorias = objCalc.calcularCalorias(user.getGenero(),user.getEstatura(),user.getPeso(),user.getEdad(),user.getNivel_actividad(),user.getProposito());
+                tvCalorias.setText(String.format("%.1f", calorias ) );
 
-                tvCalorias.setText(Double.toString(calorias) );
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

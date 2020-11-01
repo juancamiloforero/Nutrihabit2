@@ -40,8 +40,6 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    <string name="menu_home">Home</string>
-    <string name="menu_perfil">Profile</string>
     <string name="menu_seguimiento">Tracing</string>
     <string name="menu_alimentos">Foods</string>
     <string name="menu_inicio_sesion">Login</string>
@@ -58,9 +56,25 @@
     <string name="txt_grasas">fat</string>
     <string name="txt_carbo">carbohydrate</string>
     <string name="txt_proteinas">protein</string>
-    <string name="datos_basicos">Basic Information</string>
-    <string name="indice_masa_corporal">" Body mass index"</string>
     <string name="txt_total_calorias">Total Calories (g)</string>
     <string name="txt_d_info">" What foods have these components?"</string>
     <string name="nav_salir">Go out</string>
+    <string name="indice_masa_corporal">Body mass index</string>
+    <string name="datos_basicos">Basic information</string>
+    <string name="peso_inferior_al_normal">Underweight</string>
+    <string name="peso_normal">Normal</string>
+    <string name="peso_superior_al_normal">Overweight</string>
+    <string name="obesidad">Obese</string>
+    <string name="tu_condicion_es">"Your condition is: "</string>
+    <string name="consumo_calorico_recomendado">"Recommended calories: "</string>
+    <string name="tu_objetivo">"Objective: "</string>
+    <string name="menu_perfil">Profile</string>
+    <string name="genero_hombre">Male</string>
+    <string name="genero_mujer">Female</string>
+    <string name="nivel_actividad_bajo">Low</string>
+    <string name="nivel_actividad_moderado">Moderate</string>
+    <string name="nivel_actividad_alto">Hight</string>
+    <string name="nivel_actividad_muy_alto">Very hight</string>
+    <string name="objetivo">"Objective: "</string>
+    <string name="menu_home">Home</string>
 </resources>

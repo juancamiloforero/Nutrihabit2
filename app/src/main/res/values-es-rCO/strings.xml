@@ -63,4 +63,20 @@
     <string name="txt_total_calorias">Total Calorias (g)</string>
     <string name="txt_d_info">¿Que alimentos tienen estos componentes?</string>
     <string name="nav_salir">Salir</string>
+=======
+    <string name="peso_inferior_al_normal">Peso inferior al normal</string>
+    <string name="peso_normal">Peso normal</string>
+    <string name="peso_superior_al_normal">Peso superior al normal</string>
+    <string name="obesidad">Obesidad</string>
+    <string name="tu_condicion_es">"Tu condicion es: "</string>
+    <string name="consumo_calorico_recomendado">"Consumo calorico recomendado: "</string>
+    <string name="tu_objetivo">"Tu objetivo: "</string>
+    <string name="genero_hombre">Hombre</string>
+    <string name="genero_mujer">Mujer</string>
+    <string name="nivel_actividad_bajo">Bajo</string>
+    <string name="nivel_actividad_moderado">Moderado</string>
+    <string name="nivel_actividad_alto">Alto</string>
+    <string name="nivel_actividad_muy_alto">Muy alto</string>
+    <string name="objetivo">"Objetivo: "</string>
+>>>>>>> 7c3b6365b64f3b9a7e8c9fcec35404c6465b1265
 </resources>
