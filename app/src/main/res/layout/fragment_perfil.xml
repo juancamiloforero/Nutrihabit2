@@ -5,7 +5,7 @@
     android:id="@+id/nav_perfil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
+    android:gravity="center_horizontal|center_vertical"
     android:orientation="vertical"
     tools:context=".menuPrincipal.ui.perfil.PerfilFragment">
 
@@ -14,8 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical"
-        android:layout_margin="25dp">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tvTuIMC"
@@ -31,27 +30,25 @@
             android:layout_marginStart="109dp"
             android:layout_marginTop="3dp"
             android:layout_marginEnd="109dp"
-            android:layout_marginBottom="14dp"
-            app:srcCompat="@drawable/imc_verde" />
+            android:layout_marginBottom="14dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
+
             <TextView
                 android:id="@+id/tvTuCondicion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Tu condicion es:  "
-                />
+                android:text="Tu condicion es:  " />
+
             <TextView
                 android:id="@+id/tvClasificacion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="Sobrepeso"
-                />
+                android:layout_marginTop="5dp" />
         </LinearLayout>
 
     </LinearLayout>
@@ -59,20 +56,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginBottom="25dp">
+        android:layout_margin="25dp"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/tvTuConsumoCalorico"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Consumo calorico recomendado: "
-            />
+            android:text="Consumo calorico recomendado: " />
+
         <TextView
             android:id="@+id/tvCalorias"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1726 Kal"/>
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
@@ -99,8 +95,7 @@
                 android:id="@+id/tvAltura"
                 android:layout_width="104dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="186 cm" />
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -119,8 +114,7 @@
                 android:id="@+id/tvPeso"
                 android:layout_width="104dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="97 kg" />
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -139,8 +133,7 @@
                 android:id="@+id/tvEdad"
                 android:layout_width="104dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="25" />
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -153,14 +146,13 @@
                 android:layout_width="220dp"
                 android:layout_height="25dp"
                 android:layout_weight="1"
-                android:text="@string/genero"/>
+                android:text="@string/genero" />
 
             <TextView
                 android:id="@+id/tvGenero"
                 android:layout_width="104dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Masculino" />
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -178,8 +170,7 @@
                 android:id="@+id/tvNivelActividad"
                 android:layout_width="104dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Moderado" />
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -198,8 +189,7 @@
                 android:id="@+id/tvTuObjetivo"
                 android:layout_width="104dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Ganar Masa Muscular" />
+                android:layout_weight="1" />
 
         </LinearLayout>
 
