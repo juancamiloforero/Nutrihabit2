@@ -62,4 +62,5 @@
     <string name="indice_masa_corporal">Indice de masa corporal</string>
     <string name="txt_total_calorias">Total Calorias (g)</string>
     <string name="txt_d_info">¿Que alimentos tienen estos componentes?</string>
+    <string name="nav_salir">Salir</string>
 </resources>

@@ -38,7 +38,7 @@ public class DetalleCom extends AppCompatActivity {
     double estatura, peso; long edad; String genero, nivelActividad,tipoCom;
     TextView grasas, carbohidratos, proteinas;
     ImageView imagen;
-    private int objetivo=2;//1 subir, 2 bajar, 3 mantener
+    private int objetivo;//1 subir, 2 bajar, 3 mantener
     private ArrayList<String> comidas_gras;
     private ArrayList<String> comidas_carbo;
     private ArrayList<String> comidas_prot;
