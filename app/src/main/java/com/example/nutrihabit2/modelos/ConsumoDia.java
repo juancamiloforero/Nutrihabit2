@@ -1,7 +1,6 @@
-package com.example.nutrihabit2.consumoDiario;
+package com.example.nutrihabit2.modelos;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class ConsumoDia {
     private ArrayList<ConsumoAlimento> consumosDiarios;

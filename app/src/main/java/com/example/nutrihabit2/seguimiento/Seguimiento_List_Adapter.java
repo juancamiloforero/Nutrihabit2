@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nutrihabit2.R;
 import com.example.nutrihabit2.modelos.Alimento;
-import com.example.nutrihabit2.consumoDiario.ConsumoDia;
+import com.example.nutrihabit2.modelos.ConsumoDia;
 
 import java.util.ArrayList;
 

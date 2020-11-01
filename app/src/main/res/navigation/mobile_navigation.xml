@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_nav_inicio_to_detalleCom"
             app:destination="@id/detalleCom" />
+        <action
+            android:id="@+id/action_nav_inicio_to_consumoCrearActivity"
+            app:destination="@id/consumoCrearActivity" />
     </fragment>
 
     <fragment
@@ -70,5 +73,9 @@
         android:name="com.example.nutrihabit2.menuPrincipal.ui.detalleComida.DetalleCom"
         android:label="activity_detalle_com"
         tools:layout="@layout/activity_detalle_com" />
+    <activity
+        android:id="@+id/consumoCrearActivity"
+        android:name="com.example.nutrihabit2.menuPrincipal.ui.consumo.ConsumoCrearActivity"
+        android:label="ConsumoCrearActivity" />
 
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.nutrihabit2.consumoDiario;
+package com.example.nutrihabit2.modelos;
 
 import com.example.nutrihabit2.modelos.Alimento;
 

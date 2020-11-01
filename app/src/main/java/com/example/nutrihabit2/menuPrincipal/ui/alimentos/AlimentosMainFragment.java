@@ -45,7 +45,7 @@ public class AlimentosMainFragment extends Fragment {
         });
 
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
-        FragmentListaAlimentos frag = FragmentListaAlimentos.newInstance(0);
+        FragmentListaAlimentos frag = new FragmentListaAlimentos();
         ft.replace(R.id.listaAlimentosContainer, frag);
         ft.commit();
     }
