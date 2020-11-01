@@ -19,6 +19,7 @@ import com.example.nutrihabit2.R;
 import com.example.nutrihabit2.infoBasica.DatosBasicosActivity;
 import com.example.nutrihabit2.menuPrincipal.menuPrincipal;
 import com.example.nutrihabit2.menuPrincipal.ui.detalleComida.DetalleCom;
+import com.example.nutrihabit2.menuPrincipal.ui.home.HomeFragment;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -85,11 +86,17 @@ public class LoginFragment extends Fragment {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
                 firebaseAuthWithGoogle(account.getIdToken());
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                FirebaseUser currentUser = mAuth.getCurrentUser();
+                System.out.println("---------------------login------------------------");
+                System.out.println(currentUser);
+                System.out.println("---------------------------------------------");
                Intent intent = new Intent(getActivity(),
                         menuPrincipal.class);
                 startActivity(intent);
                 Toast.makeText(getContext(), "Inicio de sesion con exito!", Toast.LENGTH_SHORT)
                         .show();
+                getActivity().finish();
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);

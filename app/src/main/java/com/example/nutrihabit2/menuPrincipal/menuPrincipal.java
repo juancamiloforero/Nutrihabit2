@@ -59,6 +59,9 @@ public class menuPrincipal extends AppCompatActivity {
         mAppBarConfiguration = builder.build();
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
+        System.out.println("---------------------------------------------");
+        System.out.println(currentUser);
+        System.out.println("---------------------------------------------");
         if(currentUser==null){
             navigationView.getMenu().findItem(R.id.nav_inicio_sesion).setVisible(true);
             navigationView.getMenu().findItem(R.id.nav_salir).setVisible(false);
