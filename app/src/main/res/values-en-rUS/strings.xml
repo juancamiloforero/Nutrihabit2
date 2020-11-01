@@ -41,7 +41,7 @@
     <string name="obesidad">Obese</string>
     <string name="tu_condicion_es">"Your condition is: "</string>
     <string name="consumo_calorico_recomendado">"Recommended calories: "</string>
-    <string name="tu_objetivo">Objective</string>
+    <string name="tu_objetivo">"Objective: "</string>
     <string name="menu_perfil">Profile</string>
     <string name="genero_hombre">Male</string>
     <string name="genero_mujer">Female</string>
@@ -49,4 +49,7 @@
     <string name="nivel_actividad_moderado">Moderate</string>
     <string name="nivel_actividad_alto">Hight</string>
     <string name="nivel_actividad_muy_alto">Very hight</string>
+    <string name="objetivo">"Objective: "</string>
+    <string name="menu_home">Home</string>
+    
 </resources>

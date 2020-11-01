@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
@@ -32,8 +33,8 @@ public class DatosBasicosActivity extends AppCompatActivity {
     EditText etEstatura;
     EditText etPeso;
     EditText etEdad;
-    Spinner spGenero;
-    Spinner spActividad;
+    Spinner spGenero,spActividad, spObjetivo;
+    LinearLayout llObjetivo;
 
     private String mPrefs = "USER_INFORMATION";
     private String keyUserId = "userId";
@@ -60,6 +61,8 @@ public class DatosBasicosActivity extends AppCompatActivity {
         this.etEdad = (EditText) findViewById(R.id.etEdad);
         this.spGenero = (Spinner) findViewById(R.id.spGenero);
         this.spActividad = (Spinner) findViewById(R.id.spActividadFisica);
+        this.spObjetivo = (Spinner) findViewById(R.id.spObjetivo);
+        this.llObjetivo = (LinearLayout) findViewById(R.id.idLinearObjetivo);
         btSiguiente = findViewById(R.id.btSiguiente);
         btGuardar = findViewById(R.id.btGuardar);
 
@@ -69,6 +72,7 @@ public class DatosBasicosActivity extends AppCompatActivity {
         if (modoEdicion) {
             btGuardar.setVisibility(View.VISIBLE);
             btSiguiente.setVisibility(View.INVISIBLE);
+            llObjetivo.setVisibility(View.VISIBLE);
             /*
             this.etEstatura.setText(Float.toString(intent.getFloatExtra("estatura",0)));
             this.etPeso.setText(Float.toString(intent.getFloatExtra("peso",0)));
@@ -78,6 +82,7 @@ public class DatosBasicosActivity extends AppCompatActivity {
         } else {
             btGuardar.setVisibility(View.INVISIBLE);
             btSiguiente.setVisibility(View.VISIBLE);
+            llObjetivo.setVisibility(View.INVISIBLE);
         }
 
     }
@@ -125,14 +130,14 @@ public class DatosBasicosActivity extends AppCompatActivity {
 
         switch (view.getId()) {
             case (R.id.btSiguiente):
-                this.guardarDatosBasicos(estatura,peso,edad,genero,nivelActividad);
+                this.guardarDatosBasicos(estatura,peso,edad,genero,nivelActividad, false);
                 this.irAIMC(estatura,peso,edad);
                 break;
 
             case (R.id.btGuardar):
-                this.guardarDatosBasicos(estatura,peso,edad,genero,nivelActividad);
+                this.guardarDatosBasicos(estatura,peso,edad,genero,nivelActividad, true);
                 //finish();
-                onSupportNavigateUp();
+
         }
     }
 
@@ -186,7 +191,7 @@ public class DatosBasicosActivity extends AppCompatActivity {
         return sharedPref.getString(this.keyUserId, null);
     }
 
-    private void guardarDatosBasicos(float pEstatura, float pPeso, int pEdad, String pGenero, String pNivelActividad) {
+    private void guardarDatosBasicos(float pEstatura, float pPeso, int pEdad, String pGenero, String pNivelActividad, final boolean modoEdit) {
         if (this.getUserId() != null) {
 
             Map<String, Object> user = new HashMap<>();
@@ -203,6 +208,9 @@ public class DatosBasicosActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Log.d("TAG", "DocumentSnapshot successfully written!");
+                            if (modoEdit) {
+                                onSupportNavigateUp();
+                            }
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -217,7 +225,9 @@ public class DatosBasicosActivity extends AppCompatActivity {
     // Back button handler
     @Override
     public boolean onSupportNavigateUp() {
-        finish();
+        if (!modoEdicion) {
+            finish();
+        }
         return true;
     }
 }

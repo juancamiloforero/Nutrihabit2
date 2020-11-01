@@ -129,6 +129,37 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/idLinearObjetivo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idLinearActividadFisica">
+
+        <TextView
+            android:id="@+id/etObjetivo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:hint="@string/objetivo"
+            android:textAlignment="center"
+
+            android:textAppearance="@style/TextoNormal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Spinner
+            android:id="@+id/spObjetivo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:entries="@array/Objetivos"
+            android:textAppearance="@style/TituloPequenio" />
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/btSiguiente"

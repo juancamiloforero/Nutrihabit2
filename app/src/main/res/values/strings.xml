@@ -76,4 +76,5 @@
     <string name="nivel_actividad_moderado">Moderado</string>
     <string name="nivel_actividad_alto">Alto</string>
     <string name="nivel_actividad_muy_alto">Muy alto</string>
+    <string name="objetivo">Objetivo</string>
 </resources>
