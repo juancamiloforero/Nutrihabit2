@@ -17,7 +17,7 @@
         <activity android:name=".seguimiento.SeguimientoListaActivity" />
         <activity android:name=".consumoDiario.ConsumoRegistroActivity" />
         <activity android:name=".infoBasica.ImcActivity" />
-        <activity android:name=".infoBasica.DatosBasicosActivity" />
+        <activity android:name=".infoBasica.DatosBasicosActivity"/>
         <activity android:name=".BienvenidaActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
