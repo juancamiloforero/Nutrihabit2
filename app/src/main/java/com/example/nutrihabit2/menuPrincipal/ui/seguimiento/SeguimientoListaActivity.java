@@ -1,73 +1,61 @@
-package com.example.nutrihabit2.seguimiento;
+package com.example.nutrihabit2.menuPrincipal.ui.seguimiento;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.example.nutrihabit2.R;
+import com.example.nutrihabit2.menuPrincipal.ui.alimentos.FragmentListaAlimentos;
+import com.example.nutrihabit2.modelos.Alimento;
+import com.example.nutrihabit2.modelos.ConsumoAlimento;
 import com.example.nutrihabit2.modelos.ConsumoDia;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SeguimientoListaActivity extends AppCompatActivity {
-
-    private RecyclerView mRvSeguimientoList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seguimiento_lista);
-        setTitle("Seguimiento");
+        setTitle(R.string.seguimiento_main_title);
 
-        // Inicializar recycler lista
-        mRvSeguimientoList = findViewById(R.id.rvSeguimientoDiario);
-        mRvSeguimientoList.setHasFixedSize(true);
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        // Lista
-        // Solo decoración
-        mRvSeguimientoList.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        SeguimientoMainFragment frag = new SeguimientoMainFragment();
+        ft.replace(R.id.listaSeguimientoContainer, frag);
+        ft.commit();
+    }
 
-        // Layout manager
-        // LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
-        layoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
-        mRvSeguimientoList.setLayoutManager(layoutManager);
-        /*
-        // Creación lista temporal de alimentos
-        Alimento a1 = new Alimento("Arroz");
-        Alimento a2 = new Alimento("Lentejas");
-        Alimento a3 = new Alimento("Papa");
-        Alimento a4 = new Alimento("Huevos");
-
-        ArrayList<Alimento> auxAlimentos = new ArrayList<Alimento>();
-        auxAlimentos.add(a1);
-        auxAlimentos.add(a2);
-        auxAlimentos.add(a3);
-        auxAlimentos.add(a4);
-
-        ArrayList<ConsumoAlimento> auxConsumosAlimentos1 = new ArrayList<ConsumoAlimento>();
-        ArrayList<ConsumoAlimento> auxConsumosAlimentos2 = new ArrayList<ConsumoAlimento>();
-        */
-        ArrayList<ConsumoDia> auxConsumosDias = new ArrayList<ConsumoDia>();
-
-        /*
-        auxConsumosAlimentos1.add(new ConsumoAlimento(auxAlimentos.get(0), 100));
-        auxConsumosAlimentos1.add(new ConsumoAlimento(auxAlimentos.get(2), 70));
-        auxConsumosAlimentos1.add(new ConsumoAlimento(auxAlimentos.get(3), 80));
-
-        auxConsumosDias.add(new ConsumoDia(auxConsumosAlimentos1, "18/10/2020"));
-
-        auxConsumosAlimentos2.add(new ConsumoAlimento(auxAlimentos.get(1), 40));
-        auxConsumosAlimentos2.add(new ConsumoAlimento(auxAlimentos.get(3), 50));
-
-        auxConsumosDias.add(new ConsumoDia(auxConsumosAlimentos2, "17/10/2020"));
-
-        auxConsumosDias.add(new ConsumoDia(auxConsumosAlimentos2, "17/10/2020"));
-        */
-        mRvSeguimientoList.setAdapter(new Seguimiento_List_Adapter(auxConsumosDias));
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return false;
     }
 }

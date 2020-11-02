@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -23,8 +24,11 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.nutrihabit2.R;
+import com.example.nutrihabit2.menuPrincipal.ui.alimentos.FragmentListaAlimentos;
+import com.example.nutrihabit2.menuPrincipal.ui.seguimiento.SeguimientoMainFragment;
 import com.example.nutrihabit2.modelos.Alimento;
 import com.example.nutrihabit2.modelos.ConsumoAlimento;
+import com.example.nutrihabit2.menuPrincipal.ui.seguimiento.SeguimientoListaActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
@@ -36,7 +40,6 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -62,6 +65,7 @@ public class ConsumoListaFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getAlimentos();
     }
 
     // TODO: Rename and change types and number of parameters
@@ -179,15 +183,18 @@ public class ConsumoListaFragment extends Fragment {
                     if (task.isSuccessful()) {
                         // Subdocumento de cantidades con id de alimentos consumidos
                         for (int i = 0; i < consumos.size(); i++) {
-                            DocumentReference consumoDocument = consumosDiaDocument.collection("consumo").document();
-                            Map<String, Object> objCantidades = new HashMap<>();
+                            final DocumentReference consumoDocument = consumosDiaDocument.collection("consumo").document();
+                            final Map<String, Object> objCantidades = new HashMap<>();
                             objCantidades.put("cantidad", consumos.get(i).getCantidadConsumida());
-                            objCantidades.put("alimento", consumos.get(i).getAlimento().getId());
                             consumoDocument.set(objCantidades);
+                            consumoDocument.set(consumos.get(i).getAlimento());
                         }
 
                         Toast.makeText(getContext(), "Consumo Registrado Satisfactoriamente!", Toast.LENGTH_SHORT)
                                 .show();
+
+                        Intent intent = new Intent(getActivity(), SeguimientoListaActivity.class);
+                        startActivity(intent);
 
                     } else {
                         Log.e("Error", "Error al guardar los consumos los alimentos");

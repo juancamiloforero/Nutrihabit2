@@ -4,11 +4,11 @@ import com.example.nutrihabit2.modelos.Alimento;
 
 public class ConsumoAlimento {
     private Alimento alimento;
-    private double cantidadConsumida;
+    private double cantidad;
 
     public ConsumoAlimento(Alimento alimento, double cantidadConsumida) {
         this.alimento = alimento;
-        this.cantidadConsumida = cantidadConsumida;
+        this.cantidad = cantidadConsumida;
     }
 
     public Alimento getAlimento() {
@@ -20,10 +20,10 @@ public class ConsumoAlimento {
     }
 
     public double getCantidadConsumida() {
-        return this.cantidadConsumida;
+        return this.cantidad;
     }
 
     public void setCantidadConsumida(double cantidadConsumida) {
-        this.cantidadConsumida = cantidadConsumida;
+        this.cantidad = cantidadConsumida;
     }
 }

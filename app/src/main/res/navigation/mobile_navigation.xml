@@ -42,11 +42,6 @@
             app:destination="@id/alimentosModificarFragment" />
     </fragment>
     <fragment
-        android:id="@+id/nav_seguimiento"
-        android:name="com.example.nutrihabit2.menuPrincipal.ui.seguimiento.SeguimientoFragment"
-        android:label="fragment_seguimiento"
-        tools:layout="@layout/fragment_seguimiento" />
-    <fragment
         android:id="@+id/alimentosCrearFragment"
         android:name="com.example.nutrihabit2.menuPrincipal.ui.alimentos.AlimentosCrearFragment"
         android:label="@string/crear_alimento"
@@ -77,5 +72,10 @@
         android:id="@+id/consumoCrearActivity"
         android:name="com.example.nutrihabit2.menuPrincipal.ui.consumo.ConsumoCrearActivity"
         android:label="ConsumoCrearActivity" />
+    <fragment
+        android:id="@+id/nav_seguimiento"
+        android:name="com.example.nutrihabit2.menuPrincipal.ui.seguimiento.SeguimientoMainFragment"
+        android:label="@string/seguimiento_main_title"
+        tools:layout="@layout/seguimiento_main_fragment" />
 
 </navigation>
