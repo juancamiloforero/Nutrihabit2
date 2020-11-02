@@ -11,19 +11,31 @@
 
         <TextView
             android:id="@+id/tvNombreAlimento"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
+            android:layout_gravity="start"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
             android:padding="10dp"
             android:textAppearance="@style/TextoNormal" />
 
+        <View android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" />
+
         <EditText
             android:id="@+id/etCantidadConsumo"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
+            android:layout_gravity="end"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
             android:inputType="number" />
+
+        <TextView
+            android:id="@+id/tvUnidadMedidaAlimento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:textAppearance="@style/TextoNormal" />
 
 
     </LinearLayout>

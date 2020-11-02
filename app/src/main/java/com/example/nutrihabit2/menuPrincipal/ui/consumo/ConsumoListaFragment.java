@@ -1,14 +1,14 @@
-package com.example.nutrihabit2.menuPrincipal.ui.alimentos;
+package com.example.nutrihabit2.menuPrincipal.ui.consumo;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,14 +19,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.nutrihabit2.R;
+import com.example.nutrihabit2.menuPrincipal.ui.alimentos.FragmentListaAlimentos;
+import com.example.nutrihabit2.menuPrincipal.ui.seguimiento.SeguimientoMainFragment;
 import com.example.nutrihabit2.modelos.Alimento;
-import com.example.nutrihabit2.menuPrincipal.ui.consumo.Alimentos_Consumo_list_Adapter;
+import com.example.nutrihabit2.modelos.ConsumoAlimento;
+import com.example.nutrihabit2.menuPrincipal.ui.seguimiento.SeguimientoListaActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -36,45 +41,50 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
-public class FragmentListaAlimentos extends Fragment implements Alimentos_list_Adapter.OnAlimentosListener {
+public class ConsumoListaFragment extends Fragment {
 
     private Spinner spinnerTiposAlimentos;
-    private Alimentos_list_Adapter mRvAlimentosListAdapter;
+    private Button mButtonGuardarConsumo;
+
+    private Alimentos_Consumo_list_Adapter mRvAlimentosConsumoListAdapter;
     private RecyclerView mRvAlimentosList;
-    private ArrayList<Alimento> mAlimentos;
     private DocumentSnapshot mLastQueriedAlimentos;
+
+    private ArrayList<ConsumoAlimento> mConsumoAlimentos = new ArrayList<>();
 
     private String mPrefs = "USER_INFORMATION";
     private String keyUserId = "userId";
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    private int activityParent;
-
-    public FragmentListaAlimentos() {
-    }
-
-    public static FragmentListaAlimentos newInstance() {
-        return new FragmentListaAlimentos();
+    public ConsumoListaFragment() {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAlimentos = new ArrayList<>();
         getAlimentos();
+    }
+
+    // TODO: Rename and change types and number of parameters
+    public static ConsumoListaFragment newInstance() {
+        return new ConsumoListaFragment();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lista_alimentos, container, false);
+        return inflater.inflate(R.layout.fragment_consumo_lista, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        mButtonGuardarConsumo = view.findViewById(R.id.btGuardarConsumo);
 
         // Inicializar recycler lista
         mRvAlimentosList = view.findViewById(R.id.rvAlimentos);
@@ -91,15 +101,28 @@ public class FragmentListaAlimentos extends Fragment implements Alimentos_list_A
         mRvAlimentosList.setLayoutManager(linearLayoutManager);
 
         // Instanciar el adaptador
-
-        mRvAlimentosListAdapter = new Alimentos_list_Adapter(mAlimentos, this);
-        mRvAlimentosList.setAdapter(mRvAlimentosListAdapter);
+        mRvAlimentosConsumoListAdapter = new Alimentos_Consumo_list_Adapter(mConsumoAlimentos);
+        mRvAlimentosList.setAdapter(mRvAlimentosConsumoListAdapter);
 
         // Spinner
         ArrayAdapter<CharSequence> adapterSpinner = ArrayAdapter.createFromResource(getContext(),
                 R.array.arrTipoAlimentos, R.layout.alimentos_tipos_item);
 
         spinnerTiposAlimentos.setAdapter(adapterSpinner);
+
+        // Listener guardar
+        mButtonGuardarConsumo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<ConsumoAlimento> listaConsumos = mRvAlimentosConsumoListAdapter.getmConsumosAlimento();
+                for (int i = 0; i < listaConsumos.size(); i++) {
+                    if (listaConsumos.get(i).getCantidadConsumida() == 0) {
+                        listaConsumos.remove(i);
+                    }
+                }
+                crearConsumo(listaConsumos);
+            }
+        });
     }
 
     private void getAlimentos() {
@@ -122,7 +145,7 @@ public class FragmentListaAlimentos extends Fragment implements Alimentos_list_A
                     for (QueryDocumentSnapshot documento : task.getResult()) {
                         Alimento alimento = documento.toObject(Alimento.class);
                         alimento.setId(documento.getId());
-                        mAlimentos.add(alimento);
+                        mConsumoAlimentos.add(new ConsumoAlimento(alimento, 0));
                     }
 
                     if (task.getResult().size() != 0) {
@@ -130,13 +153,12 @@ public class FragmentListaAlimentos extends Fragment implements Alimentos_list_A
                                 .get(task.getResult().size() - 1);
                     }
 
-                    mRvAlimentosList.getAdapter().notifyDataSetChanged();
+                    mRvAlimentosConsumoListAdapter.notifyDataSetChanged();
                 } else {
                     Log.e("Error", "Error al recuperar los alimentos");
                 }
             }
         });
-
     }
 
     // Retorna el id del usuario guardado en local
@@ -145,50 +167,37 @@ public class FragmentListaAlimentos extends Fragment implements Alimentos_list_A
         return sharedPref.getString(this.keyUserId, null);
     }
 
-    @Override
-    public void onEditAlimentoClick(int position) {
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("alimento", mAlimentos.get(position));
-        Navigation.findNavController(getView()).navigate(R.id.alimentosModificarFragment, bundle);
-    }
+    private void crearConsumo(final ArrayList<ConsumoAlimento> consumos) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    @Override
-    public void onDeleteAlimentoClick(int position) {
-        openDialog(position);
-    }
-
-    private void openDialog(final int position) {
-        new AlertDialog.Builder(getContext())
-                .setTitle(R.string.advertencia_eliminar)
-                .setMessage(R.string.confirmar_eliminar)
-
-                // Specifying a listener allows you to take an action before dismissing the dialog.
-                // The dialog is automatically dismissed when a dialog button is clicked.
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        borrarAlimento(position);
-                    }
-                })
-
-                // A null listener allows the button to dismiss the dialog and take no further action.
-                .setNegativeButton(android.R.string.no, null)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
-    }
-
-    private void borrarAlimento(final int position) {
         if (getUserId() != null) {
-            DocumentReference alimentoDocument = db.collection("users").document(getUserId())
-                    .collection("alimentos").document(mAlimentos.get(position).getId());
-            alimentoDocument.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+            final DocumentReference consumosDiaDocument = db.collection("users").document(getUserId())
+                    .collection("consumos_dia").document();
+
+            Map<String, Object> objConsumo = new HashMap<>();
+            objConsumo.put("timestamp", new Timestamp(new Date()));
+
+            consumosDiaDocument.set(objConsumo).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if (task.isSuccessful()) {
-                        mRvAlimentosListAdapter.removeAlimento(position);
-                        Toast.makeText(getContext(), "Alimento Eliminado Satisfactoriamente!", Toast.LENGTH_SHORT)
+                        // Subdocumento de cantidades con id de alimentos consumidos
+                        for (int i = 0; i < consumos.size(); i++) {
+                            final DocumentReference consumoDocument = consumosDiaDocument.collection("consumo").document();
+                            final Map<String, Object> objCantidades = new HashMap<>();
+                            objCantidades.put("cantidad", consumos.get(i).getCantidadConsumida());
+                            consumoDocument.set(objCantidades);
+                            consumoDocument.set(consumos.get(i).getAlimento());
+                        }
+
+                        Toast.makeText(getContext(), "Consumo Registrado Satisfactoriamente!", Toast.LENGTH_SHORT)
                                 .show();
+
+                        Intent intent = new Intent(getActivity(), SeguimientoListaActivity.class);
+                        startActivity(intent);
+
                     } else {
-                        Log.e("Error", "Error al recuperar los alimentos");
+                        Log.e("Error", "Error al guardar los consumos los alimentos");
                     }
                 }
             });

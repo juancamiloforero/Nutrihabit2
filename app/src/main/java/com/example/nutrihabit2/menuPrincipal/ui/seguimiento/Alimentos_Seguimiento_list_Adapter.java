@@ -1,4 +1,4 @@
-package com.example.nutrihabit2.seguimiento;
+package com.example.nutrihabit2.menuPrincipal.ui.seguimiento;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,14 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nutrihabit2.R;
 import com.example.nutrihabit2.modelos.Alimento;
+import com.example.nutrihabit2.modelos.ConsumoAlimento;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Alimentos_Seguimiento_list_Adapter extends RecyclerView.Adapter<Alimentos_Seguimiento_list_Adapter.AlimentosViewHolder> {
 
-    private ArrayList<Alimento> mAlimentos;
+    private ArrayList<ConsumoAlimento> mAlimentos;
 
-    public Alimentos_Seguimiento_list_Adapter(ArrayList<Alimento> alimentos) {
+    public Alimentos_Seguimiento_list_Adapter(ArrayList<ConsumoAlimento> alimentos) {
         this.mAlimentos = alimentos;
     }
 
@@ -51,15 +53,24 @@ public class Alimentos_Seguimiento_list_Adapter extends RecyclerView.Adapter<Ali
     public class AlimentosViewHolder extends RecyclerView.ViewHolder {
 
         TextView mNombreAlimentoView;
+        TextView mCantidadConsumidaView;
+        TextView mUnidadMedidaView;
 
         public AlimentosViewHolder(@NonNull View itemView) {
             super(itemView);
 
             mNombreAlimentoView = itemView.findViewById(R.id.tvNombreAlimento);
+            mCantidadConsumidaView = itemView.findViewById(R.id.tvCantidadConsumida);
+            mUnidadMedidaView = itemView.findViewById(R.id.tvUnidadMedida);
         }
 
         void bind(int listaIndex) {
-            mNombreAlimentoView.setText(String.valueOf(mAlimentos.get(listaIndex).getNombre()));
+            mNombreAlimentoView.setText(String.valueOf(mAlimentos.get(listaIndex).getAlimento().getNombre()));
+
+            DecimalFormat df = new DecimalFormat("0.#");
+            mCantidadConsumidaView.setText(df.format(mAlimentos.get(listaIndex).getCantidadConsumida()));
+
+            mUnidadMedidaView.setText(String.valueOf(mAlimentos.get(listaIndex).getAlimento().getUnidadMedida()));
         }
     }
 }

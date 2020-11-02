@@ -14,8 +14,8 @@
             android:name=".menuPrincipal.menuPrincipal"
             android:label="@string/title_activity_menu_principal"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".seguimiento.SeguimientoListaActivity" />
-        <activity android:name=".consumoDiario.ConsumoRegistroActivity" />
+        <activity android:name=".menuPrincipal.ui.seguimiento.SeguimientoListaActivity" />
+        <activity android:name=".menuPrincipal.ui.consumo.ConsumoCrearActivity" />
         <activity android:name=".infoBasica.ImcActivity" />
         <activity android:name=".infoBasica.DatosBasicosActivity"/>
         <activity android:name=".BienvenidaActivity" />

@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".menuPrincipal.ui.seguimiento.SeguimientoListaActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".menuPrincipal.ui.alimentos.AlimentosMainFragment">
 
     <FrameLayout
-        android:id="@+id/listaSeguimientoContainer"
+        android:id="@+id/listaAlimentosContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </FrameLayout>
-
-</RelativeLayout>
+</FrameLayout>

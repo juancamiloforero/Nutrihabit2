@@ -1,4 +1,4 @@
-package com.example.nutrihabit2.seguimiento;
+package com.example.nutrihabit2.menuPrincipal.ui.seguimiento;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,9 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nutrihabit2.R;
 import com.example.nutrihabit2.modelos.Alimento;
-import com.example.nutrihabit2.consumoDiario.ConsumoDia;
+import com.example.nutrihabit2.modelos.ConsumoAlimento;
+import com.example.nutrihabit2.modelos.ConsumoDia;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Seguimiento_List_Adapter extends RecyclerView.Adapter<Seguimiento_List_Adapter.SeguimientoDiarioViewHolder> {
 
@@ -42,7 +46,11 @@ public class Seguimiento_List_Adapter extends RecyclerView.Adapter<Seguimiento_L
 
     @Override
     public void onBindViewHolder(@NonNull Seguimiento_List_Adapter.SeguimientoDiarioViewHolder holder, int position) {
-        holder.bind(position);
+        try {
+            holder.bind(position);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -58,20 +66,23 @@ public class Seguimiento_List_Adapter extends RecyclerView.Adapter<Seguimiento_L
     public class SeguimientoDiarioViewHolder extends RecyclerView.ViewHolder {
         RecyclerView mNombresAlimentosView;
         TextView mFechaSeguimientoView;
+
         public SeguimientoDiarioViewHolder(@NonNull View itemView) {
             super(itemView);
             mNombresAlimentosView = itemView.findViewById(R.id.rvListaAlimentos);
             mFechaSeguimientoView = itemView.findViewById(R.id.tvFechaSeguimiento);
         }
 
-        void bind(int listaIndex) {
+        void bind(int listaIndex) throws ParseException {
             // Llenar los alimentos
-            ArrayList<Alimento> alimentos = new ArrayList<Alimento>();
-            String fecha = "Fecha: ";
-            fecha = fecha + mConsumos.get(listaIndex).getDia();
+            ArrayList<ConsumoAlimento> consumo = new ArrayList<>();
+
+            String pattern = "dd MMMM yyyy";
+            SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+            String fecha = dateFormat.format(mConsumos.get(listaIndex).getTimestamp());
 
             for(int i = 0; i < mConsumos.get(listaIndex).getConsumosDiarios().size(); i++) {
-                alimentos.add(mConsumos.get(listaIndex).getConsumosDiarios().get(i).getAlimento());
+                consumo.add(mConsumos.get(listaIndex).getConsumosDiarios().get(i));
             }
 
             // Recycler View
@@ -80,7 +91,7 @@ public class Seguimiento_List_Adapter extends RecyclerView.Adapter<Seguimiento_L
             LinearLayoutManager layoutManager = new LinearLayoutManager(itemView.getContext(), LinearLayoutManager.VERTICAL, false);
             mNombresAlimentosView.setLayoutManager(layoutManager);
 
-            mNombresAlimentosView.setAdapter(new Alimentos_Seguimiento_list_Adapter(alimentos));
+            mNombresAlimentosView.setAdapter(new Alimentos_Seguimiento_list_Adapter(consumo));
 
             // Fecha
             mFechaSeguimientoView.setText(fecha);

@@ -13,11 +13,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import  com.example.nutrihabit2.R;
-import com.example.nutrihabit2.consumoDiario.ConsumoRegistroActivity;
+import com.example.nutrihabit2.menuPrincipal.ui.alimentos.FragmentListaAlimentos;
+import com.example.nutrihabit2.menuPrincipal.ui.consumo.ConsumoCrearActivity;
 import com.example.nutrihabit2.menuPrincipal.ui.detalleComida.DetalleCom;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -94,9 +96,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view){
                 //getParentFragmentManager();
-                Intent cons = new Intent(getActivity(),
-                        ConsumoRegistroActivity.class);
-                startActivity(cons);
+                Intent intent = new Intent(getActivity(), ConsumoCrearActivity.class);
+                startActivity(intent);
             }
         });
         return root;

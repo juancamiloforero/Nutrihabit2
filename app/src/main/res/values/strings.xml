@@ -28,6 +28,7 @@
     <string name="siguiente">Siguiente</string>
     <string name="guardar">Guardar</string>
     <string name="editar_title">Editar</string>
+    <string name="registrar_consumo_title">Registrar consumo</string>
     <string name="advertencia_eliminar">Atención!</string>
     <string name="confirmar_eliminar">¿Está seguro que quiere eliminar este alimento?</string>
     <string name="tu_imc_es">Tu IMC es</string>

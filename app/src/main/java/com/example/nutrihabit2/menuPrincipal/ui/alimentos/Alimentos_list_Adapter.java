@@ -47,13 +47,7 @@ public class Alimentos_list_Adapter extends RecyclerView.Adapter<Alimentos_list_
     }
 
     @Override
-    public int getItemCount() {
-        if (mAlimentos == null) {
-            return 0;
-        } else {
-            return mAlimentos.size();
-        }
-    }
+    public int getItemCount() { return mAlimentos != null ?  mAlimentos.size() :  0; }
 
     public void removeAlimento(int position) {
         mAlimentos.remove(position);
