@@ -78,5 +78,6 @@
     <string name="nivel_actividad_alto">Alto</string>
     <string name="nivel_actividad_muy_alto">Muy alto</string>
     <string name="objetivo">"Objetivo: "</string>
->>>>>>> 7c3b6365b64f3b9a7e8c9fcec35404c6465b1265
+    <string name="años">años</string>
+    >>>>>>> 7c3b6365b64f3b9a7e8c9fcec35404c6465b1265
 </resources>

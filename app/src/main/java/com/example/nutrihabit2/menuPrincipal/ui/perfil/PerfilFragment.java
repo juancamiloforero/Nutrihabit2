@@ -179,14 +179,14 @@ public class PerfilFragment extends Fragment {
                 Usuario user = documentSnapshot.toObject(Usuario.class);
                 usuarioActual = user;
                 calcularYClasificarIMC(user.getEstatura(), user.getPeso());
-                tvEstatura.setText(Float.toString((int) user.getEstatura()));
-                tvPeso.setText(Float.toString(user.getPeso()));
-                tvEdad.setText(Integer.toString(user.getEdad()));
+                tvEstatura.setText(Float.toString((int) user.getEstatura()) + " cm");
+                tvPeso.setText(Float.toString(user.getPeso()) + " Kg");
+                tvEdad.setText(Integer.toString(user.getEdad()) +" "+getString(R.string.años));
                 tvGenero.setText(getRStringGenero(user.getGenero()));
                 tvObjetivo.setText(getRStringObjetivo(user.getProposito()));
                 tvNivelActividad.setText(getRStringNivelActividad(user.getNivel_actividad()));
                 double calorias = objCalc.calcularCalorias(user.getGenero(), user.getEstatura(), user.getPeso(), user.getEdad(), user.getNivel_actividad(), user.getProposito());
-                tvCalorias.setText(String.format("%.1f", calorias));
+                tvCalorias.setText((int)calorias+" Kcal");
 
             }
         }).addOnFailureListener(new OnFailureListener() {
