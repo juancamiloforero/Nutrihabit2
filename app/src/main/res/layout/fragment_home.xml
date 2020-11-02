@@ -13,9 +13,9 @@
 
         <Button
             android:id="@+id/btn_consumo"
-            android:layout_width="223dp"
+            android:layout_width="311dp"
             android:layout_height="46dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/rounded_corners"
             android:text="@string/f_home_btn_consumo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -226,9 +226,9 @@
     <LinearLayout
         android:id="@+id/llBoton"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="46dp"
         android:gravity="center"
-        android:layout_marginBottom="56dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -236,12 +236,11 @@
 
         <Button
             android:id="@+id/btEditar"
-            android:background="@drawable/rounded_corners"
-            android:layout_gravity="bottom"
             android:layout_width="311dp"
             android:layout_height="48dp"
-            android:text="@string/editar_title">
-        </Button>
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_corners"
+            android:text="@string/editar_title"></Button>
 
     </LinearLayout>
 
