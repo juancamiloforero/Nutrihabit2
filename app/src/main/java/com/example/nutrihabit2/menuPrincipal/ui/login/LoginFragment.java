@@ -62,7 +62,7 @@ public class LoginFragment extends Fragment {
         // Build a GoogleSignInClient with the options specified by gso.
         mGoogleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
         SignInButton signInButton = (SignInButton)root.findViewById(R.id.sign_in_button);
-        this.setGoogleButtonText(signInButton,"Iniciar sesión con google");
+        this.setGoogleButtonText(signInButton,R.string.f_login_iniciar_sesion);
        // GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(getActivity());
         signInButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -95,6 +95,10 @@ public class LoginFragment extends Fragment {
                     Toast.makeText(getContext(), "Inicio de sesion con exito!", Toast.LENGTH_SHORT)
                             .show();
                     getActivity().finish();
+                }
+                else{
+                    Toast.makeText(getContext(), "Ocurrio un error, intenta de nuevo", Toast.LENGTH_SHORT)
+                            .show();
                 }
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
@@ -140,7 +144,7 @@ public class LoginFragment extends Fragment {
         }
     }*/
 
-    protected void setGoogleButtonText(SignInButton signInButton, String buttonText) {
+    protected void setGoogleButtonText(SignInButton signInButton, int buttonText) {
         // Encontrar el texto que esta dentro del boton
         for (int i = 0; i < signInButton.getChildCount(); i++) {
             View v = signInButton.getChildAt(i);

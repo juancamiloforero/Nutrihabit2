@@ -18,10 +18,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import  com.example.nutrihabit2.R;
+
+import com.example.nutrihabit2.R;
 import com.example.nutrihabit2.infoBasica.DatosBasicosActivity;
 import com.example.nutrihabit2.infoBasica.ImcActivity;
-import  com.example.nutrihabit2.logica.clsCalculos;
+import com.example.nutrihabit2.logica.clsCalculos;
 import com.example.nutrihabit2.menuPrincipal.menuPrincipal;
 import com.example.nutrihabit2.modelos.Usuario;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -29,6 +30,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import static android.content.Intent.getIntent;
 
 public class PerfilFragment extends Fragment {
 
@@ -46,7 +49,6 @@ public class PerfilFragment extends Fragment {
         perfilViewModel =
                 new ViewModelProvider(this).get(PerfilViewModel.class);
         View root = inflater.inflate(R.layout.fragment_perfil, container, false);
-
         this.tvIMC = root.findViewById(R.id.tvTuIMC);
         this.tvEstatura = root.findViewById(R.id.tvAltura);
         this.tvPeso = root.findViewById(R.id.tvPeso);
@@ -64,25 +66,40 @@ public class PerfilFragment extends Fragment {
                 iniciarIntent();
             }
         });
-        this.getInformacion();
+
+
         return root;
     }
 
-    private  void calcularYClasificarIMC(float estatura, float peso) {
-        this.tvIMC.setText(getString(R.string.tu_imc_es )+" "+ this.objCalc.calcularIMC(estatura,peso));
-        float parIMC = this.objCalc.calcularIMC2(estatura,peso);
-        int clasificacion=0;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        this.getInformacion();
+    }
+
+    @Override
+    public void onResume() {
+
+        super.onResume();
+        this.getInformacion();
+    }
+
+    private void calcularYClasificarIMC(float estatura, float peso) {
+        this.tvIMC.setText(getString(R.string.tu_imc_es) + " " + this.objCalc.calcularIMC(estatura, peso));
+        float parIMC = this.objCalc.calcularIMC2(estatura, peso);
+        int clasificacion = 0;
         if (parIMC < 18.5) {
             //clasificacion = "Peso inferior al normal";
             clasificacion = R.string.peso_inferior_al_normal;
             this.imgIMC.setBackgroundResource(R.drawable.imc_azul);
             this.tvClasificacion.setTextColor(Color.rgb(37, 172, 227));
-        } else  if (parIMC >= 18.5 && parIMC <25) {
+        } else if (parIMC >= 18.5 && parIMC < 25) {
             //clasificacion = "Peso Normal";
             clasificacion = R.string.peso_normal;
             this.imgIMC.setBackgroundResource(R.drawable.imc_verde);
             this.tvClasificacion.setTextColor(Color.rgb(107, 127, 56));
-        } else if (parIMC >= 25 && parIMC <30) {
+        } else if (parIMC >= 25 && parIMC < 30) {
             //clasificacion = "Peso superior al normal";
             clasificacion = R.string.peso_superior_al_normal;
             this.imgIMC.setBackgroundResource(R.drawable.imc_amarillo);
@@ -93,27 +110,25 @@ public class PerfilFragment extends Fragment {
             this.imgIMC.setBackgroundResource(R.drawable.imc_naranja);
             this.tvClasificacion.setTextColor(Color.rgb(231, 117, 44));
         }
-        this.tvClasificacion.setText( clasificacion);
+        this.tvClasificacion.setText(clasificacion);
     }
 
     private String getUserId() {
         SharedPreferences sharedPref = this.getContext().getSharedPreferences(this.mPrefs, Context.MODE_PRIVATE);
         return sharedPref.getString(this.keyUserId, null);
     }
+
     public void iniciarIntent() {
-        Intent intent = new Intent();
-        intent.setClass(getActivity(), DatosBasicosActivity.class);
+        Intent intent = new Intent(getContext(),DatosBasicosActivity.class);
+        ///intent.setClass(getActivity(), DatosBasicosActivity.class);
         intent.putExtra("editar", true);
         intent.putExtra("edad", usuarioActual.getEdad());
         intent.putExtra("estatura", usuarioActual.getEstatura());
         intent.putExtra("peso", usuarioActual.getPeso());
         intent.putExtra("genero", usuarioActual.getGenero());
         intent.putExtra("nivelActividad", usuarioActual.getNivel_actividad());
-        intent.putExtra("objetivo", usuarioActual.getProposito());
-
-
+        intent.putExtra("seleccion", usuarioActual.getProposito());
         startActivity(intent);
-
     }
 
     private int getRStringNivelActividad(String pNivel) {
@@ -132,15 +147,15 @@ public class PerfilFragment extends Fragment {
                 resourceId = R.string.nivel_actividad_muy_alto;
                 break;
         }
-        return  resourceId;
+        return resourceId;
     }
 
-    private int getRStringGenero( String pGenero ) {
+    private int getRStringGenero(String pGenero) {
         int stringId = R.string.genero_hombre;
-        if (pGenero == "Mujer") {
+        if (pGenero.equals("Mujer")) {
             stringId = R.string.genero_mujer;
         }
-        return  stringId;
+        return stringId;
     }
 
     private int getRStringObjetivo(int pObjetivo) {
@@ -152,7 +167,7 @@ public class PerfilFragment extends Fragment {
             case 3:
                 resp = R.string.Mantener_estado_fisico;
         }
-        return  resp;
+        return resp;
     }
 
     private void getInformacion() {
@@ -163,15 +178,15 @@ public class PerfilFragment extends Fragment {
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 Usuario user = documentSnapshot.toObject(Usuario.class);
                 usuarioActual = user;
-                calcularYClasificarIMC(user.getEstatura(),user.getPeso());
-                tvEstatura.setText(Float.toString( (int) user.getEstatura()));
-                tvPeso.setText(Float.toString( user.getPeso()));
-                tvEdad.setText(Integer.toString( user.getEdad()));
-                tvGenero.setText( getRStringGenero( user.getGenero() ));
-                tvObjetivo.setText( getRStringObjetivo( user.getProposito() )) ;
-                tvNivelActividad.setText( getRStringNivelActividad(user.getNivel_actividad()) );
-                double calorias = objCalc.calcularCalorias(user.getGenero(),user.getEstatura(),user.getPeso(),user.getEdad(),user.getNivel_actividad(),user.getProposito());
-                tvCalorias.setText(String.format("%.1f", calorias ) );
+                calcularYClasificarIMC(user.getEstatura(), user.getPeso());
+                tvEstatura.setText(Float.toString((int) user.getEstatura()) + " cm");
+                tvPeso.setText(Float.toString(user.getPeso()) + " Kg");
+                tvEdad.setText(Integer.toString(user.getEdad()) +" "+getString(R.string.años));
+                tvGenero.setText(getRStringGenero(user.getGenero()));
+                tvObjetivo.setText(getRStringObjetivo(user.getProposito()));
+                tvNivelActividad.setText(getRStringNivelActividad(user.getNivel_actividad()));
+                double calorias = objCalc.calcularCalorias(user.getGenero(), user.getEstatura(), user.getPeso(), user.getEdad(), user.getNivel_actividad(), user.getProposito());
+                tvCalorias.setText((int)calorias+" Kcal");
 
             }
         }).addOnFailureListener(new OnFailureListener() {

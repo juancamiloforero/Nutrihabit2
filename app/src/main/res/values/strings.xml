@@ -34,11 +34,11 @@
     <string name="tu_imc_es">Tu IMC es</string>
     <string name="edad">Edad</string>
     <string name="title_activity_menu_principal">Menu Principal</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Abrir menú de navegación</string>
+    <string name="navigation_drawer_close">Cerrar menú de navegación</string>
     <string name="nav_header_title">Nutrihabit</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_desc">Cebecera de navegación</string>
     <string name="action_settings">Opciones</string>
 
     <string name="menu_home">Inicio</string>
@@ -78,4 +78,5 @@
     <string name="nivel_actividad_alto">Alto</string>
     <string name="nivel_actividad_muy_alto">Muy alto</string>
     <string name="objetivo">Objetivo</string>
+    <string name="años">años</string>
 </resources>

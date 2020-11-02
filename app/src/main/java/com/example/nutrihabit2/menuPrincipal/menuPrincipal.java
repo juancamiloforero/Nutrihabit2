@@ -39,6 +39,12 @@ public class menuPrincipal extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private Activity activity;
+    final int RC_SIGN_IN = 9001;
+    // Configure el inicio de sesión para solicitar el ID del usuario, la dirección de correo electrónico y el perfil // básico . El ID y el perfil básico están incluidos en DEFAULT_SIGN_IN.
+    GoogleSignInOptions gso = new GoogleSignInOptions.Builder( GoogleSignInOptions . DEFAULT_SIGN_IN )
+            .requestIdToken("237367476071-ktot839nbi8bsute9atcnkcs05mvd37b.apps.googleusercontent.com")
+            . requestEmail () . build ();
+    static GoogleSignInClient mGoogleSignInClient = null;
 
     @SuppressWarnings("deprecation")
     @Override
@@ -47,6 +53,7 @@ public class menuPrincipal extends AppCompatActivity {
         setContentView(R.layout.activity_menu_principal);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         activity=this;
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         final NavigationView navigationView = findViewById(R.id.nav_view);
@@ -73,6 +80,7 @@ public class menuPrincipal extends AppCompatActivity {
                 Toast.makeText(activity, "Sesion cerrada!", Toast.LENGTH_SHORT)
                         .show();
                 FirebaseAuth.getInstance().signOut();
+                mGoogleSignInClient.signOut();
                 navigationView.getMenu().findItem(R.id.nav_inicio_sesion).setVisible(true);
                 navigationView.getMenu().findItem(R.id.nav_salir).setVisible(false);
                 return true;
