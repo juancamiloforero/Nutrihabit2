@@ -59,17 +59,20 @@ public class Alimentos_Consumo_list_Adapter extends RecyclerView.Adapter<Aliment
 
         TextView mNombreAlimentoView;
         EditText mCantidadAlimentoView;
+        TextView mUnidadMedidaAlimentoView;
 
         public AlimentosViewHolder(@NonNull View itemView) {
             super(itemView);
 
             mNombreAlimentoView = itemView.findViewById(R.id.tvNombreAlimento);
             mCantidadAlimentoView = itemView.findViewById(R.id.etCantidadConsumo);
+            mUnidadMedidaAlimentoView = itemView.findViewById(R.id.tvUnidadMedidaAlimento);
         }
 
         void bind(final int listaIndex) {
             mCantidadAlimentoView.setText(String.valueOf(mConsumosAlimento.get(listaIndex).getCantidadConsumida()));
             mNombreAlimentoView.setText(String.valueOf(mConsumosAlimento.get(listaIndex).getAlimento().getNombre()));
+            mUnidadMedidaAlimentoView.setText(String.valueOf(mConsumosAlimento.get(listaIndex).getAlimento().getUnidadMedida()));
 
             mCantidadAlimentoView.addTextChangedListener(new TextWatcher() {
                 @Override

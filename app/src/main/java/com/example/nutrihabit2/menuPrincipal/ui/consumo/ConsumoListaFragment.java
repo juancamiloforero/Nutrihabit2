@@ -51,7 +51,7 @@ public class ConsumoListaFragment extends Fragment {
     private RecyclerView mRvAlimentosList;
     private DocumentSnapshot mLastQueriedAlimentos;
 
-    private ArrayList<ConsumoAlimento> mConsumoAlimentos;
+    private ArrayList<ConsumoAlimento> mConsumoAlimentos = new ArrayList<>();
 
     private String mPrefs = "USER_INFORMATION";
     private String keyUserId = "userId";
@@ -62,8 +62,6 @@ public class ConsumoListaFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mConsumoAlimentos = new ArrayList<>();
-        getAlimentos();
     }
 
     // TODO: Rename and change types and number of parameters
@@ -151,7 +149,7 @@ public class ConsumoListaFragment extends Fragment {
                                 .get(task.getResult().size() - 1);
                     }
 
-                    mRvAlimentosList.getAdapter().notifyDataSetChanged();
+                    mRvAlimentosConsumoListAdapter.notifyDataSetChanged();
                 } else {
                     Log.e("Error", "Error al recuperar los alimentos");
                 }
@@ -188,7 +186,7 @@ public class ConsumoListaFragment extends Fragment {
                             consumoDocument.set(objCantidades);
                         }
 
-                        Toast.makeText(getContext(), "Consumo Registrardo Satisfactoriamente!", Toast.LENGTH_SHORT)
+                        Toast.makeText(getContext(), "Consumo Registrado Satisfactoriamente!", Toast.LENGTH_SHORT)
                                 .show();
 
                     } else {
@@ -196,9 +194,6 @@ public class ConsumoListaFragment extends Fragment {
                     }
                 }
             });
-
-            // Redirección a la vista principal
-            // Navigation.findNavController(view).navigate(R.id.nav_alimentos);
         }
     }
 }
