@@ -69,7 +69,7 @@
     <string name="peso_superior_al_normal">Peso superior al normal</string>
     <string name="obesidad">Obesidad</string>
     <string name="tu_condicion_es">Tu condicion es:</string>
-    <string name="consumo_calorico_recomendado">Consumo calorico recomendado:</string>
+    <string name="consumo_calorico_recomendado">"Calorías recomendadas: "</string>
     <string name="tu_objetivo">Tu objetivo:</string>
     <string name="genero_hombre">Hombre</string>
     <string name="genero_mujer">Mujer</string>
