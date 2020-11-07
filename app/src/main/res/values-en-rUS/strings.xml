@@ -79,4 +79,9 @@
     <string name="objetivo">"Objective: "</string>
     <string name="menu_home">Home</string>
     <string name="años">years</string>
+
+    <string name="errorLongitudMaxima">Too many characters</string>
+    <string name="errorLongitudMinima">Very few characters</string>
+    <string name="errorLongitudCero">There is no characters</string>
+    <string name="errorLongitudNumeroCero">Necessary field</string>
 </resources>

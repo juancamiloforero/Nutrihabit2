@@ -1,182 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:gravity="center"
         android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etNombreLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/etNombre"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="0dp"
-                android:ems="15"
+                android:autofillHints="@string/nombre_alimento_creacion"
                 android:hint="@string/nombre_alimento_creacion"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.515"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etDescripcionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/etDescripcion"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
-                android:ems="15"
+                android:autofillHints="@string/descripcion_alimento_creacion"
                 android:hint="@string/descripcion_alimento_creacion"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etNombre" />
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
-            <LinearLayout
-                android:id="@+id/idLinearTipoAlimento"
+        <LinearLayout
+            android:id="@+id/idLinearTipoAlimento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:padding="10dp"
+                android:text="@string/tipo_alimento"
+                android:textAppearance="@style/TituloPequenio"
+                android:textColor="#000000" />
+
+            <Spinner
+                android:id="@+id/spTipoAlimento"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_weight="1"
+                android:textAppearance="@style/TituloPequenio" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/idLinearPorcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etPorcionLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etDescripcion">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:padding="10dp"
-                    android:text="@string/tipo_alimento"
-                    android:textAppearance="@style/TituloPequenio"
-                    android:textColor="#000000" />
-
-                <Spinner
-                    android:id="@+id/spTipoAlimento"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end"
-                    android:layout_weight="1"
-                    android:textAppearance="@style/TituloPequenio" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/idLinearPorcion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/idLinearTipoAlimento">
+                android:layout_weight="3">
 
                 <EditText
                     android:id="@+id/etPorcion"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:ems="12"
+                    android:autofillHints="@string/porcion_alimento_creacion"
                     android:hint="@string/porcion_alimento_creacion"
-                    android:inputType="numberDecimal"
-                    android:textAppearance="@style/TextoNormal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                <Spinner
-                    android:id="@+id/spMedidaPorcion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end"
-                    android:layout_weight="1"
-                    android:textAppearance="@style/TituloPequenio" />
+            <Spinner
+                android:id="@+id/spMedidaPorcion"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
-            </LinearLayout>
+        </LinearLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etCaloriasLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/etCalorias"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:ems="15"
+                android:autofillHints="@string/calorias_alimento_creacion"
                 android:hint="@string/calorias_alimento_creacion"
-                android:inputType="numberDecimal"
-                android:textAppearance="@style/TextoNormal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/idLinearPorcion" />
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etGrasasLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/etGrasas"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:ems="15"
+                android:autofillHints="@string/grasas_alimento_creacion"
                 android:hint="@string/grasas_alimento_creacion"
-                android:inputType="numberDecimal"
-                android:textAppearance="@style/TextoNormal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etCalorias" />
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etCarbohidratosLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/etCarbohidratos"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:ems="15"
+                android:autofillHints="@string/carbohidratos_alimento_creacion"
                 android:hint="@string/carbohidratos_alimento_creacion"
-                android:inputType="numberDecimal"
-                android:textAppearance="@style/TextoNormal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etGrasas" />
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etProteinasLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/etProteinas"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:ems="15"
                 android:hint="@string/proteinas_alimento_creacion"
                 android:inputType="numberDecimal"
-                android:textAppearance="@style/TextoNormal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etCarbohidratos" />
+                android:autofillHints="@string/proteinas_alimento_creacion" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
-                android:id="@+id/btAgregarAlimento"
-                android:layout_width="311dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="56dp"
-                android:layout_marginBottom="32dp"
-                android:background="@drawable/rounded_corners"
-                android:text="@string/bt_alimento_crear"
-                android:textAppearance="@style/TextoNormal"
-                android:textColor="#FFFF"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etProteinas" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btAgregarAlimento"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/rounded_corners"
+            android:text="@string/bt_alimento_crear"
+            android:textAppearance="@style/TextoNormal"
+            android:textColor="#FFFF" />
     </LinearLayout>
-
 </ScrollView>
 
 

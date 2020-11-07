@@ -180,18 +180,11 @@ public class FragmentListaAlimentos extends Fragment implements Alimentos_list_A
         if (getUserId() != null) {
             DocumentReference alimentoDocument = db.collection("users").document(getUserId())
                     .collection("alimentos").document(mAlimentos.get(position).getId());
-            alimentoDocument.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    if (task.isSuccessful()) {
-                        mRvAlimentosListAdapter.removeAlimento(position);
-                        Toast.makeText(getContext(), "Alimento Eliminado Satisfactoriamente!", Toast.LENGTH_SHORT)
-                                .show();
-                    } else {
-                        Log.e("Error", "Error al recuperar los alimentos");
-                    }
-                }
-            });
+            alimentoDocument.delete();
+
+            mRvAlimentosListAdapter.removeAlimento(position);
+            Toast.makeText(getContext(), "Alimento Eliminado Satisfactoriamente!", Toast.LENGTH_SHORT)
+                    .show();
         }
     }
 }

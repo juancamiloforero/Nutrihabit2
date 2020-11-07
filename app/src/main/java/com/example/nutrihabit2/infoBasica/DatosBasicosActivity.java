@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -25,11 +27,15 @@ import com.example.nutrihabit2.menuPrincipal.menuPrincipal;
 import com.example.nutrihabit2.modelos.Usuario;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 import com.example.nutrihabit2.menuPrincipal.menuPrincipal;
 
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -46,7 +52,6 @@ public class DatosBasicosActivity extends AppCompatActivity {
 
     private String mPrefs = "USER_INFORMATION";
     private String keyUserId = "userId";
-
 
     int objetivo;
     boolean modoEdicion = false;
@@ -87,17 +92,18 @@ public class DatosBasicosActivity extends AppCompatActivity {
             this.setSpinerNivelActividad(nivelActividad);
             this.spObjetivo.setSelection(this.objetivo - 1);
 
-            /*
-            this.etEstatura.setText(Float.toString(intent.getFloatExtra("estatura",0)));
-            this.etPeso.setText(Float.toString(intent.getFloatExtra("peso",0)));
-            this.etEdad.setText(Integer.toString(intent.getIntExtra("edad",0)));
-             */
+            DecimalFormat df = new DecimalFormat("0.##");
+            this.etEstatura.setText(df.format(intent.getFloatExtra("estatura",0)));
+            this.etPeso.setText(df.format(intent.getFloatExtra("peso",0)));
+            this.etEdad.setText(df.format(intent.getIntExtra("edad",0)));
+
         } else {
             btGuardar.setVisibility(View.INVISIBLE);
             btSiguiente.setVisibility(View.VISIBLE);
             llObjetivo.setVisibility(View.INVISIBLE);
         }
 
+        this.iniciarVerificacionesCampos();
     }
 
     private void setSpinerNivelActividad(String nivelActividad) {
@@ -118,7 +124,7 @@ public class DatosBasicosActivity extends AppCompatActivity {
 
     private void setSpinerGenero(String genero) {
         int generoSelect = 0;
-        if (genero.equals("Mujer")){
+        if (genero.equals("Mujer")) {
             generoSelect = 1;
         }
         this.spGenero.setSelection(generoSelect);
@@ -159,30 +165,33 @@ public class DatosBasicosActivity extends AppCompatActivity {
 
     public void onClick(View view) {
         //Captura de datos
-        float estatura = Float.parseFloat(this.etEstatura.getText().toString());
-        float peso = Float.parseFloat(this.etPeso.getText().toString());
-        int edad = Integer.parseInt(this.etEdad.getText().toString());
-        int nuevoObjetivo = this.spObjetivo.getSelectedItemPosition() + 1;
+        if (camposEstanCorrectos()) {
+            float estatura = Float.parseFloat(this.etEstatura.getText().toString());
+            float peso = Float.parseFloat(this.etPeso.getText().toString());
+            int edad = Integer.parseInt(this.etEdad.getText().toString());
+            int nuevoObjetivo = this.spObjetivo.getSelectedItemPosition() + 1;
 
-        String genero = this.getStrGeneroGuardar(this.spGenero.getSelectedItemPosition());
-        String nivelActividad = this.getStrNivelActividadGuardar(this.spActividad.getSelectedItemPosition());
+            String genero = this.getStrGeneroGuardar(this.spGenero.getSelectedItemPosition());
+            String nivelActividad = this.getStrNivelActividadGuardar(this.spActividad.getSelectedItemPosition());
 
-        this.guardarDatosBasicos(estatura, peso, edad, genero, nivelActividad, nuevoObjetivo);
+            this.guardarDatosBasicos(estatura, peso, edad, genero, nivelActividad, nuevoObjetivo);
 
-        //this.irAIMC(estatura, peso, edad);
+            //this.irAIMC(estatura, peso, edad);
 
-        switch (view.getId()) {
-            case (R.id.btSiguiente):
-                this.guardarDatosBasicos(estatura, peso, edad, genero, nivelActividad, this.objetivo);
-                this.irAIMC(estatura, peso, edad);
-                break;
-
-            case (R.id.btGuardar):
+            switch (view.getId()) {
+                case (R.id.btSiguiente):
                     this.guardarDatosBasicos(estatura, peso, edad, genero, nivelActividad, this.objetivo);
-                break;
+                    this.irAIMC(estatura, peso, edad);
+                    break;
+
+                case (R.id.btGuardar):
+                    this.guardarDatosBasicos(estatura, peso, edad, genero, nivelActividad, this.objetivo);
+                    break;
+            }
+        } else {
+            Toast.makeText(this, "Faltan información por llenar", Toast.LENGTH_SHORT)
+                    .show();
         }
-
-
     }
 
     private String getUserId() {
@@ -232,4 +241,102 @@ public class DatosBasicosActivity extends AppCompatActivity {
         finish();
         return true;
     }
+
+    private void iniciarVerificacionesCampos() {
+        verifyEstaturaLabelError();
+        verifyPesoLabelError();
+        verifyEdadLabelError();
+    }
+
+    private boolean camposEstanCorrectos() {
+        boolean resultado = true;
+
+        ArrayList<Integer> arrayLayouts = new ArrayList<>(Arrays.asList(
+                R.id.etEstaturaLayout, R.id.etPesoLayout, R.id.etEdadLayout));
+
+        for(int i = 0; i < arrayLayouts.size(); i++) {
+            TextInputLayout floatingLabel = (TextInputLayout) findViewById(arrayLayouts.get(i));
+            if (floatingLabel.getError() != null) {
+                resultado = false;
+            } else if(floatingLabel.getEditText().getText().toString().equals("")) {
+                floatingLabel.setError(getString(R.string.errorLongitudNumeroCero));
+                floatingLabel.setErrorEnabled(true);
+                resultado = false;
+            }
+        }
+        return resultado;
+    }
+
+    private void verifyEstaturaLabelError() {
+        final TextInputLayout estaturaLayout = (TextInputLayout) findViewById(R.id.etEstaturaLayout);
+        estaturaLayout.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() == 0) {
+                    estaturaLayout.setError(getString(R.string.errorLongitudNumeroCero));
+                    estaturaLayout.setErrorEnabled(true);
+                } else if (s.length() >= 1 && s.length() < 2) {
+                    estaturaLayout.setError(getString(R.string.errorLongitudMinima));
+                    estaturaLayout.setErrorEnabled(true);
+                } else {
+                    estaturaLayout.setError(null);
+                    estaturaLayout.setErrorEnabled(false);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+        });
+    }
+
+    private void verifyEdadLabelError() {
+        final TextInputLayout edadaLayout = (TextInputLayout) findViewById(R.id.etEdadLayout);
+        edadaLayout.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() == 0) {
+                    edadaLayout.setError(getString(R.string.errorLongitudNumeroCero));
+                    edadaLayout.setErrorEnabled(true);
+                } else {
+                    edadaLayout.setError(null);
+                    edadaLayout.setErrorEnabled(false);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+        });
+    }
+
+    private void verifyPesoLabelError() {
+        final TextInputLayout pesoLayout = (TextInputLayout) findViewById(R.id.etPesoLayout);
+        pesoLayout.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() == 0) {
+                    pesoLayout.setError(getString(R.string.errorLongitudNumeroCero));
+                    pesoLayout.setErrorEnabled(true);
+                } else if (s.length() >= 1 && s.length() < 2) {
+                    pesoLayout.setError(getString(R.string.errorLongitudMinima));
+                    pesoLayout.setErrorEnabled(true);
+                } else {
+                    pesoLayout.setError(null);
+                    pesoLayout.setErrorEnabled(false);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+        });
+    }
+
 }

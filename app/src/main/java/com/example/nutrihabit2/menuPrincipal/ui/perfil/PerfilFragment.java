@@ -31,6 +31,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.DecimalFormat;
+
 import static android.content.Intent.getIntent;
 
 public class PerfilFragment extends Fragment {
@@ -179,8 +181,9 @@ public class PerfilFragment extends Fragment {
                 Usuario user = documentSnapshot.toObject(Usuario.class);
                 usuarioActual = user;
                 calcularYClasificarIMC(user.getEstatura(), user.getPeso());
-                tvEstatura.setText(Float.toString((int) user.getEstatura()) + " cm");
-                tvPeso.setText(Float.toString(user.getPeso()) + " Kg");
+                DecimalFormat df = new DecimalFormat("0.##");
+                tvEstatura.setText(df.format((int) user.getEstatura()) + " cm");
+                tvPeso.setText(df.format(user.getPeso()) + " Kg");
                 tvEdad.setText(Integer.toString(user.getEdad()) +" "+getString(R.string.años));
                 tvGenero.setText(getRStringGenero(user.getGenero()));
                 tvObjetivo.setText(getRStringObjetivo(user.getProposito()));

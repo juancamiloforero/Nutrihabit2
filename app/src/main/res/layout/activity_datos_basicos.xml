@@ -1,196 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".infoBasica.DatosBasicosActivity">
 
-    <TextView
-        android:id="@+id/lblBienvenida"
-        android:layout_width="299dp"
-        android:layout_height="104dp"
-        android:layout_marginTop="28dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="40dp"
         android:gravity="center"
-        android:text="@string/ingreso_datos_basicos"
-        android:textAppearance="@style/TituloMediano"
-        app:layout_constraintBottom_toTopOf="@id/etEstatura"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etEstatura"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="15"
-        android:hint="@string/estatura"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lblBienvenida" />
-
-
-    <EditText
-        android:id="@+id/etPeso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="15"
-        android:hint="@string/peso"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEstatura" />
-
-    <EditText
-        android:id="@+id/etEdad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="15"
-        android:hint="Edad"
-        android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etPeso" />
-
-    <LinearLayout
-        android:id="@+id/idLinearGenero"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEdad">
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/etGenero"
+            android:id="@+id/lblBienvenida"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:text="@string/ingreso_datos_basicos"
+            android:textAppearance="@style/TituloMediano" />
 
-            android:hint="@string/genero"
-            android:inputType="numberDecimal"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextoNormal"
-            app:layout_constraintEnd_toEndOf="@+id/spGenero"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Spinner
-            android:id="@+id/spGenero"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal|center_vertical"
-
-            android:dropDownWidth="match_parent"
-            android:entries="@array/Generos"
-
-
-            android:textAlignment="center"
-            android:textAppearance="@style/TituloPequenio" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/idLinearActividadFisica"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idLinearGenero">
-
-        <TextView
-            android:id="@+id/etNivelActividadFisica"
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etEstaturaLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
 
-            android:hint="@string/actividad_fisica"
-            android:textAlignment="center"
+            <EditText
+                android:id="@+id/etEstatura"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/estatura"
+                android:hint="@string/estatura"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            android:textAppearance="@style/TextoNormal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
-        <Spinner
-            android:id="@+id/spActividadFisica"
-            android:layout_width="wrap_content"
-
-            android:layout_height="match_parent"
-            android:layout_gravity="end"
-            android:entries="@array/arrNivelActividad"
-            android:textAppearance="@style/TituloPequenio" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/idLinearObjetivo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idLinearActividadFisica">
-
-        <TextView
-            android:id="@+id/etObjetivo"
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etPesoLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
 
-            android:hint="@string/objetivo"
-            android:textAlignment="center"
+            <EditText
+                android:id="@+id/etPeso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/peso"
+                android:hint="@string/peso"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etEdadLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etEdad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/edad"
+                android:hint="@string/edad"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/idLinearGenero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/etGenero"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/genero"
+                android:textAppearance="@style/TextoNormal" />
+
+            <Spinner
+                android:id="@+id/spGenero"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:dropDownWidth="match_parent"
+                android:entries="@array/Generos"
+                android:textAlignment="center"
+                android:textAppearance="@style/TituloPequenio" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/idLinearActividadFisica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/etNivelActividadFisica"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:layout_weight="1"
+                android:hint="@string/actividad_fisica"
+                android:textAppearance="@style/TextoNormal" />
+
+            <Spinner
+                android:id="@+id/spActividadFisica"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:dropDownWidth="match_parent"
+                android:entries="@array/arrNivelActividad"
+                android:textAlignment="center"
+                android:textAppearance="@style/TituloPequenio" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/idLinearObjetivo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/etObjetivo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/objetivo"
+                android:textAppearance="@style/TextoNormal"/>
+
+            <Spinner
+                android:id="@+id/spObjetivo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:entries="@array/Objetivos"
+                android:dropDownWidth="match_parent"
+                android:textAlignment="center"
+                android:textAppearance="@style/TituloPequenio" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btSiguiente"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="48dp"
+            android:background="@drawable/rounded_corners"
+            android:onClick="onClick"
+            android:text="@string/siguiente"
             android:textAppearance="@style/TextoNormal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:textColor="#FFFF"
+            tools:visibility="visible" />
 
-        <Spinner
-            android:id="@+id/spObjetivo"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="end"
-            android:entries="@array/Objetivos"
-            android:textAppearance="@style/TituloPequenio" />
+        <Button
+            android:id="@+id/btGuardar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corners"
+            android:onClick="onClick"
+            android:text="@string/guardar"
+            android:textAppearance="@style/TextoNormal"
+            android:textColor="#FFFF"
+            tools:visibility="invisible" />
     </LinearLayout>
-
-
-    <Button
-        android:id="@+id/btSiguiente"
-        android:layout_width="311dp"
-        android:layout_height="48dp"
-        android:background="@drawable/rounded_corners"
-        android:onClick="onClick"
-        android:text="@string/siguiente"
-        android:textAppearance="@style/TextoNormal"
-        android:textColor="#FFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idLinearActividadFisica"
-        app:layout_constraintVertical_bias="0.75"
-        tools:visibility="visible"/>
-
-    <Button
-        android:id="@+id/btGuardar"
-        android:layout_width="311dp"
-        android:layout_height="48dp"
-        android:background="@drawable/rounded_corners"
-        android:onClick="onClick"
-        android:text="@string/guardar"
-        android:textAppearance="@style/TextoNormal"
-        android:textColor="#FFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idLinearActividadFisica"
-        app:layout_constraintVertical_bias="0.75"
-        tools:visibility="invisible" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

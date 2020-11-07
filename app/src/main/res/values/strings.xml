@@ -79,4 +79,9 @@
     <string name="nivel_actividad_muy_alto">Muy alto</string>
     <string name="objetivo">Objetivo</string>
     <string name="años">años</string>
+
+    <string name="errorLongitudMaxima">Demasiados caracteres</string>
+    <string name="errorLongitudMinima">Muy pocos caracteres</string>
+    <string name="errorLongitudCero">No hay caracteres</string>
+    <string name="errorLongitudNumeroCero">Campo necesario</string>
 </resources>
