@@ -174,18 +174,23 @@ public class DetalleCom extends AppCompatActivity {
         proteinas = (TextView) findViewById(R.id.txt_d_proteinas);
         imagen = (ImageView) findViewById(R.id.img_detalle_com);
         ImageView grafico = (ImageView) findViewById(R.id.img_grafico);
+        TextView tipoTitulo =  (TextView) findViewById(R.id.txt_d_titulo);
 
         switch (tipo){
             case "desayuno":
+                tipoTitulo.setText(R.string.f_home_text_desy);
                 imagen.setImageResource(R.drawable.desayuno_color);
                 break;
             case "almuerzo":
+                tipoTitulo.setText(R.string.f_home_text_almuerzo);
                 imagen.setImageResource(R.drawable.almuerzo_color);
                 break;
             case "cena":
+                tipoTitulo.setText(R.string.f_home_text_cena);
                 imagen.setImageResource(R.drawable.cena_color);
                 break;
             case "bocadillos":
+                tipoTitulo.setText(R.string.f_home_text_bocadillo);
                 imagen.setImageResource(R.drawable.bocadillos_color);
                 break;
         }

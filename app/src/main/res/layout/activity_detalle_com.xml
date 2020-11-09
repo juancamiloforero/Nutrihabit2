@@ -13,14 +13,14 @@
 
         <ImageView
             android:id="@+id/img_detalle_com"
-            android:layout_width="417dp"
-            android:layout_height="262dp"
+            android:layout_width="match_parent"
+            android:layout_height="242dp"
             android:src="@drawable/almuerzo"
             tools:srcCompat="@drawable/bocadillo" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="167dp"
+            android:layout_width="401dp"
+            android:layout_height="204dp"
             android:background="#FFFFFF">
 
             <ImageView
@@ -29,10 +29,10 @@
                 android:layout_height="150dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.695"
+                app:layout_constraintHorizontal_bias="0.407"
                 app:layout_constraintStart_toEndOf="@+id/txt_d_proteinas"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.47"
+                app:layout_constraintVertical_bias="0.981"
                 app:srcCompat="@drawable/grafico_mantener" />
 
             <TextView
@@ -46,7 +46,7 @@
                 app:layout_constraintHorizontal_bias="0.051"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.31" />
+                app:layout_constraintVertical_bias="0.389" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -56,10 +56,10 @@
                 android:textColor="#070707"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.047"
+                app:layout_constraintHorizontal_bias="0.046"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.493"
+                app:layout_constraintVertical_bias="0.562"
                 tools:ignore="NotSibling" />
 
             <TextView
@@ -70,10 +70,10 @@
                 android:textColor="#090909"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.207"
+                app:layout_constraintHorizontal_bias="0.204"
                 app:layout_constraintStart_toEndOf="@+id/textView7"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.135"
+                app:layout_constraintVertical_bias="0.237"
                 tools:ignore="NotSibling" />
 
             <TextView
@@ -84,10 +84,10 @@
                 android:textColor="#090909"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.055"
+                app:layout_constraintHorizontal_bias="0.054"
                 app:layout_constraintStart_toEndOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/txt_d_grasas"
-                app:layout_constraintVertical_bias="0.064"
+                app:layout_constraintVertical_bias="0.073"
                 tools:ignore="NotSibling" />
 
             <TextView
@@ -98,10 +98,10 @@
                 android:textColor="#090909"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.155"
+                app:layout_constraintHorizontal_bias="0.157"
                 app:layout_constraintStart_toEndOf="@+id/textView9"
                 app:layout_constraintTop_toBottomOf="@+id/txt_d_carbo"
-                app:layout_constraintVertical_bias="0.108"
+                app:layout_constraintVertical_bias="0.138"
                 tools:ignore="NotSibling" />
 
             <TextView
@@ -114,10 +114,10 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.058"
+                app:layout_constraintHorizontal_bias="0.057"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.706" />
+                app:layout_constraintVertical_bias="0.766" />
 
             <TextView
                 android:id="@+id/txt_d_total_cal"
@@ -143,10 +143,24 @@
                 android:textColor="#070707"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.045"
+                app:layout_constraintHorizontal_bias="0.044"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.135" />
+                app:layout_constraintVertical_bias="0.237" />
+
+            <TextView
+                android:id="@+id/txt_d_titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textColor="#070707"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.086" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
